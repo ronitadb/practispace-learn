@@ -174,8 +174,11 @@ function shell({ title, description, canonical, bodyHtml, pageTitle, image }) {
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${ogImage}">
+<meta property="og:image:secure_url" content="${ogImage}">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(pageTitle || title)} — PractiSpace">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(pageTitle || title)}">

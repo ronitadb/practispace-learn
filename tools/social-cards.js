@@ -37,8 +37,15 @@ const CHROME = [
 const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-function cardHtml({ eyebrow, title, subtitle }) {
+function cardHtml({ eyebrow, title, subtitle, ghost, railLabel }) {
   const fontUrl = 'file://' + FONT;
+  // Long titles need to come down a little so the card never feels crowded.
+  const titleSize = title.length > 30 ? 66 : title.length > 22 ? 74 : 82;
+  // The ghost is sized so a longer mark ("ACC") stays clear of the text block
+  // instead of running underneath it the way a two-digit number can.
+  const ghostSize = ghost.length >= 3 ? 250 : 440;
+  const ghostRight = ghost.length >= 3 ? -28 : -46;
+  const echoRight = ghost.length >= 3 ? 38 : 62;
   return `<!DOCTYPE html>
 <html><head><meta charset="utf-8">
 <style>
@@ -54,41 +61,86 @@ function cardHtml({ eyebrow, title, subtitle }) {
     background: #f5f2f0;
     color: #2d2d2d;
     -webkit-font-smoothing: antialiased;
+    position: relative;
   }
+
   .bar { height: 14px; background: #C8102E; }
+
+  /* The unit rail, as on the page itself. */
   .rail {
-    position: absolute; left: 0; top: 14px; bottom: 0; width: 76px;
+    position: absolute; left: 0; top: 14px; bottom: 0; width: 84px;
     background: #eae3dc; border-right: 1px solid #ddd4cb;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: space-between; padding: 40px 0 46px;
   }
-  .wrap { padding: 68px 90px 0 166px; height: 616px; display: flex; flex-direction: column; }
-  .mark { font-size: 30px; letter-spacing: 0.02em; }
+  .rail-num { font-size: 27px; color: #C8102E; letter-spacing: 0.02em; }
+  .rail-tick { width: 1px; height: 44px; background: #C8102E; margin-top: 14px; }
+  .rail-top { display: flex; flex-direction: column; align-items: center; }
+  .rail-label {
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    font-size: 15px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: #b3aaa2; white-space: nowrap;
+  }
+
+  /* The oversized numeral, bleeding off the right edge. */
+  .ghost {
+    position: absolute; right: ${ghostRight}px; top: 50%; transform: translateY(-50%);
+    font-size: ${ghostSize}px; line-height: 0.78; color: #C8102E; opacity: 0.07;
+    letter-spacing: -0.02em; user-select: none;
+  }
+  /* A second, softer echo behind it for depth. */
+  .ghost-echo {
+    position: absolute; right: ${echoRight}px; top: 50%; transform: translateY(-50%);
+    font-size: ${ghostSize}px; line-height: 0.78; color: #8a827a; opacity: 0.05;
+    letter-spacing: -0.02em;
+  }
+
+  .wrap {
+    position: relative; z-index: 2;
+    padding: 64px 470px 0 150px; height: 616px;
+    display: flex; flex-direction: column;
+  }
+  .mark { font-size: 29px; letter-spacing: 0.02em; }
   .mark span { color: #C8102E; }
   .eyebrow {
-    font-size: 17px; letter-spacing: 0.24em; text-transform: uppercase;
-    color: #9a938c; margin-top: 54px;
+    font-size: 16px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: #9a938c; margin-top: 50px;
   }
   h1 {
-    font-size: 78px; line-height: 1.1; font-weight: 400; letter-spacing: 0.01em;
-    margin-top: 26px; max-width: 900px;
+    font-size: ${titleSize}px; line-height: 1.08; font-weight: 400;
+    letter-spacing: 0.01em; margin-top: 24px; text-wrap: pretty;
   }
-  .rule { width: 210px; height: 4px; background: #C8102E; border-radius: 3px; margin-top: 34px; }
+  .rule { width: 200px; height: 4px; background: #C8102E; border-radius: 3px; margin-top: 32px; }
   .sub {
-    font-size: 25px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: #8a827a; margin-top: 30px; max-width: 830px; line-height: 1.45;
+    font-size: 22px; letter-spacing: 0.09em; text-transform: uppercase;
+    color: #8a827a; margin-top: 28px; line-height: 1.5; text-wrap: pretty;
   }
-  .foot { margin-top: auto; padding-bottom: 54px; font-size: 19px; letter-spacing: 0.16em;
-          text-transform: uppercase; color: #b3aaa2; }
+  .foot {
+    margin-top: auto; padding-bottom: 50px;
+    display: flex; align-items: center; gap: 16px;
+    font-size: 18px; letter-spacing: 0.16em; text-transform: uppercase; color: #b3aaa2;
+    white-space: nowrap;
+  }
+  .foot-dot { width: 5px; height: 5px; border-radius: 50%; background: #C8102E; flex: none; }
 </style></head>
 <body>
   <div class="bar"></div>
-  <div class="rail"></div>
+  <div class="rail">
+    <div class="rail-top">
+      <div class="rail-num">${esc(ghost)}</div>
+      <div class="rail-tick"></div>
+    </div>
+    <div class="rail-label">${esc(railLabel)}</div>
+  </div>
+  <div class="ghost-echo">${esc(ghost)}</div>
+  <div class="ghost">${esc(ghost)}</div>
   <div class="wrap">
     <div class="mark">Practi<span>Space</span></div>
     <div class="eyebrow">${esc(eyebrow)}</div>
     <h1>${esc(title)}</h1>
     <div class="rule"></div>
     <div class="sub">${esc(subtitle)}</div>
-    <div class="foot">learn.practispace.co.nz</div>
+    <div class="foot"><span class="foot-dot"></span>learn.practispace.co.nz</div>
   </div>
 </body></html>`;
 }
@@ -134,12 +186,16 @@ function main() {
       eyebrow: 'PractiSpace · Learning units',
       title: site.title,
       subtitle: site.tagline,
+      ghost: 'ACC',
+      railLabel: 'The series',
     },
     ...units.map((u) => ({
       name: `social-${u.slug}.png`,
       eyebrow: `Working with ACC · Unit ${u.number}`,
       title: u.title,
       subtitle: u.subtitle,
+      ghost: u.number,
+      railLabel: `Unit ${u.number}`,
     })),
   ];
 
