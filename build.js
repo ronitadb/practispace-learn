@@ -178,7 +178,11 @@ function shell({ title, description, canonical, bodyHtml, pageTitle, image }) {
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="${esc(pageTitle || title)} — PractiSpace">
+<meta property="og:image:alt" content="${esc(
+    (pageTitle || title).includes('PractiSpace')
+      ? pageTitle || title
+      : `${pageTitle || title} — PractiSpace`
+  )}">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(pageTitle || title)}">
