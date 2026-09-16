@@ -134,7 +134,7 @@ function unitNav(prev, next) {
     if (!unit) return '<div class="ps-unitnav-slot"></div>';
     const label = dir === 'prev' ? '&#8592; Previous' : 'Next &#8594;';
     return `<div class="ps-unitnav-slot${dir === 'next' ? ' is-next' : ''}">
-        <a class="ps-unitnav-link" href="/${unit.slug}">
+        <a class="ps-unitnav-link" href="/${unit.slug}/">
           <span class="ps-unitnav-label">${label}</span>
           <span class="ps-unitnav-title">${esc(unit.title)}</span>
         </a>
@@ -240,13 +240,13 @@ function buildUnit(unit, prev, next) {
       title,
       pageTitle: unit.title,
       description: unit.description,
-      canonical: `${site.origin}/${unit.slug}`,
+      canonical: `${site.origin}/${unit.slug}/`,
       image: `social-${unit.slug}.png`,
       bodyHtml: body,
     })
   );
 
-  return `/${unit.slug}`;
+  return `/${unit.slug}/`;
 }
 
 /* -------------------------------------------------------------------------
@@ -255,7 +255,7 @@ function buildUnit(unit, prev, next) {
 
 function buildIndex() {
   const card = (u) => `
-        <a class="ps-unitcard" href="/${u.slug}">
+        <a class="ps-unitcard" href="/${u.slug}/">
           <span class="ps-unitcard-num">${esc(u.number)}</span>
           <span>
             <span class="ps-unitcard-title">${esc(u.title)}</span>
