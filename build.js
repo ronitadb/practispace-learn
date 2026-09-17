@@ -419,6 +419,21 @@ function main() {
   console.log(`\n  Built ${units.length} unit${units.length === 1 ? '' : 's'} into dist/\n`);
   console.log('    /');
   for (const u of urls) console.log(`    ${u}`);
+
+  // Units edited here since their Claude Design export. Re-exporting one of
+  // these over the top would lose those edits — see the README.
+  const edited = units.filter((u) =>
+    fs
+      .readFileSync(path.join(SRC, 'units', u.file), 'utf8')
+      .includes('THIS FILE HAS BEEN EDITED IN THE REPOSITORY')
+  );
+  if (edited.length) {
+    console.log(
+      `\n  Edited here since their Claude Design export — do not overwrite\n` +
+        `  with a fresh export without reconciling first:`
+    );
+    for (const u of edited) console.log(`    ${u.file}`);
+  }
   if (upcoming.length) {
     console.log(`\n  Listed as upcoming (no page built): ${upcoming.length}`);
   }

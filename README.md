@@ -9,6 +9,39 @@ practispace.co.nz. The two are linked by hand.
 
 ---
 
+## Where the content lives — read this before editing a unit
+
+**Once a unit is live, this repository is the copy of record.** Not Claude
+Design, and not any markdown draft.
+
+Claude Design is the tool that *creates* a unit and sets how it looks. The
+moment that unit ships, the file in `src/units/` becomes the authoritative
+version, and every later change — a wording fix, a new sub-section — is made
+here.
+
+This matters because of what happens otherwise:
+
+> Re-exporting a unit from Claude Design overwrites the file in `src/units/`
+> with whatever Claude Design last knew. Any edit made here since then is
+> silently lost.
+
+So: **do not drop a fresh Claude Design export over a unit that has been
+edited here.** Files that carry repo-side edits say so in an HTML comment at
+the top — that comment never reaches the published page.
+
+Markdown drafts are fine for writing and revising text, but they cannot be the
+source the site is built from: markdown does not carry the design. The callout
+box label "Moving towards assessment work", the four white profile cards, the
+bordered comparison tables — none of those survive a round trip through
+markdown. Use markdown to decide what the words should say, then make the
+change here.
+
+If you ever do need to take a unit back into Claude Design to rework its
+design, reconcile it by hand first: apply the repo-side edits there, re-export,
+and check the diff before committing.
+
+---
+
 ## Adding a unit
 
 1. Export the unit from Claude Design. Save the **source** file — the one that
