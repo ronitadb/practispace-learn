@@ -1,24 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--
-  ============================================================================
-  THIS FILE HAS BEEN EDITED IN THE REPOSITORY SINCE THE CLAUDE DESIGN EXPORT.
-
-  Do NOT overwrite it with a fresh export from Claude Design — the export is
-  older than this file and the edits below would be lost.
-
-  Repo-side edits:
-    2026-09-17  Six wording changes: the opening two paragraphs, "clinical
-                understanding and formulation", a new paragraph introducing
-                the Purchase Order, a shortened "does not make sense"
-                sentence, and the closing sentence of "Service dates".
-
-  If you need to rework this unit's design in Claude Design, apply these
-  changes there first, then export and diff before committing.
-  See "Where the content lives" in the README.
-  ============================================================================
--->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
@@ -39,9 +21,17 @@
   @page { margin: 14mm; }
   @media print { #unit-rail { display: none !important; } }
   @media (max-width: 850px) { #unit-rail { display: none !important; } }
+  @media (max-width: 700px) {
+    .col { padding-left: 18px !important; padding-right: 18px !important; }
+    .f2 { grid-template-columns: minmax(0,1fr) !important; }
+    .f2 > * + * { border-left: 0 !important; border-top: 1px solid #C0C0C0 !important; }
+    .fscroll { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .fscroll > * { min-width: 560px; }
+  }
   @media print {
     html, body { background: #fff !important; }
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .frag { break-inside: avoid; }
   }
 </style>
 </helmet>
@@ -66,7 +56,7 @@
 
   <div style="height:8px;background:#C8102E;"></div>
 
-  <div style="max-width:760px;margin:0 auto;padding:0 30px 80px;">
+  <div class="col" style="max-width:760px;margin:0 auto;padding:0 30px 80px;">
 
     <div style="padding:38px 0 0;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;">
       <div style="font-size:18px;letter-spacing:0.02em;color:#2d2d2d;">Practi<span style="color:#C8102E;">Space</span></div>
@@ -77,35 +67,88 @@
       <h1 style="font-size:34px;line-height:1.15;letter-spacing:0.01em;font-weight:400;margin:0;max-width:520px;text-wrap:pretty;">Reading an ACC Referral</h1>
       <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#9a938c;margin:14px 0 0;">Understanding what ACC is asking you to do</div>
       <div style="width:170px;height:2px;background:#C8102E;border-radius:2px;margin:20px 0 0;"></div>
-      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:22px 0 0;max-width:600px;text-wrap:pretty;">No treatment and no assessment begins under this contract without a referral from ACC. Any service a client receives from you starts with an <span style="color:#2d2d2d;">ACC265 – Referral for Psychological Services</span>. It is sent to PractiSpace, checked by us, and then allocated to you.</p>
-      <p style="font-size:15px;line-height:1.68;color:#2d2d2d;margin:14px 0 0;max-width:600px;text-wrap:pretty;">This form is where ACC says what it is asking for, and it is the only place that says it. It also tells you where this person is in their recovery, and where you join them: whether ACC is asking for treatment, as with Ana, or for an assessment, as with Tomás, Mereana and David. By the end of this unit, you’ll be able to read that from the form.</p>
-      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:600px;text-wrap:pretty;">The ACC265 is not intended to provide everything you need to know clinically about the client. In practice, ACC referrals are often brief, and some sections may contain very little information. It is not a substitute for your own clinical understanding and formulation.</p>
-      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:600px;text-wrap:pretty;">What it does tell you is what ACC is asking Psychological Services to do, and what ACC has authorised for this referral.</p>
-      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:600px;text-wrap:pretty;">That authorisation comes as a <span style="color:#2d2d2d;">Purchase Order (PO)</span>: ACC’s approval of the services it will fund for this client, each identified by a service code, with the number of hours approved. Its number sits at the top of the ACC265, and we’ll come back to it below.</p>
-      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:600px;text-wrap:pretty;">We check the referral and the PO before the client reaches you, so you are not responsible for managing it, correcting service codes or following up with ACC about administrative issues.</p>
-      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:600px;text-wrap:pretty;">You do, however, need to understand what you have been referred to do. The sections below follow the order of the form.</p>
+      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:22px 0 0;max-width:620px;text-wrap:pretty;">No treatment and no assessment begins under this contract without a referral from ACC. Any service a client receives from you starts with an <span style="color:#2d2d2d;">ACC265 – Referral for Psychological Services</span>. It is sent to PractiSpace, checked by us, and then allocated to you.</p>
+      <p style="font-size:15px;line-height:1.68;color:#2d2d2d;margin:14px 0 0;max-width:620px;text-wrap:pretty;">This form is where ACC says what it is asking for, and it is the only place that says it. It also tells you where this person is in their recovery, and where you join them: whether ACC is asking for treatment, as with Ana, or for an assessment, as with Tomás, Mereana and David. By the end of this unit, you’ll be able to read that from the form.</p>
+      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:620px;text-wrap:pretty;">The ACC265 is not intended to provide everything you need to know clinically about the client. In practice, ACC referrals are often brief, and some sections may contain very little information. It is not a substitute for your own clinical understanding and formulation.</p>
+      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:620px;text-wrap:pretty;">What it does tell you is what ACC is asking Psychological Services to do, and what ACC has authorised for this referral.</p>
+      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:620px;text-wrap:pretty;">That authorisation comes as a <span style="color:#2d2d2d;">Purchase Order (PO)</span>: ACC’s approval of the services it will fund for this client, each identified by a service code, with the number of hours approved. Its number sits at the top of the ACC265, and we’ll come back to it below.</p>
+      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:620px;text-wrap:pretty;">We check the referral and the PO before the client reaches you, so you are not responsible for managing it, correcting service codes or following up with ACC about administrative issues.</p>
+      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:620px;text-wrap:pretty;">You do, however, need to understand what you have been referred to do.</p>
+      <p style="font-size:15px;line-height:1.68;color:#2d2d2d;margin:14px 0 0;max-width:620px;text-wrap:pretty;">The sections below follow the order of the form, using Ana’s referral as the example.</p>
+      <p style="font-size:12.5px;line-height:1.7;color:#9a938c;margin:18px 0 0;max-width:620px;text-wrap:pretty;">The grey-and-white extracts through this unit are the ACC265 itself — its own section bars, labels and tick boxes — filled in with Ana’s referral. The form’s printed labels are in light type; what has been typed into the form is in bold.</p>
     </div>
 
     <div style="padding:52px 0 0;">
       <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;">01</div>
       <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:8px 0 0;">Vendor Details</h2>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:600px;text-wrap:pretty;">Vendor and Supplier both mean PractiSpace — the organisation holding the ACC contract. You are the clinician providing the service. Nothing in this section needs anything from you.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:620px;text-wrap:pretty;">Vendor and Supplier both mean PractiSpace — the organisation holding the ACC contract. You are the clinician providing the service. Nothing in this section needs anything from you.</p>
+
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;margin:26px 0 8px;">ACC265 — extract</div>
+      <div class="frag" style="border:1px solid #C0C0C0;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#000;">
+        <div style="background:#CCCCCC;padding:7px 9px;font-size:13px;font-weight:700;line-height:1.3;border-bottom:1px solid #C0C0C0;">1. Vendor details</div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;"><span style="color:#3a3a3a;">Vendor name:</span> <span style="font-weight:700;">PractiSpace Limited</span></div>
+        <div class="f2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid #C0C0C0;">
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;"><span style="color:#3a3a3a;">Email address:</span> <span style="font-weight:700;">ronit.adiv@practispace.co.nz</span></div>
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-left:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Phone number:</span> <span style="font-weight:700;">09 000 0000</span></div>
+        </div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Address:</span> <span style="font-weight:700;">[PractiSpace address]</span></div>
+      </div>
     </div>
 
     <div style="padding:44px 0 0;">
       <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;">02</div>
       <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:8px 0 0;">Client Details</h2>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:600px;text-wrap:pretty;">Name, date of birth, contact details, and the client’s primary injury.</p>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">This section also contains the <span style="color:#2d2d2d;">Claim Number</span> and <span style="color:#2d2d2d;">NHI Number</span>. You will need the claim number when you write your reports, so it is worth noting where to find it.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:620px;text-wrap:pretty;">Name, date of birth, ethnicity and contact details, followed by a few fields about the client’s life and recovery: their main occupation, the injury as they describe it, the rehabilitation outcome they are working towards and when it is expected, and any current treatment, cultural considerations or other health information.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">These fields are often brief, and some are left empty. When they are filled in, they tell you something before you meet the client. The rehabilitation outcome is worth noting in particular: your work is part of how the client gets there.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">This section also contains the <span style="color:#2d2d2d;">ACC claim number</span>. You will need it when you write your reports, so it is worth noting where to find it.</p>
+
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;margin:26px 0 8px;">ACC265 — extract</div>
+      <div class="frag" style="border:1px solid #C0C0C0;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#000;">
+        <div style="background:#CCCCCC;padding:7px 9px;font-size:13px;font-weight:700;line-height:1.3;border-bottom:1px solid #C0C0C0;">2. Client details</div>
+        <div class="f2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);">
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;"><span style="color:#3a3a3a;">Client name:</span> <span style="font-weight:700;">Ana Whitfield</span></div>
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-left:1px solid #C0C0C0;"><span style="color:#3a3a3a;">ACC claim number:</span> <span style="font-weight:700;">100 8876 9254</span></div>
+        </div>
+        <div class="f2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid #C0C0C0;">
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;"><span style="color:#3a3a3a;">Date of birth:</span> <span style="font-weight:700;">11/03/1963</span></div>
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-left:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Ethnicity:</span> <span style="font-weight:700;">New Zealand European</span></div>
+        </div>
+        <div class="f2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid #C0C0C0;">
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;"><span style="color:#3a3a3a;">Email address:</span> <span style="font-weight:700;">ana.whitfield@example.com</span></div>
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-left:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Phone number:</span> <span style="font-weight:700;">64 021 597 2246</span></div>
+        </div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Address:</span> <span style="font-weight:700;">27 Rata Street, Whanganui 4500</span></div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Principal economic activity (eg paid work, study, work at home or care giving):</span> <span style="font-weight:700;">Retired</span></div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Primary injury description:</span> <span style="font-weight:700;">I fell down the back steps carrying the washing and broke my ankle</span></div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Overall rehabilitation outcome:</span> <span style="font-weight:700;">Get back to doing things on my own</span></div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Date rehabilitation outcome to be achieved:</span> <span style="font-weight:700;">03/12/2026</span></div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Current treatment and rehabilitation details:</span> <span style="font-weight:700;">Physiotherapy</span></div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;color:#3a3a3a;">Cultural or other personal considerations:</div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;color:#3a3a3a;">Other relevant health information:</div>
+      </div>
     </div>
 
     <div style="padding:44px 0 0;">
       <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;">03</div>
       <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:8px 0 0;">General Practitioner (GP) Details</h2>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:600px;text-wrap:pretty;">The client’s GP, their practice, and the practice contact details.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:620px;text-wrap:pretty;">The client’s GP, their practice, and the practice’s email address and phone number.</p>
       <div style="margin-top:16px;display:flex;gap:16px;align-items:stretch;">
         <div style="width:3px;flex:none;background:#C8102E;border-radius:2px;"></div>
-        <div style="font-size:15px;line-height:1.6;color:#2d2d2d;max-width:540px;text-wrap:pretty;">Keep these. Your Progress Report and Completion Report both go to the client’s GP as well as to ACC, so you will need this information later.</div>
+        <div style="font-size:15px;line-height:1.6;color:#2d2d2d;max-width:560px;text-wrap:pretty;">Keep these. Your Progress Report and Completion Report both go to the client’s GP as well as to ACC, so you will need this information later.</div>
+      </div>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:16px 0 0;max-width:620px;text-wrap:pretty;">Sometimes this section arrives with ACC’s placeholder text still in it, such as <span style="font-style:italic;">[Insert GP name]</span>. If so, ask your client for their GP’s details at your first session.</p>
+
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;margin:26px 0 8px;">ACC265 — extract</div>
+      <div class="frag" style="border:1px solid #C0C0C0;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#000;">
+        <div style="background:#CCCCCC;padding:7px 9px;font-size:13px;font-weight:700;line-height:1.3;border-bottom:1px solid #C0C0C0;">3. General Practitioner details</div>
+        <div class="f2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);">
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;"><span style="color:#3a3a3a;">General Practitioner name:</span> <span style="font-weight:700;">Dr Helen Marsh</span></div>
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-left:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Practice:</span> <span style="font-weight:700;">Riverside Medical Centre</span></div>
+        </div>
+        <div class="f2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid #C0C0C0;">
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;"><span style="color:#3a3a3a;">Email address:</span> <span style="font-weight:700;">reception@riverside.example.com</span></div>
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-left:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Phone number:</span> <span style="font-weight:700;">06 000 0000</span></div>
+        </div>
       </div>
     </div>
 
@@ -113,62 +156,56 @@
       <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;">04</div>
       <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:8px 0 0;">Psychological Service Details</h2>
 
-      <h3 style="font-size:17px;font-weight:400;letter-spacing:0.01em;color:#2d2d2d;margin:26px 0 0;">Why has ACC referred the client?</h3>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">The most important part of the ACC265 for understanding the referral is:</p>
+      <h3 style="font-size:17px;font-weight:400;letter-spacing:0.01em;color:#2d2d2d;margin:26px 0 0;">Purchase Order and services approved</h3>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">At the top of the ACC265, just above section 1, you will see the <span style="color:#2d2d2d;">Purchase Order (PO)</span> number.</p>
 
-      <div style="margin-top:14px;background:#fff;border:1px solid #C8102E;border-radius:16px;padding:24px 26px;">
-        <div style="font-size:15.5px;color:#2d2d2d;">Reason psychological services are required / Clinical summary</div>
-        <p style="font-size:14px;line-height:1.6;color:#57514b;margin:10px 0 0;max-width:560px;text-wrap:pretty;">This is where ACC describes why it is referring the client for Psychological Services.</p>
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;margin:22px 0 8px;">ACC265 — extract</div>
+      <div class="frag" style="border:1px solid #C0C0C0;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#000;">
+        <div style="padding:12px 9px;font-size:13px;line-height:1.4;text-align:center;letter-spacing:0.04em;"><span style="color:#3a3a3a;">PURCHASE ORDER</span> <span style="font-weight:700;">12345678</span></div>
       </div>
 
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:18px 0 0;max-width:600px;text-wrap:pretty;">The amount and quality of information provided varies considerably. Sometimes the referral contains a useful clinical and rehabilitation summary; at other times it may contain only a few sentences.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:18px 0 0;max-width:620px;text-wrap:pretty;">Section 4 opens with <span style="color:#2d2d2d;">Services approved</span>: the services ACC has authorised under that Purchase Order.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">These are not separate processes. The services table is essentially the detail of what ACC has authorised on the PO.</p>
 
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:600px;text-wrap:pretty;">What you need to establish is:</p>
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;margin:22px 0 8px;">ACC265 — extract</div>
+      <div class="frag" style="border:1px solid #C0C0C0;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#000;">
+        <div style="padding:8px 9px;font-size:13px;line-height:1.4;font-weight:700;border-bottom:1px solid #C0C0C0;">Services approved:</div>
+        <div class="fscroll">
+          <div style="display:grid;grid-template-columns:minmax(0,0.7fr) minmax(0,1.7fr) minmax(0,0.7fr) minmax(0,0.7fr) minmax(0,0.8fr);">
+            <div style="padding:8px 9px;font-size:12.5px;line-height:1.35;background:#CCCCCC;font-weight:700;">Service code</div>
+            <div style="padding:8px 9px;font-size:12.5px;line-height:1.35;background:#CCCCCC;font-weight:700;border-left:1px solid #C0C0C0;">Service description</div>
+            <div style="padding:8px 9px;font-size:12.5px;line-height:1.35;background:#CCCCCC;font-weight:700;border-left:1px solid #C0C0C0;">From date</div>
+            <div style="padding:8px 9px;font-size:12.5px;line-height:1.35;background:#CCCCCC;font-weight:700;border-left:1px solid #C0C0C0;">To date</div>
+            <div style="padding:8px 9px;font-size:12.5px;line-height:1.35;background:#CCCCCC;font-weight:700;border-left:1px solid #C0C0C0;">Qty. approved</div>
 
-      <div style="margin-top:14px;background:#efeae5;border-top:3px solid #C8102E;border-radius:4px 4px 14px 14px;padding:24px 26px;">
-        <div style="font-size:17px;line-height:1.45;color:#2d2d2d;max-width:520px;text-wrap:pretty;">What is ACC asking Psychological Services to address?</div>
-        <p style="font-size:14.5px;line-height:1.65;color:#3d3833;margin:12px 0 0;max-width:560px;text-wrap:pretty;">The client may have many difficulties that are clinically important. The referral tells us the purpose for which ACC has requested and funded Psychological Services.</p>
-      </div>
-
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:18px 0 0;max-width:600px;text-wrap:pretty;">If the purpose of the referral is unclear, contact PractiSpace. We can clarify the referral with ACC where necessary.</p>
-
-      <h3 style="font-size:17px;font-weight:400;letter-spacing:0.01em;color:#2d2d2d;margin:34px 0 0;">Purchase Order, service codes and allocations</h3>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">At the top of the ACC265 you will see a <span style="color:#2d2d2d;">Purchase Order (PO)</span> number. Under <span style="color:#2d2d2d;">Approved Service Codes &amp; Allocations</span>, you will see the services ACC has authorised under that Purchase Order.</p>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">These are not separate processes. The service-code table is essentially the detail of what ACC has authorised on the PO. It may show:</p>
-
-      <div style="margin-top:16px;background:#fff;border:1px solid #ece6df;border-radius:16px;overflow:hidden;">
-        <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));">
-          <div style="padding:13px 14px;background:#eae3dc;font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8a827a;line-height:1.4;">Item Code</div>
-          <div style="padding:13px 14px;background:#eae3dc;font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8a827a;line-height:1.4;">Service Description</div>
-          <div style="padding:13px 14px;background:#eae3dc;font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8a827a;line-height:1.4;">Start Date</div>
-          <div style="padding:13px 14px;background:#eae3dc;font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8a827a;line-height:1.4;">End Date</div>
-          <div style="padding:13px 14px;background:#eae3dc;font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8a827a;line-height:1.4;">Quantity / Hours</div>
-
-          <div style="padding:16px 14px;border-top:1px solid #f0ebe5;font-size:13.5px;line-height:1.45;color:#C8102E;">PSY50</div>
-          <div style="padding:16px 14px;border-top:1px solid #f0ebe5;font-size:13.5px;line-height:1.45;color:#2d2d2d;">Early Intervention &amp; Planning</div>
-          <div style="padding:16px 14px;border-top:1px solid #f0ebe5;font-size:13.5px;line-height:1.45;color:#9a938c;">[start date]</div>
-          <div style="padding:16px 14px;border-top:1px solid #f0ebe5;font-size:13.5px;line-height:1.45;color:#9a938c;">[end date]</div>
-          <div style="padding:16px 14px;border-top:1px solid #f0ebe5;font-size:13.5px;line-height:1.45;color:#2d2d2d;">4 hours</div>
+            <div style="padding:8px 9px;font-size:13px;line-height:1.4;border-top:1px solid #C0C0C0;font-weight:700;">PSY50</div>
+            <div style="padding:8px 9px;font-size:13px;line-height:1.4;border-top:1px solid #C0C0C0;border-left:1px solid #C0C0C0;font-weight:700;">Psychological Services: Early Intervention &amp; Plan</div>
+            <div style="padding:8px 9px;font-size:13px;line-height:1.4;border-top:1px solid #C0C0C0;border-left:1px solid #C0C0C0;font-weight:700;">02/09/2026</div>
+            <div style="padding:8px 9px;font-size:13px;line-height:1.4;border-top:1px solid #C0C0C0;border-left:1px solid #C0C0C0;font-weight:700;">01/09/2027</div>
+            <div style="padding:8px 9px;font-size:13px;line-height:1.4;border-top:1px solid #C0C0C0;border-left:1px solid #C0C0C0;font-weight:700;">4.0</div>
+          </div>
         </div>
       </div>
 
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:16px 0 0;max-width:600px;text-wrap:pretty;">This tells us that ACC has authorised the PSY50 service, for the period shown, with the stated allocation.</p>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">Each code stands for a particular kind of work. You do not need to memorise them — they are introduced in the units where they are used — but it is worth knowing that the codes are not simply billing labels. They carry ACC’s intention for this client.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:18px 0 0;max-width:620px;text-wrap:pretty;">On Ana’s referral, this tells us that ACC has authorised the <span style="color:#C8102E;letter-spacing:0.04em;">PSY50</span> service, for the period shown, with four hours.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">Each code stands for a particular kind of work. You do not need to memorise them — they are introduced in the units where they are used — but it is worth knowing that the codes are not simply billing labels. They carry ACC’s intention for this client.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">A useful distinction is:</p>
 
-      <div style="margin-top:18px;display:flex;gap:16px;align-items:stretch;">
+      <div style="margin-top:16px;display:flex;gap:16px;align-items:stretch;">
         <div style="width:3px;flex:none;background:#C8102E;border-radius:2px;"></div>
         <div style="font-size:16px;line-height:1.55;color:#2d2d2d;max-width:520px;text-wrap:pretty;">You need to understand the PO. PractiSpace manages the PO.</div>
       </div>
 
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:18px 0 0;max-width:600px;text-wrap:pretty;">If something you receive does not make sense, contact PractiSpace rather than trying to resolve it directly with ACC.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:18px 0 0;max-width:620px;text-wrap:pretty;">If something you receive does not make sense, contact PractiSpace rather than trying to resolve it directly with ACC.</p>
 
-      <h3 style="font-size:17px;font-weight:400;letter-spacing:0.01em;color:#2d2d2d;margin:34px 0 0;">Service dates</h3>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">The Approved Service Codes &amp; Allocations section also includes a <span style="color:#2d2d2d;">Start Date</span> and <span style="color:#2d2d2d;">End Date</span>. These dates define the period for which that service item has been authorised.</p>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">They are therefore different from the date of your first appointment and should not be interpreted simply as the expected duration of therapy.</p>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">As a provider, you mainly need to be aware that ACC-funded services are provided within an authorised period. PractiSpace keeps track of this period with you, so your sessions are completed within it.</p>
+      <h3 style="font-size:17px;font-weight:400;letter-spacing:0.01em;color:#2d2d2d;margin:34px 0 0;">From date and To date</h3>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">The services table also includes a <span style="color:#2d2d2d;">From date</span> and a <span style="color:#2d2d2d;">To date</span>.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">These dates define the period for which that service has been authorised. They are therefore different from the date of your first appointment and should not be read as the expected duration of therapy. On Ana’s referral the period is a full year, although her four planning hours will be used within a few weeks.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">As a provider, you mainly need to be aware that ACC-funded services are provided within an authorised period. PractiSpace keeps track of this period with you, so your sessions are completed within it.</p>
 
-      <h3 style="font-size:17px;font-weight:400;letter-spacing:0.01em;color:#2d2d2d;margin:34px 0 0;">Quantity / Hours</h3>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">The Quantity / Hours column tells you how much of that particular service ACC has authorised. It is important to read this together with the Item Code. Four hours of one service code do not necessarily mean the same thing as four hours of another.</p>
+      <h3 style="font-size:17px;font-weight:400;letter-spacing:0.01em;color:#2d2d2d;margin:34px 0 0;">Qty. approved</h3>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">The <span style="color:#2d2d2d;">Qty. approved</span> column tells you how much of that particular service ACC has authorised.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">It is important to read this together with the service code. Four hours of one service code do not necessarily mean the same thing as four hours of another.</p>
 
       <div style="margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;">
         <div style="background:#fff;border:1px solid #C8102E;border-radius:14px;padding:22px 24px;">
@@ -176,37 +213,84 @@
           <p style="font-size:14.5px;line-height:1.6;color:#2d2d2d;margin:10px 0 0;text-wrap:pretty;">Tells you <span style="color:#C8102E;">what</span> ACC has funded.</p>
         </div>
         <div style="background:#fff;border:1px solid #C8102E;border-radius:14px;padding:22px 24px;">
-          <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">The allocation</div>
+          <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">The quantity</div>
           <p style="font-size:14.5px;line-height:1.6;color:#2d2d2d;margin:10px 0 0;text-wrap:pretty;">Tells you <span style="color:#C8102E;">how much</span> of it ACC has funded.</p>
         </div>
       </div>
+
+      <h3 style="font-size:17px;font-weight:400;letter-spacing:0.01em;color:#2d2d2d;margin:34px 0 0;">Why has ACC referred the client?</h3>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">Below the services table come the two fields that explain the referral: <span style="color:#2d2d2d;">Reason psychological services is required</span>, and <span style="color:#2d2d2d;">Specific outcome to be achieved from providing psychological services</span>.</p>
+
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;margin:22px 0 8px;">ACC265 — extract</div>
+      <div class="frag" style="border:1px solid #C0C0C0;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#000;">
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;"><span style="color:#3a3a3a;">Reason psychological services is required:</span> <span style="font-weight:700;">Fear of falling and avoidance following a right ankle fracture, limiting return to independent activity.</span></div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Specific outcome to be achieved from providing psychological services:</span> <span style="font-weight:700;">Ana sustained a right ankle fracture in a fall at home on 14/05/2026 and cover has been accepted. The fracture is healing as expected and she is out of the moon boot. Since the injury she has stopped leaving the house on her own and relies on her daughter for shopping and errands. She has told her Recovery Partner she feels she has “aged ten years in three months.” Psychological treatment is recommended to address her fear of falling and the avoidance that has followed, so she can return to independent activity.</span></div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;color:#3a3a3a;">Date outcome to be achieved:</div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;color:#3a3a3a;">Alternative location required for provision of psychological services:</div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;color:#3a3a3a;">Additional comments:</div>
+      </div>
+
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:18px 0 0;max-width:620px;text-wrap:pretty;">This is where ACC describes why it is referring the client for Psychological Services, and what it expects the service to achieve. The explanation may sit in either field, and sometimes one of them is left empty.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">The amount and quality of information varies considerably. Sometimes the referral contains a useful clinical and rehabilitation summary; at other times it contains only a few sentences. The text is sometimes taken from another professional’s report or recommendation, such as a pain or medical assessment, rather than written with you in mind.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">What you need to establish is:</p>
+
+      <div style="margin-top:14px;background:#efeae5;border-top:3px solid #C8102E;border-radius:4px 4px 14px 14px;padding:24px 26px;">
+        <div style="font-size:17px;line-height:1.45;color:#2d2d2d;max-width:520px;text-wrap:pretty;">What is ACC asking Psychological Services to address?</div>
+        <p style="font-size:14.5px;line-height:1.65;color:#3d3833;margin:12px 0 0;max-width:560px;text-wrap:pretty;">The client may have many difficulties that are clinically important. The referral tells us the purpose for which ACC has requested and funded Psychological Services.</p>
+      </div>
+
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:18px 0 0;max-width:620px;text-wrap:pretty;">If the purpose of the referral is unclear, contact PractiSpace. We can clarify the referral with ACC where necessary.</p>
+
+      <h3 style="font-size:17px;font-weight:400;letter-spacing:0.01em;color:#2d2d2d;margin:34px 0 0;">The last fields in this section</h3>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;"><span style="color:#2d2d2d;">Date outcome to be achieved</span> and <span style="color:#2d2d2d;">Alternative location required</span> are often empty. When the second is filled in, it tells you ACC expects the service to be delivered somewhere other than your usual rooms.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;"><span style="color:#2d2d2d;">Additional comments</span> is worth a glance. This is where ACC may note, for example, that it wants the service to start urgently. If you see a request like that and can’t start soon, tell us straight away.</p>
     </div>
 
     <div style="padding:44px 0 0;">
       <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;">05</div>
       <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:8px 0 0;">ACC Recovery Partner</h2>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:600px;text-wrap:pretty;">The final section of the ACC265 identifies the ACC staff member associated with the referral. The form heading reads <span style="font-style:italic;">ACC Recovery Team Member</span>, but in practice this person is called the <span style="color:#2d2d2d;">Recovery Partner</span>, usually shortened to <span style="color:#2d2d2d;">RP</span>.</p>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">The RP is your ACC contact for this client. If something comes up that needs ACC to act — a practical issue stopping the client attending, or a decision that affects whether treatment can continue — they are the person to talk to. A later unit covers this in more detail.</p>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">The RP is also in direct contact with PractiSpace, and sends us other things needed before treatment can start. All of that happens before the client reaches you.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:620px;text-wrap:pretty;">The final section of the ACC265 identifies the ACC staff member responsible for the referral. The form calls this person the <span style="font-style:italic;">Recovery Team Member</span>, but in practice they are known as the <span style="color:#2d2d2d;">Recovery Partner</span>, usually shortened to <span style="color:#2d2d2d;">RP</span>.</p>
+
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;margin:26px 0 8px;">ACC265 — extract</div>
+      <div class="frag" style="border:1px solid #C0C0C0;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#000;">
+        <div style="background:#CCCCCC;padding:7px 9px;font-size:13px;font-weight:700;line-height:1.3;border-bottom:1px solid #C0C0C0;">5. Recovery Team Member details</div>
+        <div class="f2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);">
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;"><span style="color:#3a3a3a;">Recovery Team Member:</span> <span style="font-weight:700;">Sam Taylor</span></div>
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-left:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Date:</span> <span style="font-weight:700;">2 September 2026</span></div>
+        </div>
+        <div class="f2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:1px solid #C0C0C0;">
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;"><span style="color:#3a3a3a;">Email address:</span> <span style="font-weight:700;">sam.taylor@example.com</span></div>
+          <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-left:1px solid #C0C0C0;"><span style="color:#3a3a3a;">Phone number:</span> <span style="font-weight:700;">0800 000 000</span> <span style="color:#3a3a3a;">Ext:</span> <span style="font-weight:700;">00000</span></div>
+        </div>
+        <div style="padding:8px 9px;font-size:13px;line-height:1.45;border-top:1px solid #C0C0C0;display:flex;gap:18px;flex-wrap:wrap;align-items:baseline;">
+          <span style="color:#3a3a3a;">Attachments:</span>
+          <span style="display:inline-flex;gap:6px;align-items:baseline;"><span style="font-family:'MS Gothic','Segoe UI Symbol',sans-serif;font-size:15px;">☐</span> <span style="color:#3a3a3a;">Assessment</span></span>
+          <span style="display:inline-flex;gap:6px;align-items:baseline;"><span style="font-family:'MS Gothic','Segoe UI Symbol',sans-serif;font-size:15px;">☒</span> <span style="color:#3a3a3a;">Other – please specify:</span> <span style="font-weight:700;">Doc group</span></span>
+        </div>
+      </div>
+
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:20px 0 0;max-width:620px;text-wrap:pretty;">The RP is your ACC contact for this client. If something comes up that needs ACC to act — a practical issue stopping the client attending, or a decision that affects whether treatment can continue — they are the person to talk to. A later unit covers this in more detail.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">The RP is also in direct contact with PractiSpace, and sends us other things needed before treatment can start. All of that happens before the client reaches you.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">The <span style="color:#2d2d2d;">Attachments</span> line shows whether ACC has sent documents with the referral: a previous assessment, or other claim documents, often listed simply as a <span style="font-style:italic;">Doc group</span>. These can tell you a good deal about the client’s injury and recovery so far. If something is ticked and you haven’t received it, ask us.</p>
     </div>
 
     <div style="padding:48px 0 0;">
       <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;">Getting started</div>
       <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:8px 0 0;max-width:540px;text-wrap:pretty;">Getting started with your new client</h2>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:600px;text-wrap:pretty;">Once a client has been allocated to you, get in touch with them within <span style="color:#2d2d2d;">three business days</span>. This first contact is just to introduce yourself and either arrange your first appointment or let them know when you expect to be able to start. We’ll give you an email template you can use.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:620px;text-wrap:pretty;">Once a client has been allocated to you, get in touch with them within <span style="color:#2d2d2d;">three business days</span>. This first contact is just to introduce yourself and either arrange your first appointment or let them know when you expect to be able to start. We’ll give you an email template you can use.</p>
 
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:18px 0 0;max-width:600px;text-wrap:pretty;">Two things to pass on to us if they come up:</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:18px 0 0;max-width:620px;text-wrap:pretty;">Two things to pass on to us if they come up:</p>
       <div style="margin-top:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;">
         <div style="background:#fff;border:1px solid #ece6df;border-radius:14px;padding:20px 22px;font-size:14px;line-height:1.6;color:#3d3833;text-wrap:pretty;">You can’t get hold of the client.</div>
         <div style="background:#fff;border:1px solid #ece6df;border-radius:14px;padding:20px 22px;font-size:14px;line-height:1.6;color:#3d3833;text-wrap:pretty;">The client tells you they don’t want to go ahead.</div>
       </div>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:16px 0 0;max-width:600px;text-wrap:pretty;">Let us know as early as you can, and we’ll take it from there.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:16px 0 0;max-width:620px;text-wrap:pretty;">Let us know as early as you can, and we’ll take it from there.</p>
     </div>
 
     <div style="padding:48px 0 0;">
       <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;">The referral in one question</div>
       <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:8px 0 0;max-width:540px;text-wrap:pretty;">What is this client here to receive?</h2>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:600px;text-wrap:pretty;">Everything on the ACC265 converges on one question:</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:14px 0 0;max-width:620px;text-wrap:pretty;">Everything on the ACC265 converges on one question:</p>
 
       <div style="margin-top:14px;background:#efeae5;border-top:3px solid #C8102E;border-radius:4px 4px 14px 14px;padding:24px 26px;">
         <div style="font-size:18px;line-height:1.45;color:#2d2d2d;max-width:520px;text-wrap:pretty;">What is this client supposed to get from me?</div>
@@ -215,7 +299,7 @@
 
       <div style="margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;">
         <div style="background:#fff;border:1px solid #ece6df;border-radius:14px;padding:22px 24px;">
-          <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">The clinical summary tells you why</div>
+          <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">The reason and outcome fields tell you why</div>
           <p style="font-size:14px;line-height:1.6;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">What has happened to this person, and what ACC understands to be getting in the way.</p>
         </div>
         <div style="background:#fff;border:1px solid #ece6df;border-radius:14px;padding:22px 24px;">
@@ -224,32 +308,32 @@
         </div>
       </div>
 
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:16px 0 0;max-width:600px;text-wrap:pretty;">Read together, they tell you which of the two routes from the previous unit this client is on.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:16px 0 0;max-width:620px;text-wrap:pretty;">Read together, they tell you which of the two routes from the previous unit this client is on.</p>
 
       <h3 style="font-size:17px;font-weight:400;letter-spacing:0.01em;color:#2d2d2d;margin:30px 0 0;">Treatment</h3>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">ACC has authorised psychological treatment. This client is in Ana’s situation: they have an injury ACC has accepted, and psychological difficulty has grown up around it that is now getting in the way of their recovery.</p>
-      <p style="font-size:14.5px;line-height:1.68;color:#2d2d2d;margin:12px 0 0;max-width:600px;text-wrap:pretty;">Your work is to address that difficulty so their recovery can continue.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">ACC has authorised psychological treatment. This client is in Ana’s situation: they have an injury ACC has accepted, and psychological difficulty has grown up around it that is now getting in the way of their recovery.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#2d2d2d;margin:12px 0 0;max-width:620px;text-wrap:pretty;">Your work is to address that difficulty so their recovery can continue.</p>
 
       <h3 style="font-size:17px;font-weight:400;letter-spacing:0.01em;color:#2d2d2d;margin:28px 0 0;">Assessment</h3>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">ACC has authorised an assessment. The question here is different. The psychological condition may have become an injury in its own right, and before treatment can be planned on that basis, ACC needs to establish what the condition is and how it connects to what happened.</p>
-      <p style="font-size:14.5px;line-height:1.68;color:#2d2d2d;margin:12px 0 0;max-width:600px;text-wrap:pretty;">The assessment is what answers that question.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">ACC has authorised an assessment. The question here is different. The psychological condition may have become an injury in its own right, and before treatment can be planned on that basis, ACC needs to establish what the condition is and how it connects to what happened.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#2d2d2d;margin:12px 0 0;max-width:620px;text-wrap:pretty;">The assessment is what answers that question.</p>
 
       <h3 style="font-size:17px;font-weight:400;letter-spacing:0.01em;color:#2d2d2d;margin:30px 0 0;">Putting it together</h3>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">You should be able to finish reading the referral and answer three things:</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">You should be able to finish reading the referral and answer three things:</p>
 
       <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px;">
         <div style="background:#fff;border:1px solid #ece6df;border-radius:14px;padding:20px 24px;display:flex;gap:18px;align-items:flex-start;">
           <div style="font-size:15px;color:#C8102E;flex:none;">1</div>
           <div>
             <div style="font-size:15.5px;line-height:1.45;color:#2d2d2d;text-wrap:pretty;">Why has ACC referred this client?</div>
-            <p style="font-size:14px;line-height:1.6;color:#57514b;margin:7px 0 0;text-wrap:pretty;">From the clinical summary.</p>
+            <p style="font-size:14px;line-height:1.6;color:#57514b;margin:7px 0 0;text-wrap:pretty;">From the reason and outcome fields.</p>
           </div>
         </div>
         <div style="background:#fff;border:1px solid #ece6df;border-radius:14px;padding:20px 24px;display:flex;gap:18px;align-items:flex-start;">
           <div style="font-size:15px;color:#C8102E;flex:none;">2</div>
           <div>
             <div style="font-size:15.5px;line-height:1.45;color:#2d2d2d;text-wrap:pretty;">What has ACC authorised?</div>
-            <p style="font-size:14px;line-height:1.6;color:#57514b;margin:7px 0 0;text-wrap:pretty;">From the service codes and allocations.</p>
+            <p style="font-size:14px;line-height:1.6;color:#57514b;margin:7px 0 0;text-wrap:pretty;">From the services approved.</p>
           </div>
         </div>
         <div style="background:#fff;border:1px solid #ece6df;border-radius:14px;padding:20px 24px;display:flex;gap:18px;align-items:flex-start;">
@@ -261,8 +345,8 @@
         </div>
       </div>
 
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:18px 0 0;max-width:600px;text-wrap:pretty;">If those three make sense, you have what you need from the ACC265 and you can begin.</p>
-      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">If they do not — if the summary does not explain the referral, or the authorised service does not seem to match what is being asked — contact PractiSpace. That is exactly the kind of thing we sort out with ACC, and it is better sorted before you start.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:18px 0 0;max-width:620px;text-wrap:pretty;">If those three make sense, you have what you need from the ACC265 and you can begin.</p>
+      <p style="font-size:14.5px;line-height:1.68;color:#57514b;margin:12px 0 0;max-width:620px;text-wrap:pretty;">If they do not — if the reason and outcome fields do not explain the referral, or the authorised service does not seem to match what is being asked — contact PractiSpace. That is exactly the kind of thing we sort out with ACC, and it is better sorted before you start.</p>
     </div>
 
     <div style="padding:48px 0 0;">
@@ -326,7 +410,7 @@
         </div>
       </div>
 
-      <p style="font-size:15px;line-height:1.68;color:#2d2d2d;margin:18px 0 0;max-width:600px;text-wrap:pretty;">You should not need to become an ACC administrator in order to provide ACC-funded psychological treatment.</p>
+      <p style="font-size:15px;line-height:1.68;color:#2d2d2d;margin:18px 0 0;max-width:620px;text-wrap:pretty;">You should not need to become an ACC administrator in order to provide ACC-funded psychological treatment.</p>
     </div>
 
     <div style="padding:48px 0 0;">
@@ -344,20 +428,20 @@
           <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14.5px;line-height:1.5;color:#2d2d2d;">Purchase Order (PO)</div>
           <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.58;color:#57514b;text-wrap:pretty;">ACC’s authorisation of the funded service items.</div>
 
-          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14.5px;line-height:1.5;color:#2d2d2d;">Service Code / Item Code</div>
+          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14.5px;line-height:1.5;color:#2d2d2d;">Service code</div>
           <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.58;color:#57514b;text-wrap:pretty;">Identifies the particular PSB service ACC has authorised, and with it the kind of work ACC intends.</div>
 
-          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14.5px;line-height:1.5;color:#2d2d2d;">Allocation / Quantity / Hours</div>
+          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14.5px;line-height:1.5;color:#2d2d2d;">Qty. approved</div>
           <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.58;color:#57514b;text-wrap:pretty;">How much of that service has been authorised.</div>
 
-          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14.5px;line-height:1.5;color:#2d2d2d;">Reason psychological services are required / Clinical summary</div>
-          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.58;color:#57514b;text-wrap:pretty;">ACC’s description of why Psychological Services have been requested.</div>
+          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14.5px;line-height:1.5;color:#2d2d2d;">Reason psychological services is required / Specific outcome to be achieved</div>
+          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.58;color:#57514b;text-wrap:pretty;">ACC’s description of why Psychological Services have been requested, and what they are expected to achieve.</div>
 
           <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14.5px;line-height:1.5;color:#2d2d2d;">Recovery Partner (RP)</div>
-          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.58;color:#57514b;text-wrap:pretty;">The ACC staff member managing the client’s claim and rehabilitation. Appears on the form as <span style="font-style:italic;">ACC Recovery Team Member</span>.</div>
+          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.58;color:#57514b;text-wrap:pretty;">The ACC staff member managing the client’s claim and rehabilitation. Called the <span style="font-style:italic;">Recovery Team Member</span> on the form.</div>
 
-          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14.5px;line-height:1.5;color:#2d2d2d;">Claim Number / NHI Number</div>
-          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.58;color:#57514b;text-wrap:pretty;">Client identifiers found in the Client Details section; you will need the claim number for your reports.</div>
+          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14.5px;line-height:1.5;color:#2d2d2d;">ACC claim number</div>
+          <div style="padding:17px 24px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.58;color:#57514b;text-wrap:pretty;">The client’s claim identifier, found in the Client details section; you will need it for your reports.</div>
         </div>
       </div>
     </div>
@@ -376,7 +460,7 @@
       <div style="font-size:12px;line-height:1.7;color:#8a827a;">
         <div style="color:#57514b;">Ronit Adiv, Managing Director</div>
         <div style="margin-top:6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-          <a href="https://practispace.co.nz/contact-us">Get in touch</a>
+          <a href="mailto:ronit.adiv@practispace.co.nz">ronit.adiv@practispace.co.nz</a>
           <span style="color:#c4bab1;">·</span>
           <a href="https://www.practispace.co.nz">www.practispace.co.nz</a>
         </div>
