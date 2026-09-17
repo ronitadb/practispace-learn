@@ -230,3 +230,38 @@ a.ps-unitcard:hover .ps-unitcard-title { color: #C8102E; }
   [style*="grid-template-columns:repeat(5"],
   [style*="grid-template-columns:repeat(6"] { min-width: 0 !important; }
 }
+
+
+/* --------------------------------------------------------------------------
+   PART 5 — Term/definition tables on narrow screens
+
+   The two-column term/definition tables — "What PSB pays for" in Unit 01 and
+   "ACC language at a glance" in Unit 02 — hold their first column at 170px.
+   On a phone that leaves the definition about 95px wide, roughly twelve
+   characters a line, so a short sentence becomes seven stacked lines.
+
+   Below 600px each row becomes the term on its own line with the definition
+   full width underneath. Same card, same colours, same type — only the
+   column arrangement changes.
+
+   Scoped deliberately to the minmax(170px,…) signature. The four comparison
+   tables in Unit 01 use minmax(150px,…) and are left exactly as authored.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  [style*="grid-template-columns:minmax(170px"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  /* Terms sit tight above their definition… */
+  [style*="grid-template-columns:minmax(170px"] > :nth-child(odd) {
+    padding-bottom: 3px !important;
+  }
+
+  /* …and the rule between rows belongs only to the term that starts one,
+     otherwise a line would be drawn between a term and its own definition. */
+  [style*="grid-template-columns:minmax(170px"] > :nth-child(even) {
+    border-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
