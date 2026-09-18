@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="omelette-owns-print" content="true">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&amp;family=Caveat:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; overflow-x: hidden; }
+  body { font-family: 'Tenor Sans', system-ui, sans-serif; color: #2d2d2d; background: #f5f2f0; -webkit-font-smoothing: antialiased; }
+  a { color: #C8102E; text-decoration: none; }
+  a:hover { color: #a50e26; }
+  @page { margin: 12mm; }
+  :root { --bleed: clamp(0px, calc((100vw - 784px) / 2), 78px); }
+  @media (max-width: 850px) { #unit-rail { display: none !important; } }
+  @media (max-width: 760px) {
+    :root { --bleed: 0px; }
+    .col { padding-left: 20px !important; padding-right: 20px !important; }
+    .mblock { float: none !important; clear: both !important; width: 100% !important; max-width: 100% !important; margin: 24px 0 26px !important; }
+    .row2 { grid-template-columns: minmax(0,1fr) !important; }
+    .row2 > .c2 { border-left: 0 !important; border-top: 1px solid #e4ded7 !important; }
+    .frag { overflow-x: hidden !important; }
+    .goals { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .goals > div { min-width: 640px; }
+    .cmp { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .cmp > div { min-width: 720px; }
+    .stage { grid-template-columns: minmax(0,1fr) !important; }
+    .stage > .c2 { border-left: 0 !important; border-top: 1px solid #e4ded7 !important; }
+    .anno { text-align: left !important; justify-content: flex-start !important; }
+    .hinge { padding: 30px 22px 32px !important; }
+  }
+  @media print {
+    :root { --bleed: 0px; }
+    html, body { background: #fff !important; }
+    #unit-rail { display: none !important; }
+    .mblock { float: none !important; width: 100% !important; max-width: 100% !important; margin: 18px 0 20px !important; }
+    .mblock, .frag, .goals, .cmp, .idea, .note, .stagebox, .hinge { break-inside: avoid; page-break-inside: avoid; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail" data-bg-color="#f5f2f0">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#f5f2f0"></rect>
+    <rect x="360" y="230" width="220" height="14" rx="7" fill="#C8102E"></rect>
+    <text x="356" y="430" font-family="Georgia, serif" font-size="140" fill="#2d2d2d">3.2</text>
+    <rect x="360" y="500" width="480" height="10" rx="5" fill="#ddd4cb"></rect>
+    <rect x="360" y="540" width="320" height="10" rx="5" fill="#4d6470"></rect>
+  </svg>
+</template>
+
+<div style="background:#f5f2f0;min-height:100vh;">
+
+<sc-if value="{{ showRail }}" hint-placeholder-val="{{ true }}">
+<div id="unit-rail" style="position:fixed;left:0;top:0;bottom:0;width:48px;background:#eae3dc;border-right:1px solid #ddd4cb;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:18px;overflow:hidden;padding:20px 0;z-index:5;">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+    <div style="font-size:14px;letter-spacing:0.02em;color:#C8102E;">3.2</div>
+    <div style="width:1px;height:26px;background:#C8102E;"></div>
+  </div>
+  <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:10px;letter-spacing:0.26em;text-transform:uppercase;color:#8a827a;white-space:nowrap;min-height:0;overflow:hidden;text-overflow:ellipsis;">Unit 3.2 · Progress &amp; Completion</div>
+  <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#b3aaa2;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;">PractiSpace</div>
+</div>
+</sc-if>
+
+  <div style="height:8px;background:#C8102E;"></div>
+
+  <div class="col" style="max-width:720px;margin:0 auto;padding:0 30px 80px;">
+
+    <div style="padding:38px 0 0;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;">
+      <div style="font-size:18px;letter-spacing:0.02em;color:#2d2d2d;">Practi<span style="color:#C8102E;">Space</span></div>
+      <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;">Working with ACC · Unit 3.2</div>
+    </div>
+
+    <div style="padding:30px 0 0;">
+      <h1 style="font-size:34px;line-height:1.15;letter-spacing:0.01em;font-weight:400;margin:0;max-width:540px;text-wrap:pretty;">Progress Report &amp; Completion Report</h1>
+      <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#9a938c;margin:14px 0 0;">Ana’s ACC267 and ACC268, field by field</div>
+      <div style="display:flex;align-items:center;gap:10px;margin:20px 0 0;">
+        <div style="width:110px;height:2px;background:#C8102E;border-radius:2px;"></div>
+        <div style="width:60px;height:2px;background:#4d6470;border-radius:2px;"></div>
+      </div>
+
+      <div class="mblock" style="float:right;clear:right;width:calc(268px + var(--bleed));margin:4px calc(-1 * var(--bleed)) 22px 40px;background:#efeae5;border-radius:14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">Where this sits</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Both reports look back at the Action Plan. The <span style="letter-spacing:0.04em;">ACC267</span> comes at the end of a treatment block; the <span style="letter-spacing:0.04em;">ACC268</span> comes at the end of treatment.</p>
+        <p style="font-size:12.5px;line-height:1.85;color:#8a827a;margin:12px 0 0;text-wrap:pretty;">Referral · <span style="letter-spacing:0.04em;">PSY50</span> · <span style="letter-spacing:0.04em;">ACC266</span> · <span style="letter-spacing:0.04em;">PSY60</span> · Decision point · <span style="color:#C8102E;letter-spacing:0.04em;">ACC267</span> · PSY60 again · <span style="color:#4d6470;letter-spacing:0.04em;">ACC268</span></p>
+        <div style="margin-top:24px;">
+          <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;">
+            <div style="height:3px;border-radius:2px;background:#ddd4cb;"></div>
+            <div style="height:3px;border-radius:2px;background:#ddd4cb;"></div>
+            <div style="height:3px;border-radius:2px;background:#ddd4cb;"></div>
+            <div style="height:3px;border-radius:2px;background:#ddd4cb;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:repeating-linear-gradient(135deg,#C8102E 0 3px,#f2d7da 3px 5.5px);"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#4d6470;"></div>
+          </div>
+          <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#C8102E;margin-top:10px;text-align:right;">ACC267 &amp; ACC268 · you are here</div>
+        </div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.72;color:#57514b;margin:22px 0 0;text-wrap:pretty;">After the first block of hours, ACC asks you to share with them where the treatment stands. You can do that with either a Progress Report or a Completion Report. Before describing the reports themselves — what is each one for, and when do you use it?</p>
+      <p style="font-size:15.5px;line-height:1.72;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">The Progress Report (<span style="color:#C8102E;letter-spacing:0.04em;">ACC267</span>) is your way to ask for additional treatment. In other words, treatment should not end yet.</p>
+      <p style="font-size:15.5px;line-height:1.72;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">The Completion Report (<span style="color:#4d6470;letter-spacing:0.04em;">ACC268</span>) is your way to close the treatment.</p>
+      <p style="font-size:15.5px;line-height:1.72;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">These two reports set the shape of the treatment — whether it runs to one block of ten hours or more than one. A Completion Report will always be submitted, as every treatment has an end. A Progress Report will be submitted only when a longer treatment is needed.</p>
+      <p style="font-size:15.5px;line-height:1.72;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Both go back to the Action Plan and ask the same question: what did we say we’d do, and what has happened? They differ at the end, where one looks forward to more treatment and the other closes the episode.</p>
+      <p style="font-size:15.5px;line-height:1.72;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">This unit walks through the shared part once, then splits.</p>
+      <p style="font-size:15.5px;line-height:1.72;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Both forms need to be completed by you and the kiritaki.</p>
+    </div>
+
+    <div style="padding:46px 0 0;clear:both;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Part A — Kiritaki information</h2>
+
+      <div style="display:flex;align-items:center;gap:10px;margin-top:22px;">
+        <span style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#8a827a;white-space:nowrap;">ACC267 &amp; ACC268 · shared</span>
+        <span style="flex:1;height:1px;background:#e2dad2;"></span>
+      </div>
+      <div class="frag" style="margin-top:8px;border:1px solid #cfc8c0;border-left:3px solid #8a827a;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="background:#ddd7cf;border-bottom:1px solid #cfc8c0;padding:9px 14px;font-size:12.5px;letter-spacing:0.05em;color:#3d3833;">1. Kiritaki details</div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;"><span style="font-size:12px;color:#7a736c;">Kiritaki name:</span> <span style="font-size:14px;color:#111;">Ana Whitfield</span></div>
+        <div class="row2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:9px 14px;"><span style="font-size:12px;color:#7a736c;">Date of birth:</span> <span style="font-size:14px;color:#111;">11/03/1963</span></div>
+          <div class="c2" style="padding:9px 14px;border-left:1px solid #e4ded7;"><span style="font-size:12px;color:#7a736c;">Claim number:</span> <span style="font-size:14px;color:#111;">100 8876 9254</span></div>
+        </div>
+        <div style="padding:9px 14px;"><span style="font-size:12px;color:#7a736c;">Address:</span> <span style="font-size:14px;color:#111;">27 Rata Street, Whanganui 4500</span></div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">Four fields, identical on both forms, and noticeably shorter than the Action Plan’s version. ACC already has the rest.</p>
+    </div>
+
+    <div style="padding:46px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Summary of input provided</h2>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">The two forms word this field differently, and the difference matters.</p>
+
+      <div style="display:flex;align-items:center;gap:10px;margin-top:22px;">
+        <span style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;white-space:nowrap;">ACC267 · Progress Report</span>
+        <span style="flex:1;height:1px;background:#f0dcdf;"></span>
+      </div>
+      <div class="frag" style="margin-top:8px;border:1px solid #cfc8c0;border-left:3px solid #C8102E;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">Summary of input provided (eg number of sessions, modality of treatment, type of intervention, frequency)</div>
+        <div style="padding:11px 14px;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">Eight of ten approved sessions to date, weekly, from 1 October to 19 November 2026. CBT- and ACT-informed intervention comprising psychoeducation about anxiety and avoidance, anxiety-management strategies, graded behavioural exposure, cognitive work on predictions about falling, and ACT work on values and willingness.</div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">On the ACC267 this is factual and should be short. What you did, not what happened — progress has its own section immediately below.</p>
+
+      <div style="display:flex;align-items:center;gap:10px;margin-top:26px;">
+        <span style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#4d6470;white-space:nowrap;">ACC268 · Completion Report</span>
+        <span style="flex:1;height:1px;background:#d9e0e3;"></span>
+      </div>
+      <div class="frag" style="margin-top:8px;border:1px solid #cfc8c0;border-left:3px solid #4d6470;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">Summary of input provided (eg number of sessions, modality of treatment, frequency, general progress)</div>
+        <div style="padding:11px 14px;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">Twenty sessions across two treatment blocks, weekly and then fortnightly for the final three, from 1 October 2026 to 18 February 2027. CBT- and ACT-informed intervention as above. Ana is now independently mobile in her neighbourhood and has returned to her weekly coffee group.</div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">The ACC268 version drops <span style="font-style:italic;">type of intervention</span> and adds <span style="color:#4d6470;">general progress</span>. So on the Completion Report a sentence of overall progress belongs here, unlike on the ACC267.</p>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">The goals table</h2>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">This is the centre of both forms, and it is a continuation of the Action Plan goals. Five numbered rows, a binary tick on each, and a column for the detail.</p>
+
+      <div style="display:flex;align-items:center;gap:10px;margin-top:24px;">
+        <span style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#8a827a;white-space:nowrap;">ACC267 &amp; ACC268 · as it arrives</span>
+        <span style="flex:1;height:1px;background:#e2dad2;"></span>
+      </div>
+    </div>
+
+    <div class="goals" style="margin:8px calc(-1 * var(--bleed)) 0;width:calc(100% + 2 * var(--bleed));">
+      <div style="border:1px solid #cfc8c0;border-left:3px solid #8a827a;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);background:#ddd7cf;border-bottom:1px solid #cfc8c0;">
+          <div style="padding:10px 14px;font-size:12px;line-height:1.5;color:#3d3833;text-wrap:pretty;">Functional goals</div>
+          <div style="padding:10px 14px;border-left:1px solid #cfc8c0;font-size:12px;line-height:1.5;color:#3d3833;text-wrap:pretty;">Summary of progress to date with reference to noted outcome measures</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border-bottom:1px solid #e4ded7;min-height:52px;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#a8a09a;">1.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;display:flex;gap:18px;align-items:center;">
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Achieved</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Not achieved</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border-bottom:1px solid #e4ded7;min-height:52px;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#a8a09a;">2.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;display:flex;gap:18px;align-items:center;">
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Achieved</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Not achieved</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border-bottom:1px solid #e4ded7;min-height:52px;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#a8a09a;">3.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;display:flex;gap:18px;align-items:center;">
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Achieved</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Not achieved</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border-bottom:1px solid #e4ded7;min-height:52px;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#a8a09a;">4.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;display:flex;gap:18px;align-items:center;">
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Achieved</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Not achieved</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);min-height:52px;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#a8a09a;">5.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;display:flex;gap:18px;align-items:center;">
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Achieved</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Not achieved</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="note" style="margin-top:22px;background:#eae3dc;border-radius:14px;padding:24px 28px 26px;display:flex;gap:20px;">
+        <div style="width:3px;flex:none;background:#C8102E;border-radius:2px;"></div>
+        <div>
+          <p style="font-size:17px;line-height:1.6;color:#2d2d2d;margin:0;text-wrap:pretty;">The tick is deliberately simple, and the detail column is where you describe what actually happened.</p>
+          <p style="font-size:14.5px;line-height:1.7;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">A goal that Ana manages on good days but not on bad ones is not achieved — tick the box honestly, and use the column to say what actually happened.</p>
+        </div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">This is also where the pre- and post-measures you set in the Action Plan come back. You said how each goal would be measured. This column is where you report what the measure showed.</p>
+
+      <div style="display:flex;align-items:center;gap:10px;margin-top:28px;">
+        <span style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;white-space:nowrap;">ACC267 · Ana’s</span>
+        <span style="flex:1;height:1px;background:#f0dcdf;"></span>
+      </div>
+    </div>
+
+    <div class="goals" style="margin:8px calc(-1 * var(--bleed)) 0;width:calc(100% + 2 * var(--bleed));">
+      <div style="border:1px solid #cfc8c0;border-left:3px solid #C8102E;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);background:#ddd7cf;border-bottom:1px solid #cfc8c0;">
+          <div style="padding:10px 14px;font-size:12px;line-height:1.5;color:#3d3833;text-wrap:pretty;">Functional goals</div>
+          <div style="padding:10px 14px;border-left:1px solid #cfc8c0;font-size:12px;line-height:1.5;color:#3d3833;text-wrap:pretty;">Summary of progress to date with reference to noted outcome measures</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">1. Walk unaccompanied to letterbox — 0 to 5+ times per week</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;">
+            <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
+              <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#111;"><span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>Achieved</span>
+              <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#a8a09a;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #cfc8c0;"></span>Not achieved</span>
+            </div>
+            <p style="font-size:13.5px;line-height:1.65;color:#111;margin:10px 0 0;text-wrap:pretty;">Ana is walking to the letterbox daily and has done so consistently since week three, apart from a few days after a near-fall in week five. Activity record confirms 7 occasions in the most recent week.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">2. Walk the path from back door to gate — 0 to 3+ times per week</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;">
+            <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
+              <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#a8a09a;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #cfc8c0;"></span>Achieved</span>
+              <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#111;"><span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>Not achieved</span>
+            </div>
+            <p style="font-size:13.5px;line-height:1.65;color:#111;margin:10px 0 0;text-wrap:pretty;">Ana manages this on good days, recording 1–2 occasions per week, but continues to avoid it when anxiety is higher. Self-rated anxiety before the walk has fallen from 8–9/10 to 5–6/10.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">3. Leave the house unaccompanied for a local errand — 0 to 2+ times per week</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;">
+            <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
+              <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#111;"><span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>Achieved</span>
+              <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#a8a09a;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #cfc8c0;"></span>Not achieved</span>
+            </div>
+            <p style="font-size:13.5px;line-height:1.65;color:#111;margin:10px 0 0;text-wrap:pretty;">Ana walks to the local dairy 2–3 times per week and has completed two supermarket trips accompanying her daughter rather than being driven by her. GAD-7 reduced from 14 to 8.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">4. Attend weekly coffee group — 0 to 2 occasions</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;">
+            <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
+              <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#a8a09a;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #cfc8c0;"></span>Achieved</span>
+              <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#111;"><span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>Not achieved</span>
+            </div>
+            <p style="font-size:13.5px;line-height:1.65;color:#111;margin:10px 0 0;text-wrap:pretty;">Ana has not yet returned. She raises the group regularly and wants to go, but has not set a date.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);min-height:52px;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#a8a09a;">5.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;display:flex;gap:18px;align-items:center;">
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Achieved</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Not achieved</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <sc-if value="{{ showAnnotations }}" hint-placeholder-val="{{ true }}">
+      <div class="anno" style="display:flex;justify-content:flex-end;align-items:flex-start;gap:8px;margin-top:10px;">
+        <span style="font-family:'Caveat',cursive;font-size:18px;line-height:1.2;color:#C8102E;max-width:320px;text-align:right;">The two goals not achieved are the two that mattered most to Ana — that is the ACC267’s argument</span>
+        <span style="color:#C8102E;font-size:16px;line-height:1;transform:rotate(-20deg);">↑</span>
+      </div>
+      </sc-if>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">Two achieved, two not, and the fifth row empty because the Action Plan set four goals.</p>
+
+      <div style="padding:52px 0 0;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Barriers</h2>
+        <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Both forms ask about barriers — the ACC267 asks what is <span style="color:#C8102E;">impacting progress now</span>. The ACC268 asks what <span style="color:#4d6470;">might impact ongoing rehabilitation</span> after the end of the treatment.</p>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-top:24px;">
+          <span style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;white-space:nowrap;">ACC267</span>
+          <span style="flex:1;height:1px;background:#f0dcdf;"></span>
+        </div>
+        <div class="frag" style="margin-top:8px;border:1px solid #cfc8c0;border-left:3px solid #C8102E;background:#fff;border-radius:2px;overflow:hidden;">
+          <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;">Outline any barriers which are impacting progress:</div>
+          <div style="padding:11px 14px;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">Ana’s avoidance is strongest in situations she associates with being seen to struggle. A near-fall in week five, after which she did not leave the house alone for several days, made this clearer. Exploration during treatment suggests her anxiety is less about falling itself than about what a further fall would mean for her independence and for her daughter’s role in her life. This was not identified at the Action Plan stage and appears to be the main factor maintaining avoidance of the higher-stakes situations, including the coffee group.</div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-top:26px;">
+          <span style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#4d6470;white-space:nowrap;">ACC268 · blank for now</span>
+          <span style="flex:1;height:1px;background:#d9e0e3;"></span>
+        </div>
+        <div class="frag" style="margin-top:8px;border:1px solid #cfc8c0;border-left:3px solid #4d6470;background:#fff;border-radius:2px;overflow:hidden;">
+          <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;">Outline any remaining barriers which might impact ongoing rehabilitation.</div>
+          <div style="min-height:84px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hinge" style="margin:56px 0 0;background:#2d2d2d;border-radius:18px;padding:40px 40px 42px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="width:44px;height:2px;background:#C8102E;border-radius:2px;"></span>
+        <span style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#a29a92;">The pivot</span>
+      </div>
+      <h2 style="font-size:29px;line-height:1.2;font-weight:400;letter-spacing:0.01em;color:#fff;margin:18px 0 0;text-wrap:pretty;">Where the two forms differ</h2>
+      <p style="font-size:16px;line-height:1.7;color:#ddd4cb;margin:14px 0 0;max-width:520px;text-wrap:pretty;">Everything above is shared. From here they do different jobs.</p>
+      <div style="display:flex;gap:10px;margin-top:26px;flex-wrap:wrap;">
+        <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#fff;background:#C8102E;border-radius:999px;padding:7px 14px;">ACC267 · continues</span>
+        <span style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#fff;background:#4d6470;border-radius:999px;padding:7px 14px;">ACC268 · completes</span>
+      </div>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">If treatment continues</div>
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:10px 0 0;">The rest of the ACC267</h2>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">The ACC267 carries four more fields, and they work together as a single request.</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:34px 0 0;">Reason for more sessions</h3>
+
+      <div class="frag" style="margin-top:14px;border:1px solid #cfc8c0;border-left:3px solid #C8102E;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;">Reason for more sessions if needed:</div>
+        <div style="padding:11px 14px;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">Ana has made substantial progress on lower-anxiety goals and is now walking independently around her immediate neighbourhood. Treatment has also clarified that the central maintaining factor is not fear of falling as such, but the meaning she attaches to a further fall — loss of independence and increased reliance on her daughter. The goals not yet achieved are precisely those carrying that meaning. A further block would apply graded exposure to those higher-stakes situations, address the beliefs about dependence directly, and support Ana’s return to the social activity she has identified as most important to her.</div>
+      </div>
+
+      <div class="note" style="margin-top:24px;background:#eae3dc;border-radius:16px;padding:30px 32px 32px;display:flex;gap:22px;">
+        <div style="width:3px;flex:none;background:#C8102E;border-radius:2px;"></div>
+        <div>
+          <p style="font-size:19px;line-height:1.5;color:#2d2d2d;margin:0;text-wrap:pretty;">This one field carries the whole request.</p>
+          <p style="font-size:15.5px;line-height:1.72;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">What ACC needs is not simply that the client still has difficulties. It is the progression from the block you’ve just finished to the one you’re proposing: what you set out to do, what happened, what you understand now, and what the next block would achieve.</p>
+        </div>
+      </div>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:40px 0 0;">The proposed next stage</h3>
+
+      <div class="stagebox" style="margin-top:14px;border:1px solid #cfc8c0;border-left:3px solid #C8102E;background:#fff;border-radius:2px;overflow:hidden;">
+        <div class="stage" style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:11px 14px;font-size:12px;line-height:1.55;color:#7a736c;">Please indicate the proposed next stage:</div>
+          <div class="c2" style="padding:11px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+            <span style="font-size:13.5px;line-height:1.5;color:#3d3833;">Mental injury assessment (max. 16 hours)</span>
+            <span style="display:inline-block;width:14px;height:14px;flex:none;border:1px solid #a8a09a;"></span>
+          </div>
+        </div>
+        <div class="stage" style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:11px 14px;"></div>
+          <div class="c2" style="padding:11px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+            <span style="font-size:13.5px;line-height:1.5;color:#3d3833;">Treatment with approved mental injury cover (max. 24 hours)</span>
+            <span style="display:inline-block;width:14px;height:14px;flex:none;border:1px solid #a8a09a;"></span>
+          </div>
+        </div>
+        <div class="stage" style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);border-bottom:1px solid #e4ded7;background:#fdf4f5;">
+          <div style="padding:11px 14px;"></div>
+          <div class="c2" style="padding:11px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+            <span style="font-size:13.5px;line-height:1.5;color:#111;">Treatment without approved mental injury cover (max. 10 hours)</span>
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;flex:none;border:1.5px solid #C8102E;color:#C8102E;font-size:11px;line-height:1;">✕</span>
+          </div>
+        </div>
+        <div class="stage" style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);">
+          <div style="padding:11px 14px;"></div>
+          <div class="c2" style="padding:11px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+            <span style="font-size:13.5px;line-height:1.5;color:#3d3833;">Treatment review (max. 11 hours)</span>
+            <span style="display:inline-block;width:14px;height:14px;flex:none;border:1px solid #a8a09a;"></span>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">Four boxes here, one more than on the Action Plan. Treatment review is an independent look at treatment by another provider — it arises when treatment has been running a long time (unit XX covers this topic in detail).</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Unlike at the Action Plan stage, you now have more information. Ten hours of treatment have shown you how this person responds, what has shifted, and what hasn’t. If the question of a mental injury is going to arise, this is usually where it arises — not at the end of the planning stage.</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:40px 0 0;">Why not an assessment</h3>
+
+      <div class="frag" style="margin-top:14px;border:1px solid #cfc8c0;border-left:3px solid #C8102E;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">If additional sessions are required for treatment without ACC approved mental injury cover, identify why a mental injury assessment is not indicated at this stage:</div>
+        <div style="padding:11px 14px;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">Ana’s difficulties remain directly and proportionately related to her injury and to a recovery still in progress. They are responding to treatment, with measurable change across three of four goals. There is no indication of a psychological condition that would exist independently of the injury, and no history of mental health difficulty. A further treatment block is expected to complete the work rather than to manage an ongoing condition.</div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">This field only appears on the ACC267, and it is asking you to justify continuing on the treatment route.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">The question behind it is the one from the first unit: is this still psychological difficulty standing in the way of recovering from an injury, or has it become something in its own right?</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">If you cannot comfortably support that rationale clinically, the answer is probably an assessment. <span style="color:#C8102E;">If in any doubt, contact us.</span></p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:40px 0 0;">Active Liaison and Whānau Support</h3>
+
+      <div class="frag" style="margin-top:14px;border:1px solid #cfc8c0;border-left:3px solid #C8102E;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">Request or progress update on the use of Active Liaison and/or Whānau Support. For new requests, please indicate the number of hours required and how these supports will be used to support recovery.</div>
+        <div style="min-height:84px;"></div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">If you already have hours approved, update here. If you need them, this is where to ask, with the number of hours and how they would support recovery (unit XX covers both topics in detail).</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:40px 0 0;">New goals</h3>
+    </div>
+
+    <div class="goals" style="margin:14px calc(-1 * var(--bleed)) 0;width:calc(100% + 2 * var(--bleed));">
+      <div style="border:1px solid #cfc8c0;border-left:3px solid #C8102E;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,0.85fr);background:#ddd7cf;border-bottom:1px solid #cfc8c0;">
+          <div style="padding:10px 14px;font-size:12px;line-height:1.5;color:#3d3833;text-wrap:pretty;">New functional goals to be achieved</div>
+          <div style="padding:10px 14px;border-left:1px solid #cfc8c0;font-size:12px;line-height:1.5;color:#3d3833;text-wrap:pretty;">What type of intervention will be used to achieve functional goals?</div>
+          <div style="padding:10px 14px;border-left:1px solid #cfc8c0;font-size:12px;line-height:1.5;color:#3d3833;text-wrap:pretty;">How functional goals will be measured (including pre and post psychometric measures)</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,0.85fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">1. Walk the path from back door to gate <span style="border-bottom:1.5px solid #C8102E;">regardless of anxiety level</span> — currently 1–2 times per week; by review, 5+ times per week including on higher-anxiety days.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Graded exposure maintained at higher anxiety levels; cognitive work on beliefs about dependence and the consequences of a further fall; ACT work on willingness and valued activity.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Weekly activity record. Self-rated anxiety before and after.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,0.85fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">2. Walk on uneven or unfamiliar ground away from home — currently 0 times per week; by review, at least twice per week.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Exposure extended to unfamiliar routes; behavioural experiments testing predictions about being seen to struggle.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Weekly activity record. Pre- and post- GAD-7.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,0.85fr);">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">3. Attend the weekly coffee group — currently 0; by review, attending at least 4 times in the reporting period.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Problem-solving around arrangements and re-contact; exposure work; discussion with daughter about support arrangements, with Ana’s agreement.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Attendance recorded by Ana.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">Three rows this time rather than five — the form gives you fewer, which is telling in itself.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">The same rules apply as on the Action Plan: behaviourally specific, with a current figure and a target, achievable within the next reporting period. Goals that weren’t achieved can carry forward, but usually not unchanged. You know more now, so the goal should reflect that.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Goal 1 is goal 2 from the Action Plan, rewritten. The target now names the condition that was missing — <span style="font-style:italic;">regardless of anxiety level</span> — because that is what the block showed.</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:40px 0 0;">Any other comments</h3>
+
+      <div class="mblock" style="float:right;clear:right;width:calc(268px + var(--bleed));margin:28px calc(-1 * var(--bleed)) 22px 40px;background:#efeae5;border-radius:14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">When to send it</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Send the Progress Report before the approved hours run out. ACC needs time to consider it, and we want to avoid a break in treatment.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">About two weeks ahead is usually right. If you’re running short, tell us early.</p>
+      </div>
+
+      <div class="frag" style="margin-top:14px;border:1px solid #cfc8c0;border-left:3px solid #C8102E;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">Any other comments or input required for the kiritaki (specify injury vs non-injury) including the need for mental injury assessment/treatment review (and the name and supplier of the proposed assessor/reviewer) if longer term support is indicated.</div>
+        <div style="min-height:84px;"></div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">A catch-all, with two instructions worth noting. Specify injury versus non-injury: if something significant has emerged that isn’t injury-related, say so and say which it is. And this is where you name a proposed assessor or reviewer if you’re recommending either — if you are, talk to us first.</p>
+      <div style="clear:both;"></div>
+
+      <div style="padding:56px 0 0;">
+        <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#4d6470;">If treatment completes</div>
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:10px 0 0;">The rest of the ACC268</h2>
+        <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Shorter, and requiring a different kind of thinking. Nothing here looks forward to more treatment. Three fields, in this order on the form.</p>
+        <p style="font-size:15.5px;line-height:1.75;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">What ACC needs at completion is not an account of what happened in the sessions. It is what changed, what remains, and where this person is now.</p>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-top:24px;">
+          <span style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#4d6470;white-space:nowrap;">ACC268 · three consecutive fields</span>
+          <span style="flex:1;height:1px;background:#d9e0e3;"></span>
+        </div>
+        <div class="frag" style="margin-top:8px;border:1px solid #cfc8c0;border-left:3px solid #4d6470;background:#fff;border-radius:2px;overflow:hidden;">
+          <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;">Outline any remaining barriers which might impact ongoing rehabilitation.</div>
+          <div style="padding:11px 14px;border-bottom:1px solid #e4ded7;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">Ana continues to experience some anticipatory anxiety before journeys involving wet or uneven conditions and reports she is unlikely to enjoy these. This does not result in avoidance and has not restricted her activity. Some risk of gradual re-avoidance exists if she experiences a fall or near-fall, and this has been discussed and planned for.</div>
+          <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;">Any changes to current situation from last Action Plan and/or Progress Report</div>
+          <div style="padding:11px 14px;border-bottom:1px solid #e4ded7;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">Ana is again independent in daily activities. She walks in her neighbourhood daily, manages her own shopping, and travels on foot to unfamiliar destinations without assistance. She has returned to her weekly coffee group and attends regularly. Her daughter continues to be involved but as company rather than as a source of practical support, which Ana describes as a significant relief to them both.</div>
+          <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;">Details of the self-management plan discussed with kiritaki</div>
+          <div style="padding:11px 14px;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">Ana and I reviewed the strategies she has found most useful: planning a route in advance, walking rather than waiting for anxiety to pass, and treating an anxious prediction as something to test rather than to obey. She has agreed that if she notices herself declining an outing she would previously have accepted, she will treat that as a signal to deliberately resume the activity within the week rather than waiting. She intends to continue her weekly coffee group and her daily walks. She knows she can contact her GP if difficulties return, and is comfortable doing so.</div>
+        </div>
+
+        <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <div style="font-size:14px;color:#4d6470;">Remaining barriers</div>
+            <p style="font-size:15px;line-height:1.72;color:#3d3833;margin:6px 0 0;text-wrap:pretty;">Looks forward rather than back. Completion doesn’t require that nothing remains. It requires that what remains isn’t standing in the way of the person’s recovery.</p>
+          </div>
+          <div>
+            <div style="font-size:14px;color:#4d6470;">Changes to the current situation</div>
+            <p style="font-size:15px;line-height:1.72;color:#3d3833;margin:6px 0 0;text-wrap:pretty;">Goes back to the life you described in the Action Plan — living situation, work, relationships, how they spend their days — and says what is different now.</p>
+          </div>
+          <div>
+            <div style="font-size:14px;color:#4d6470;">The self-management plan</div>
+            <p style="font-size:15px;line-height:1.72;color:#3d3833;margin:6px 0 0;text-wrap:pretty;">Unique to the ACC268 and central to the form. What can this person now do for themselves? The wording matters: <span style="font-style:italic;">discussed with kiritaki</span>. This is not a plan you write about someone. It is one you make with them and then record.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:56px 0 0;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Provider declaration</h2>
+        <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Identical on both forms, and numbered section 6 on each.</p>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-top:22px;">
+          <span style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#8a827a;white-space:nowrap;">ACC267 &amp; ACC268 · shared</span>
+          <span style="flex:1;height:1px;background:#e2dad2;"></span>
+        </div>
+        <div class="frag" style="margin-top:8px;border:1px solid #cfc8c0;border-left:3px solid #8a827a;background:#fff;border-radius:2px;overflow:hidden;">
+          <div style="background:#ddd7cf;border-bottom:1px solid #cfc8c0;padding:9px 14px;font-size:12.5px;letter-spacing:0.05em;color:#3d3833;">6. Provider declaration</div>
+          <div style="padding:11px 14px;border-bottom:1px solid #e4ded7;display:flex;gap:10px;align-items:flex-start;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;margin-top:3px;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>
+            <span style="font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">I have informed the kiritaki that the information collected for this report will be sent to ACC to support cover decisions and treatment and rehabilitation needs. The kiritaki understands this.</span>
+          </div>
+          <div style="padding:11px 14px;border-bottom:1px solid #e4ded7;display:flex;gap:10px;align-items:flex-start;">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;margin-top:3px;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>
+            <span style="font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">I confirm that the information contained in this report is accurate and aligns with ACC’s report standards.</span>
+          </div>
+          <div class="row2" style="display:grid;grid-template-columns:minmax(0,1fr) 180px;border-bottom:1px solid #e4ded7;">
+            <div style="padding:9px 14px;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">Provide the date of the last appointment with the kiritaki that informed this report.</div>
+            <div class="c2" style="padding:9px 14px;border-left:1px solid #e4ded7;"><span style="font-size:12px;color:#7a736c;">Date:</span> <span style="font-size:14px;color:#111;">19/11/2026</span></div>
+          </div>
+          <div class="row2" style="display:grid;grid-template-columns:minmax(0,1fr) 180px;">
+            <div style="padding:9px 14px;font-size:12px;line-height:1.55;color:#7a736c;">Psychologist name:</div>
+            <div class="c2" style="padding:9px 14px;border-left:1px solid #e4ded7;"><span style="font-size:12px;color:#7a736c;">Date:</span> <span style="font-size:14px;color:#111;">20/11/2026</span></div>
+          </div>
+        </div>
+
+        <div class="mblock" style="float:right;clear:right;width:calc(268px + var(--bleed));margin:22px calc(-1 * var(--bleed)) 22px 40px;background:#efeae5;border-radius:14px;padding:21px 24px 22px;">
+          <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">What happens after these reports</div>
+          <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">You send the report to ACC and copy us by email, and we pass a copy to the client’s GP. This is different from the Action Plan, which goes to ACC only.</p>
+          <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">After the Completion Report we also send ACC a discharge letter closing the episode.</p>
+          <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">The Completion Report should be with ACC within ten business days of the final session.</p>
+          <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">As with the Action Plan, ACC may return a report asking for more information, and reworking it isn’t separately funded. It’s worth getting right the first time.</p>
+        </div>
+
+        <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">Two tick boxes, then two dates: the last appointment that informed the report, and the date you sign it.</p>
+
+        <div class="mblock" style="float:right;clear:right;width:calc(268px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 22px 40px;background:#efeae5;border-radius:14px;padding:21px 24px 22px;">
+          <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">When treatment doesn’t end this way</div>
+          <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Sometimes a client disengages, attendance makes treatment unworkable, or progress stalls without a clear reason.</p>
+          <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">Those aren’t ordinary completions, and they need more documentation than a Completion Report carries — a record of contact attempts and what was tried. Keep that record as you go rather than reconstructing it later, and contact us before closing the service.</p>
+        </div>
+        <div style="clear:both;"></div>
+      </div>
+
+      <div style="padding:56px 0 0;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Ana’s goals across the three reports</h2>
+        <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">The clearest way to see what the goals table is for is to follow one line of it from the plan to the end.</p>
+      </div>
+    </div>
+
+    <div class="cmp" style="margin:22px calc(-1 * var(--bleed)) 0;width:calc(100% + 2 * var(--bleed));">
+      <div style="background:#fff;border:1px solid #e2dad2;border-radius:16px;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.05fr) minmax(0,1.05fr);border-bottom:1px solid #e2dad2;">
+          <div style="padding:14px 16px;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#9a938c;">Goal</div>
+          <div style="padding:14px 16px;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#9a938c;">Action Plan</div>
+          <div style="padding:14px 16px;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#C8102E;">Progress Report</div>
+          <div style="padding:14px 16px;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#4d6470;">Completion Report</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.05fr) minmax(0,1.05fr);border-bottom:1px solid #efe9e3;">
+          <div style="padding:16px;font-size:14px;line-height:1.6;color:#2d2d2d;text-wrap:pretty;">Walk unaccompanied to the letterbox</div>
+          <div style="padding:16px;font-size:13.5px;line-height:1.65;color:#57514b;text-wrap:pretty;">0 times per week; by review, at least 5</div>
+          <div style="padding:16px;font-size:13.5px;line-height:1.65;color:#3d3833;text-wrap:pretty;">Achieved. Daily, 7 occasions in the most recent week</div>
+          <div style="padding:16px;font-size:13.5px;line-height:1.65;color:#3d3833;text-wrap:pretty;">Part of her ordinary routine; no longer tracked</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.05fr) minmax(0,1.05fr);border-bottom:1px solid #efe9e3;background:#fdfbfa;">
+          <div style="padding:16px;font-size:14px;line-height:1.6;color:#2d2d2d;text-wrap:pretty;">Walk the path from back door to gate</div>
+          <div style="padding:16px;font-size:13.5px;line-height:1.65;color:#57514b;text-wrap:pretty;">Avoided entirely; by review, at least 3 times per week</div>
+          <div style="padding:16px;font-size:13.5px;line-height:1.65;color:#3d3833;text-wrap:pretty;"><span style="color:#C8102E;">Not achieved.</span> 1–2 times per week, avoided when anxiety is higher</div>
+          <div style="padding:16px;font-size:13.5px;line-height:1.65;color:#3d3833;text-wrap:pretty;">Achieved. Walks it without much thought</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.05fr) minmax(0,1.05fr);border-bottom:1px solid #efe9e3;">
+          <div style="padding:16px;font-size:14px;line-height:1.6;color:#2d2d2d;text-wrap:pretty;">Leave the house unaccompanied for a local errand</div>
+          <div style="padding:16px;font-size:13.5px;line-height:1.65;color:#57514b;text-wrap:pretty;">0 times per week; by review, at least twice</div>
+          <div style="padding:16px;font-size:13.5px;line-height:1.65;color:#3d3833;text-wrap:pretty;">Achieved. Dairy 2–3 times per week; two supermarket trips accompanying her daughter</div>
+          <div style="padding:16px;font-size:13.5px;line-height:1.65;color:#3d3833;text-wrap:pretty;">Manages her own shopping and travels to unfamiliar destinations on foot</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.05fr) minmax(0,1.05fr);background:#fdfbfa;">
+          <div style="padding:16px;font-size:14px;line-height:1.6;color:#2d2d2d;text-wrap:pretty;">Attend the weekly coffee group</div>
+          <div style="padding:16px;font-size:13.5px;line-height:1.65;color:#57514b;text-wrap:pretty;">Not attending; by review, at least twice in the period</div>
+          <div style="padding:16px;font-size:13.5px;line-height:1.65;color:#3d3833;text-wrap:pretty;"><span style="color:#C8102E;">Not achieved.</span> Raises it regularly, has not set a date</div>
+          <div style="padding:16px;font-size:13.5px;line-height:1.65;color:#3d3833;text-wrap:pretty;">Attending regularly</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:20px 0 0;text-wrap:pretty;">One thing is visible in that table that is not visible anywhere else.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">The goals that were not achieved at the Progress Report are the ones that took a second block — and they are the ones that carried the most meaning for Ana. That is not a coincidence, and it is the argument the ACC267 was making.</p>
+
+      <div class="idea" style="margin-top:56px;background:#eae3dc;border-radius:16px;padding:34px 36px 36px;display:flex;gap:22px;">
+        <div style="width:3px;flex:none;background:#C8102E;border-radius:2px;"></div>
+        <div>
+          <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#8a827a;">One idea to take with you</div>
+          <p style="font-size:22px;line-height:1.45;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">Three reports, one story.</p>
+          <p style="font-size:16px;line-height:1.7;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">The Action Plan said where you were going. The Progress Report says where you got to and what you learned on the way. The Completion Report says what the treatment achieved and where the client is now.</p>
+          <p style="font-size:16px;line-height:1.7;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Which is why the goals table appears on all three. Each report picks up the goals from the one before — achieved, carried forward or rewritten — so anyone reading can follow them from the plan to the end.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:44px;border-top:1px solid #e2dad2;padding-top:22px;">
+        <div style="font-size:13px;line-height:1.75;color:#8a827a;">
+          <div style="color:#2d2d2d;font-size:14px;">Ronit Adiv, Clinical Psychologist</div>
+          <div style="margin-top:4px;">Managing Director, PractiSpace</div>
+          <div style="margin-top:8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+            <a href="mailto:ronit.adiv@practispace.co.nz">ronit.adiv@practispace.co.nz</a>
+            <span style="color:#c4bab1;">·</span>
+            <a href="https://www.practispace.co.nz">www.practispace.co.nz</a>
+          </div>
+          <div style="margin-top:10px;font-size:12px;font-style:italic;color:#9a938c;">PractiSpace learning unit — September 2026</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showAnnotations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Unit display&quot;},&quot;showRail&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Unit display&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showAnnotations: this.props.showAnnotations ?? true,
+      showRail: this.props.showRail ?? true
+    };
+  }
+}
+
+</script>
+</body>
+</html>

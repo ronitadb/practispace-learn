@@ -86,6 +86,27 @@ const units = [
   },
 
   {
+    number: '3.1',
+    slug: 'writing-the-action-plan',
+    title: 'Writing the Action Plan',
+    subtitle: 'Ana\u2019s ACC266, field by field',
+    description:
+      'How to write the ACC266 Action Plan, field by field: the treatment ' +
+      'goals, the risk field, the hours you are asking for, and what ACC ' +
+      'reads it for.',
+    file: '3-1-writing-the-action-plan.html',
+  },
+  {
+    number: '3.2',
+    slug: 'progress-and-completion-reports',
+    title: 'Progress Report & Completion Report',
+    subtitle: 'Ana\u2019s ACC267 and ACC268, field by field',
+    description:
+      'The ACC267 and ACC268 walked together: the fields they share, where ' +
+      'the two forms diverge, and what ACC is looking for in each.',
+    file: '3-2-progress-and-completion-reports.html',
+  },
+  {
     number: '07',
     slug: 'non-attendance-dna',
     title: 'Non-Attendance (DNA)',

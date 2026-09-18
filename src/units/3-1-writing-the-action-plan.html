@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="omelette-owns-print" content="true">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&amp;family=Caveat:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; overflow-x: hidden; }
+  body { font-family: 'Tenor Sans', system-ui, sans-serif; color: #2d2d2d; background: #f5f2f0; -webkit-font-smoothing: antialiased; }
+  a { color: #C8102E; text-decoration: none; }
+  a:hover { color: #a50e26; }
+  @page { margin: 12mm; }
+  :root { --bleed: clamp(0px, calc((100vw - 784px) / 2), 78px); }
+  @media (max-width: 850px) { #unit-rail { display: none !important; } }
+  @media (max-width: 760px) {
+    :root { --bleed: 0px; }
+    .col { padding-left: 20px !important; padding-right: 20px !important; }
+    .mblock { float: none !important; clear: both !important; width: 100% !important; max-width: 100% !important; margin: 24px 0 26px !important; }
+    .row2 { grid-template-columns: minmax(0,1fr) !important; }
+    .row2 > .c2 { border-left: 0 !important; border-top: 1px solid #e4ded7 !important; }
+    .frag { overflow-x: hidden !important; }
+    .goals { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
+    .goals > div { min-width: 660px; }
+    .stage { grid-template-columns: minmax(0,1fr) !important; }
+    .stage > .c2 { border-left: 0 !important; border-top: 1px solid #e4ded7 !important; }
+    .anno { text-align: left !important; justify-content: flex-start !important; }
+  }
+  @media print {
+    :root { --bleed: 0px; }
+    html, body { background: #fff !important; }
+    #unit-rail { display: none !important; }
+    .mblock { float: none !important; width: 100% !important; max-width: 100% !important; margin: 18px 0 20px !important; }
+    .mblock, .frag, .goals, .idea, .note, .stagebox { break-inside: avoid; page-break-inside: avoid; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail" data-bg-color="#f5f2f0">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#f5f2f0"></rect>
+    <rect x="360" y="230" width="220" height="14" rx="7" fill="#C8102E"></rect>
+    <text x="356" y="430" font-family="Georgia, serif" font-size="140" fill="#2d2d2d">3.1</text>
+    <rect x="360" y="500" width="480" height="10" rx="5" fill="#ddd4cb"></rect>
+    <rect x="360" y="540" width="320" height="10" rx="5" fill="#ddd4cb"></rect>
+  </svg>
+</template>
+
+<div style="background:#f5f2f0;min-height:100vh;">
+
+<sc-if value="{{ showRail }}" hint-placeholder-val="{{ true }}">
+<div id="unit-rail" style="position:fixed;left:0;top:0;bottom:0;width:48px;background:#eae3dc;border-right:1px solid #ddd4cb;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:18px;overflow:hidden;padding:20px 0;z-index:5;">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+    <div style="font-size:14px;letter-spacing:0.02em;color:#C8102E;">3.1</div>
+    <div style="width:1px;height:26px;background:#C8102E;"></div>
+  </div>
+  <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:10px;letter-spacing:0.26em;text-transform:uppercase;color:#8a827a;white-space:nowrap;min-height:0;overflow:hidden;text-overflow:ellipsis;">Unit 3.1 · Action Plan</div>
+  <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#b3aaa2;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;">PractiSpace</div>
+</div>
+</sc-if>
+
+  <div style="height:8px;background:#C8102E;"></div>
+
+  <div class="col" style="max-width:720px;margin:0 auto;padding:0 30px 80px;">
+
+    <div style="padding:38px 0 0;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;">
+      <div style="font-size:18px;letter-spacing:0.02em;color:#2d2d2d;">Practi<span style="color:#C8102E;">Space</span></div>
+      <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;">Working with ACC · Unit 3.1</div>
+    </div>
+
+    <div style="padding:30px 0 0;">
+      <h1 style="font-size:34px;line-height:1.15;letter-spacing:0.01em;font-weight:400;margin:0;max-width:520px;text-wrap:pretty;">Writing the Action Plan</h1>
+      <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#9a938c;margin:14px 0 0;">Ana’s ACC266, field by field</div>
+      <div style="width:170px;height:2px;background:#C8102E;border-radius:2px;margin:20px 0 0;"></div>
+    <div class="mblock" style="float:right;clear:right;width:calc(268px + var(--bleed));margin:4px calc(-1 * var(--bleed)) 22px 40px;background:#efeae5;border-radius:14px;padding:21px 24px 22px;">
+      <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">Where this sits</div>
+      <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">The Action Plan closes the planning stage and opens the treatment that follows. ACC approves the next block of hours on the strength of it.</p>
+      <p style="font-size:12.5px;line-height:1.85;color:#8a827a;margin:12px 0 0;text-wrap:pretty;">Referral · <span style="color:#C8102E;letter-spacing:0.04em;">PSY50</span> · <span style="color:#2d2d2d;letter-spacing:0.04em;">ACC266</span> · <span style="color:#C8102E;letter-spacing:0.04em;">PSY60</span> · Decision point · <span style="color:#C8102E;letter-spacing:0.04em;">ACC267</span> · PSY60 again · <span style="color:#C8102E;letter-spacing:0.04em;">ACC268</span></p>
+      <div style="margin-top:24px;">
+        <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;">
+          <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+          <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+          <div style="height:3px;border-radius:2px;background:repeating-linear-gradient(135deg,#C8102E 0 3px,#f2d7da 3px 5.5px);"></div>
+          <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+          <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+          <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+          <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+          <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+        </div>
+        <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#C8102E;margin-top:10px;text-align:right;">ACC266 · you are here</div>
+      </div>
+    </div>
+      <p style="font-size:15.5px;line-height:1.72;color:#57514b;margin:22px 0 0;text-wrap:pretty;">At the end of the planning hours you send ACC an Action Plan on form <span style="color:#C8102E;letter-spacing:0.04em;">ACC266</span>. It is three pages, and most of it is straightforward.</p>
+      <p style="font-size:15.5px;line-height:1.72;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">The form should be completed <span style="color:#C8102E;">in collaboration with the kiritaki</span>. That is not a formality. The plan belongs to your client: the goals are theirs, and they are the one who will carry them out between sessions. A plan written with them, as opposed to a plan written about them, is one they own.</p>
+    </div>
+
+
+    <div style="padding:46px 0 0;clear:both;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Part A — Kiritaki information</h2>
+
+      <div class="frag" style="margin-top:22px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="background:#ddd7cf;border-bottom:1px solid #cfc8c0;padding:9px 14px;font-size:12.5px;letter-spacing:0.05em;color:#3d3833;">1. Kiritaki details</div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;"><span style="font-size:12px;color:#7a736c;">Kiritaki name:</span> <span style="font-size:14px;color:#111;">Ana Whitfield</span></div>
+        <div class="row2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:9px 14px;"><span style="font-size:12px;color:#7a736c;">Date of birth:</span> <span style="font-size:14px;color:#111;">11/03/1963</span></div>
+          <div class="c2" style="padding:9px 14px;border-left:1px solid #e4ded7;"><span style="font-size:12px;color:#7a736c;">Claim number:</span> <span style="font-size:14px;color:#111;">100 8876 9254</span></div>
+        </div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;"><span style="font-size:12px;color:#7a736c;">Address:</span> <span style="font-size:14px;color:#111;">27 Rata Street, Whanganui 4500</span></div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;"><span style="font-size:12px;color:#7a736c;">Contact details / safe contact where appropriate:</span> <span style="font-size:14px;color:#111;">64 021 597 2246</span></div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;">
+          <span style="font-size:12px;color:#7a736c;">Gender:</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#111;"><span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>Female</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Male</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Another gender</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Prefer not to say</span>
+        </div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;"><span style="font-size:12px;color:#7a736c;">Ethnicity:</span> <span style="font-size:14px;color:#111;">New Zealand European</span></div>
+        <div class="row2" style="display:grid;grid-template-columns:minmax(0,1fr) 140px;">
+          <div style="padding:9px 14px;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">Is the kiritaki able to make decisions about their care? If no, please contact their ACC recovery team member about this.</div>
+          <div class="c2" style="padding:9px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;gap:14px;">
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#111;"><span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>Yes</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>No</span>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:20px 0 0;text-wrap:pretty;">Most of this comes straight off the referral, including the claim number.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">The last row is the one that needs a moment’s thought. For most clients it is straightforward. If it isn’t, tick no and tell us — we’ll raise it with the Recovery Partner before anything goes further.</p>
+    </div>
+
+    <div style="padding:46px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Part B — Event and injury details</h2>
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:26px 0 0;">Summary of ACC covered injuries</h3>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">This is short and factual. What has ACC accepted?</p>
+
+      <div class="frag" style="margin-top:20px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="background:#ddd7cf;border-bottom:1px solid #cfc8c0;padding:9px 14px;font-size:12.5px;letter-spacing:0.05em;color:#3d3833;">2. Event and injury details</div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;">Summary of ACC covered physical and/or mental injuries.</div>
+        <div style="padding:11px 14px;border-bottom:1px solid #e4ded7;font-size:14px;line-height:1.65;color:#111;text-wrap:pretty;">Fracture of the right ankle sustained in a fall at home, 14 May 2026. Cover accepted for the physical injury. No mental injury claim.</div>
+        <div class="row2" style="display:grid;grid-template-columns:minmax(0,1fr) 140px;">
+          <div style="padding:9px 14px;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">Does the kiritaki have any other active ACC claims? If unsure, please contact us to clarify.</div>
+          <div class="c2" style="padding:9px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;gap:14px;">
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Yes</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#111;"><span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>No</span>
+          </div>
+        </div>
+      </div>
+
+      <sc-if value="{{ showAnnotations }}" hint-placeholder-val="{{ true }}">
+      <div class="anno" style="display:flex;justify-content:flex-end;align-items:flex-start;gap:8px;margin-top:8px;">
+        <span style="font-family:'Caveat',cursive;font-size:18px;line-height:1.2;color:#C8102E;max-width:300px;text-align:right;">“No mental injury claim” — this one line tells the reader where the client sits</span>
+        <span style="color:#C8102E;font-size:16px;line-height:1;transform:rotate(-20deg);">↑</span>
+      </div>
+      </sc-if>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">The second row asks whether the client has other active ACC claims. Ask your client — most people know whether they have another claim open. If they’re not sure, tell us and we’ll check.</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:34px 0 0;">Current situation and background</h3>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">This section is where you introduce the person. The form asks for their living situation, work or study, health, relationships, how they spend their day, and their strengths and protective factors.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Note that last part. ACC is asking what this person has going for them, not only what is wrong. Strengths and protective factors is where the client’s support network belongs — who is around them, and what those people actually do.</p>
+
+      <div class="frag" style="margin-top:20px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="background:#ddd7cf;border-bottom:1px solid #cfc8c0;padding:9px 14px;font-size:12.5px;letter-spacing:0.05em;color:#3d3833;">3. Kiritaki current situation, background and treatment needs</div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">a. Brief summary of kiritaki current situation eg living situation, work/study, health, relationships, how they spend their day, strengths and protective factors etc.</div>
+        <div style="padding:11px 14px;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">Ana is 63, lives alone in her own home and has been retired for two years. Her daughter Kate lives nearby and is in regular contact. Prior to the injury Ana was independent in all daily activities, walked most days, did her own shopping, and met a group of long-standing friends for <span style="border-bottom:1.5px solid #C8102E;">coffee weekly</span>. She has no history of mental health difficulties. She is motivated, candid about what she is finding hard, and has a supportive family relationship and established friendships she wants to return to.</div>
+      </div>
+
+      <sc-if value="{{ showAnnotations }}" hint-placeholder-val="{{ true }}">
+      <div class="anno" style="display:flex;justify-content:flex-end;align-items:flex-start;gap:8px;margin-top:8px;">
+        <span style="font-family:'Caveat',cursive;font-size:18px;line-height:1.2;color:#C8102E;max-width:280px;text-align:right;">The detail about coffee is not decoration — it becomes a functional goal two pages later</span>
+        <span style="color:#C8102E;font-size:16px;line-height:1;transform:rotate(-20deg);">↑</span>
+      </div>
+      </sc-if>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:34px 0 0;">Current concerns, symptoms and difficulties</h3>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">The form splits this in two, and the split is the most important thing on the page.</p>
+
+      <div class="frag" style="margin-top:20px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">b. Current concerns, symptoms and difficulties. Include specific examples of when these difficulties occur and how they impact functioning eg mood, sleep, substance use, psychosocial stressors.</div>
+        <div style="padding:8px 14px;border-bottom:1px solid #e4ded7;background:#faf8f6;font-size:12.5px;color:#3d3833;">Injury related:</div>
+        <div style="padding:11px 14px;border-bottom:1px solid #e4ded7;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">Since the fall, Ana has developed marked anxiety about walking, particularly on uneven or unfamiliar ground. She has not walked to her letterbox unaccompanied in four months and avoids the path between her back door and gate entirely, describing it as “like a cliff edge.” She no longer leaves the house alone, and her daughter now does her weekly shopping. She has not attended her weekly coffee group since the fall. She reports low mood in relation to these losses, describing feeling that she has “aged ten years in three months.” Her sleep and appetite are unaffected.</div>
+        <div style="padding:8px 14px;border-bottom:1px solid #e4ded7;background:#faf8f6;font-size:12.5px;color:#3d3833;">Non-injury related eg psychological, relationship, financial, health:</div>
+        <div style="padding:11px 14px;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">None reported. Ana describes her financial situation, housing and family relationships as stable.</div>
+      </div>
+
+      <div class="note" style="margin-top:22px;background:#eae3dc;border-radius:14px;padding:24px 28px 26px;display:flex;gap:20px;">
+        <div style="width:3px;flex:none;background:#C8102E;border-radius:2px;"></div>
+        <div>
+          <p style="font-size:17px;line-height:1.6;color:#2d2d2d;margin:0;text-wrap:pretty;">Everything in the first box is what you are asking ACC to fund treatment for.</p>
+          <p style="font-size:14.5px;line-height:1.7;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">The second box is everything else going on in the person’s life. It matters, and it belongs on the form — just keep in mind that these issues are not for this treatment to solve.</p>
+        </div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">The form asks for specific examples of when the difficulties occur and how they affect functioning. General descriptions of mood or anxiety are much less useful here than a sentence about what the person does or doesn’t do.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">If there had been something — a bereavement, a financial strain, a longstanding difficulty — it belongs in the second box. Putting it there doesn’t weaken your request. It shows ACC you have seen the whole picture and are clear about which part you are proposing to treat.</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:34px 0 0;">Risks</h3>
+
+      <div class="frag" style="margin-top:14px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div class="row2" style="display:grid;grid-template-columns:minmax(0,1fr) 140px;border-bottom:1px solid #e4ded7;">
+          <div style="padding:9px 14px;font-size:12px;line-height:1.55;color:#7a736c;">d. Are there any risks identified?</div>
+          <div class="c2" style="padding:9px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;gap:14px;">
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Yes</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#111;"><span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>No</span>
+          </div>
+        </div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">If yes, describe the risks, any duty of care actions taken, and how the risk will be managed.</div>
+        <div style="padding:11px 14px;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">No risks to self or others identified. Some falls risk associated with reduced activity and deconditioning, which is being managed by her physiotherapist and is a consideration in pacing exposure work.</div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">Answer it for every client. Ana’s is a low-risk case, and the answer is still specific rather than a bare “no.”</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:34px 0 0;">The remaining background fields</h3>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Four more fields sit around the ones above, and they are usually short.</p>
+
+      <div class="frag" style="margin-top:20px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;">c. Describe any cultural or spiritual needs relevant to the kiritaki.</div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;">
+          <span>e. Are any other agencies currently involved in supporting the kiritaki?</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;color:#7a736c;font-size:13px;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Yes</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;color:#7a736c;font-size:13px;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>No</span>
+        </div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;">
+          <span>f. Has the kiritaki previously received assistance for their mental health?</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;color:#7a736c;font-size:13px;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Yes</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;color:#7a736c;font-size:13px;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>No</span>
+        </div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;">Please provide a brief summary of relevant background information.</div>
+        <div style="padding:9px 14px;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">Please provide any further opinion and recommendations relevant to the current claim and treatment needs.</div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">Two are worth a note. Field 3e asks whether other agencies are involved — this is a coordination question, so that ACC and you both know who else is working with this person. And if the client has had mental health support before, the form asks when and where, which is useful to you as well as to ACC.</p>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Treatment planning and functional objectives</h2>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">This is the centre of the form and the part worth spending time on.</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:30px 0 0;">The referral question</h3>
+
+      <div class="frag" style="margin-top:14px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="background:#ddd7cf;border-bottom:1px solid #cfc8c0;padding:9px 14px;font-size:12.5px;letter-spacing:0.05em;color:#3d3833;">4. Treatment planning and functional objectives</div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;">Specific question(s) outlined in ACC Psychological Services referral.</div>
+        <div style="padding:11px 14px;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">Fear of falling and avoidance following a right ankle fracture, limiting return to independent activity. Psychological treatment to address these barriers so Ana can return to independent activity.</div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">Take this from the reason and outcome fields on the <span style="color:#C8102E;letter-spacing:0.04em;">ACC265</span>. It anchors everything below it to what ACC actually asked for.</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:34px 0 0;">What ACC means by a functional goal</h3>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">The form sets out four requirements, and they are worth reading closely because they describe exactly what a usable goal looks like.</p>
+
+      <div class="frag" style="margin-top:20px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">Expectations for functional goals to allow for review mid-way and at the end of treatment. Please ensure that functional goals:</div>
+        <div style="padding:10px 14px;border-bottom:1px solid #e4ded7;font-size:13px;line-height:1.65;color:#3d3833;text-wrap:pretty;">1. are specifically linked to injury-related mental health difficulties (with specific examples of this reported).</div>
+        <div style="padding:10px 14px;border-bottom:1px solid #e4ded7;font-size:13px;line-height:1.65;color:#3d3833;text-wrap:pretty;">2. have behavioural outcome measures with pre-and post-measures included (eg. currently the client does X behaviour, Y times per day/week and that by the end of the input the client will do X behaviour Y+ times per day/week.)</div>
+        <div style="padding:10px 14px;border-bottom:1px solid #e4ded7;font-size:13px;line-height:1.65;color:#3d3833;text-wrap:pretty;">3. are likely to be achieved within the next reporting period – (it would be better to have smaller goals that can be achieved and can be updated at progress reporting, rather than larger or more general goals that do not get achieved.), and</div>
+        <div style="padding:10px 14px;font-size:13px;line-height:1.65;color:#3d3833;text-wrap:pretty;">4. will support the client to be able to independently self-manage without reliance on treatment providers.</div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">Read together, these rule out the kind of goal that is clinically meaningful but impossible to review. <span style="font-style:italic;">Improve confidence and process the emotional impact of the fall</span> fails all four. It isn’t behaviourally measurable, there is no before and after, and there is no point at which anyone could say whether it happened.</p>
+
+      <div class="note" style="margin-top:22px;background:#eae3dc;border-radius:14px;padding:24px 28px 26px;display:flex;gap:20px;">
+        <div style="width:3px;flex:none;background:#C8102E;border-radius:2px;"></div>
+        <div>
+          <p style="font-size:17px;line-height:1.6;color:#2d2d2d;margin:0;text-wrap:pretty;">This is a real constraint, and it is worth naming.</p>
+          <p style="font-size:14.5px;line-height:1.7;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Plenty of good therapy involves a period of exploring with someone without committing in advance to what will be measurable at the end of it. Working with ACC, you don’t have that latitude: the goals have to be behavioural, countable, and reviewable within the block.</p>
+          <p style="font-size:14.5px;line-height:1.7;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">That constrains the goals, not the therapy. What you do in the room to reach them is yours. The second series we are about to publish, on the clinical side, takes up the harder craft question — how to write measurable goals for work that in private practice you would frame quite differently.</p>
+        </div>
+      </div>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:40px 0 0;">The goals table</h3>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Three columns, five numbered rows. These are the criteria above, satisfied.</p>
+    </div>
+
+    <div class="goals" style="margin:20px calc(-1 * var(--bleed)) 0;width:calc(100% + 2 * var(--bleed));">
+      <div style="border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);background:#ddd7cf;border-bottom:1px solid #cfc8c0;">
+          <div style="padding:10px 14px;font-size:12px;line-height:1.5;color:#3d3833;text-wrap:pretty;">Functional goals to be achieved</div>
+          <div style="padding:10px 14px;border-left:1px solid #cfc8c0;font-size:12px;line-height:1.5;color:#3d3833;text-wrap:pretty;">What type of intervention will be used to achieve functional goals?</div>
+          <div style="padding:10px 14px;border-left:1px solid #cfc8c0;font-size:12px;line-height:1.5;color:#3d3833;text-wrap:pretty;">How functional goals will be measured (including pre and post psychometric measures)</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">1. Ana will walk unaccompanied to her letterbox and back. <span style="border-bottom:1.5px solid #C8102E;">Currently 0 times per week; by review, at least 5 times per week.</span></div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Psychoeducation about anxiety and avoidance; graded exposure beginning with the shortest route; anxiety-management strategies used during exposure.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Weekly activity record kept by Ana. Pre- and post- GAD-7.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">2. Ana will walk the path between her back door and gate without assistance. Currently avoided entirely; by review, completed at least 3 times per week.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Continued graded exposure; cognitive work on predictions about falling and their consequences.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Weekly activity record. Self-rated anxiety (0–10) before and after the walk.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">3. Ana will leave the house unaccompanied for a local errand. Currently 0 times per week; by review, at least twice per week.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Graded exposure extended to routes beyond the property; behavioural experiments testing predictions.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Weekly activity record. Pre- and post- GAD-7 and PHQ-9.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">4. Ana will attend her weekly coffee group. Currently not attending; by review, attending at least twice in the reporting period.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Exposure work combined with problem-solving around transport and re-contacting the group.</div>
+          <div style="padding:13px 14px;border-left:1px solid #e4ded7;font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">Attendance recorded by Ana.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);min-height:56px;">
+          <div style="padding:13px 14px;font-size:13.5px;line-height:1.65;color:#a8a09a;">5.</div>
+          <div style="border-left:1px solid #e4ded7;"></div>
+          <div style="border-left:1px solid #e4ded7;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:720px;margin:0 auto;padding:0;">
+      <sc-if value="{{ showAnnotations }}" hint-placeholder-val="{{ true }}">
+      <div class="anno" style="display:flex;justify-content:flex-end;align-items:flex-start;gap:8px;margin-top:10px;">
+        <span style="font-family:'Caveat',cursive;font-size:18px;line-height:1.2;color:#C8102E;max-width:300px;text-align:right;">A current figure and a target figure — this is what makes a goal reviewable</span>
+        <span style="color:#C8102E;font-size:16px;line-height:1;transform:rotate(-20deg);">↑</span>
+      </div>
+      </sc-if>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">The three columns are related. If a goal can’t be measured, it usually needs rewriting rather than a cleverer measure. And if the intervention column just names a modality, it isn’t yet saying anything — <span style="font-style:italic;">CBT</span> describes an approach; <span style="font-style:italic;">graded exposure to walking outdoors, beginning with the letterbox</span> describes what you are going to do.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Four goals rather than five. There is no requirement to fill every row, and four specific goals are better than five where the last one is padding.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Notice what the goals have in common. Each names something Ana will <span style="font-style:italic;">do</span>, each has a current figure and a target figure, and each of them came from Ana rather than from her psychologist.</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:40px 0 0;">The proposed next stage</h3>
+
+      <div class="stagebox" style="margin-top:14px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div class="stage" style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:11px 14px;font-size:12px;line-height:1.55;color:#7a736c;">Please indicate the proposed next stage:</div>
+          <div class="c2" style="padding:11px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+            <span style="font-size:13.5px;line-height:1.5;color:#3d3833;">Mental injury assessment (max. 16 hours)</span>
+            <span style="display:inline-block;width:14px;height:14px;flex:none;border:1px solid #a8a09a;"></span>
+          </div>
+        </div>
+        <div class="stage" style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);border-bottom:1px solid #e4ded7;">
+          <div style="padding:11px 14px;"></div>
+          <div class="c2" style="padding:11px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+            <span style="font-size:13.5px;line-height:1.5;color:#3d3833;">Treatment with approved mental injury cover (max. 24 hours)</span>
+            <span style="display:inline-block;width:14px;height:14px;flex:none;border:1px solid #a8a09a;"></span>
+          </div>
+        </div>
+        <div class="stage" style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);background:#fdf4f5;">
+          <div style="padding:11px 14px;"></div>
+          <div class="c2" style="padding:11px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;justify-content:space-between;gap:14px;">
+            <span style="font-size:13.5px;line-height:1.5;color:#111;">Treatment without approved mental injury cover (max. 10 hours)</span>
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;flex:none;border:1.5px solid #C8102E;color:#C8102E;font-size:11px;line-height:1;">✕</span>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">This is where the route gets chosen, and it is worth being clear about what you are and aren’t deciding.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">The second box records a fact rather than a recommendation. Tick it when ACC has already accepted the mental injury and the referral is for post-cover treatment — you will see it on the Purchase Order as <span style="color:#C8102E;letter-spacing:0.04em;">PSY61</span> or <span style="color:#C8102E;letter-spacing:0.04em;">PSY62</span> rather than <span style="color:#C8102E;letter-spacing:0.04em;">PSY60</span>.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Between the other two, you are <span style="color:#C8102E;">not</span> deciding whether this person has a mental injury. You have had around two hours of contact. That question is what an assessment exists to answer, and it needs psychometric work you haven’t done.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">This is the decision the first unit was preparing you for. If the psychological difficulty is a barrier standing between your client and a recovery still in progress, this is treatment — Ana’s situation. If the four planning hours show you something else, that there is no recovery left for it to obstruct, that there was no physical injury in the first place, or that the harm came from a medical procedure, then the question is one of cover, and that is what an assessment exists to answer. <a class="ps-unitlink" href="/working-under-the-psb-contract/"><span style="font-style:italic;">Unit 1, Working Under the PSB Contract</span></a> sets out the four routes.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">A useful second question: could ten hours of treatment go ahead sensibly whatever the answer about cover turns out to be? If yes, treat. You will know considerably more at the end of it than you do now.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">And some referrals answer the question before you do. A work-related traumatic event with no physical injury has no physical recovery for anything to be a barrier to, and assessment is the route from the start.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">One thing worth knowing. Recommending an assessment doesn’t mean you are volunteering to do it. ACC is asking for your professional opinion on the right next step, not for an offer of service. If you are approved for treatment only, you can still recommend assessment; the recommendation goes to ACC with your Action Plan, and ACC finds a provider who can carry it out. The planning stage doesn’t always end with you carrying on into the next block.</p>
+
+      <div class="note" style="margin-top:26px;background:#fff;border:1px solid #e2dad2;border-radius:16px;padding:26px 30px 28px;">
+        <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">Ana</div>
+        <p style="font-size:14.5px;line-height:1.7;color:#3d3833;margin:14px 0 0;max-width:600px;text-wrap:pretty;">Her ankle is still healing. Her fear of falling is real and has narrowed her life considerably, but it is a response to an injury she is still recovering from and it is the thing standing between her and that recovery. It is not a difficulty that would exist if the fall hadn’t happened.</p>
+        <p style="font-size:16px;line-height:1.6;color:#2d2d2d;margin:14px 0 0;max-width:600px;text-wrap:pretty;">Treatment without approved mental injury cover, the third box. Ten hours.</p>
+        <p style="font-size:14.5px;line-height:1.7;color:#57514b;margin:12px 0 0;max-width:600px;text-wrap:pretty;">That is the answer for most clients you will see. The harder version of this question — has this become something in its own right? — usually arrives at the end of a treatment block rather than at the end of the planning stage.</p>
+      </div>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:40px 0 0;">The remaining fields</h3>
+
+      <div class="frag" style="margin-top:14px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;">Number of sessions required, proposed frequency, and date to be completed.</div>
+        <div style="padding:11px 14px;border-bottom:1px solid #e4ded7;font-size:14px;line-height:1.65;color:#111;">Ten sessions, weekly, to be completed by 3 December 2026.</div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">Request for Active Liaison and/or Whānau Support. Please indicate the number of hours required and how these supports will be used to support recovery.</div>
+        <div style="padding:11px 14px;border-bottom:1px solid #e4ded7;font-size:14px;line-height:1.65;color:#111;">Not required at this stage.</div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;"><span style="font-size:12px;color:#7a736c;">Proposed date of next review with progress report:</span> <span style="font-size:14px;color:#111;">20 November 2026</span></div>
+        <div style="padding:9px 14px;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">If applicable, the name, Provider ID, and supplier of the proposed mental injury assessor:</div>
+      </div>
+
+      <div style="margin-top:22px;display:flex;flex-direction:column;gap:16px;">
+        <div>
+          <div style="font-size:14px;color:#2d2d2d;">Number of sessions, proposed frequency, and date to be completed</div>
+          <p style="font-size:15px;line-height:1.72;color:#3d3833;margin:6px 0 0;text-wrap:pretty;">Be realistic about frequency. Weekly is the usual assumption, and the completion date should follow from it. ACC’s timeframes are generous, so allow more than just the weekly option — for some clients fortnightly works better, and that is something you and your client decide together.</p>
+        </div>
+        <div>
+          <div style="font-size:14px;color:#2d2d2d;">Request for Active Liaison and/or Whānau Support</div>
+          <p style="font-size:15px;line-height:1.72;color:#3d3833;margin:6px 0 0;text-wrap:pretty;">If you need either, this is where you ask, with the number of hours and how they would support recovery. Both are covered in their own unit.</p>
+        </div>
+        <div>
+          <div style="font-size:14px;color:#2d2d2d;">Proposed date of next review with progress report</div>
+          <p style="font-size:15px;line-height:1.72;color:#3d3833;margin:6px 0 0;text-wrap:pretty;">This is an estimate, not a commitment. Work it from weekly sessions — ten sessions is about two and a half months — and add a fortnight, which puts the date roughly three months out. If a Progress Report is what comes next rather than a Completion Report, aim to have it with ACC about two weeks before the tenth session, so there is no gap in sessions while ACC considers it.</p>
+        </div>
+        <div>
+          <div style="font-size:14px;color:#2d2d2d;">Name, Provider ID and supplier of the proposed mental injury assessor</div>
+          <p style="font-size:15px;line-height:1.72;color:#3d3833;margin:6px 0 0;text-wrap:pretty;">If applicable. Leave blank unless you are recommending assessment. If you are, talk to us first — we’ll arrange the assessor.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Provider declaration</h2>
+
+      <div class="frag" style="margin-top:20px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div style="background:#ddd7cf;border-bottom:1px solid #cfc8c0;padding:9px 14px;font-size:12.5px;letter-spacing:0.05em;color:#3d3833;">5. Provider declaration</div>
+        <div style="padding:11px 14px;border-bottom:1px solid #e4ded7;display:flex;gap:10px;align-items:flex-start;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;margin-top:3px;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>
+          <span style="font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">I have informed the kiritaki that the information collected for this report will be sent to ACC to support cover decisions and treatment and rehabilitation needs. The kiritaki understands this.</span>
+        </div>
+        <div style="padding:11px 14px;border-bottom:1px solid #e4ded7;display:flex;gap:10px;align-items:flex-start;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;margin-top:3px;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>
+          <span style="font-size:13.5px;line-height:1.65;color:#111;text-wrap:pretty;">I confirm that the information contained in this report is accurate and aligns with ACC’s report standards.</span>
+        </div>
+        <div class="row2" style="display:grid;grid-template-columns:minmax(0,1fr) 180px;border-bottom:1px solid #e4ded7;">
+          <div style="padding:9px 14px;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">Provide the date of the last appointment with the kiritaki that informed this report.</div>
+          <div class="c2" style="padding:9px 14px;border-left:1px solid #e4ded7;"><span style="font-size:12px;color:#7a736c;">Date:</span> <span style="font-size:14px;color:#111;">18/09/2026</span></div>
+        </div>
+        <div class="row2" style="display:grid;grid-template-columns:minmax(0,1fr) 180px;">
+          <div style="padding:9px 14px;font-size:12px;line-height:1.55;color:#7a736c;">Psychologist name:</div>
+          <div class="c2" style="padding:9px 14px;border-left:1px solid #e4ded7;"><span style="font-size:12px;color:#7a736c;">Date:</span> <span style="font-size:14px;color:#111;">18/09/2026</span></div>
+        </div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">Two tick boxes, then two dates: the last appointment that informed the report, and the day you sign it.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">The kiritaki doesn’t sign the Action Plan and doesn’t need to see the written report before it goes to ACC. The collaboration the form asks for happens in the sessions, when you agree the goals together.</p>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Before you send it</h2>
+
+      <div class="mblock" style="float:right;clear:right;width:calc(268px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 22px 40px;background:#efeae5;border-radius:14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">Who receives it</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">The Action Plan goes to ACC only. This is different from the Progress and Completion Reports you’ll write later, which go to the client’s GP as well.</p>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">Read it once as though you were the person at ACC who has never met Ana, and check you can answer four things.</p>
+
+      <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;gap:14px;align-items:baseline;"><span style="font-size:13px;color:#C8102E;letter-spacing:0.04em;flex:none;">01</span><span style="font-size:15.5px;line-height:1.65;color:#2d2d2d;text-wrap:pretty;">Why does this client need psychological treatment within this referral?</span></div>
+        <div style="display:flex;gap:14px;align-items:baseline;"><span style="font-size:13px;color:#C8102E;letter-spacing:0.04em;flex:none;">02</span><span style="font-size:15.5px;line-height:1.65;color:#2d2d2d;text-wrap:pretty;">What is being worked on?</span></div>
+        <div style="display:flex;gap:14px;align-items:baseline;"><span style="font-size:13px;color:#C8102E;letter-spacing:0.04em;flex:none;">03</span><span style="font-size:15.5px;line-height:1.65;color:#2d2d2d;text-wrap:pretty;">What is expected to change, and how will it be measured?</span></div>
+        <div style="display:flex;gap:14px;align-items:baseline;"><span style="font-size:13px;color:#C8102E;letter-spacing:0.04em;flex:none;">04</span><span style="font-size:15.5px;line-height:1.65;color:#2d2d2d;text-wrap:pretty;">How does that change help this person’s recovery?</span></div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">If all four are clear, the plan does its job.</p>
+
+      <div class="mblock" style="float:right;clear:right;width:calc(268px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 22px 40px;background:#efeae5;border-radius:14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">What happens next</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">ACC reviews the plan and either approves the next service, usually within about a week, or sends it back asking for more information.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">A returned plan isn’t unusual and isn’t a problem — but it does need addressing promptly, and the time spent reworking it isn’t separately funded. It’s worth getting right first time.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">Approvals come to PractiSpace. We’ll update our system and let you know when the hours are in place so you can carry on with your client.</p>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+
+    <div class="idea" style="margin-top:56px;background:#eae3dc;border-radius:16px;padding:34px 36px 36px;display:flex;gap:22px;">
+      <div style="width:3px;flex:none;background:#C8102E;border-radius:2px;"></div>
+      <div>
+        <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#8a827a;">One idea to take with you</div>
+        <p style="font-size:16px;line-height:1.7;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">The ACC266 asks you to make your clinical reasoning visible to someone who will never meet your client.</p>
+        <p style="font-size:16px;line-height:1.7;color:#2d2d2d;margin:12px 0 0;text-wrap:pretty;">That is a translation task, not a different kind of thinking. The plan is still the one you and your client built together. What the form adds is the requirement to say what will change, by how much, and how you’ll know — which is worth doing anyway, and which gives you something real to compare against when you reach the end of the block.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:44px;border-top:1px solid #e2dad2;padding-top:22px;">
+      <div style="font-size:13px;line-height:1.75;color:#8a827a;">
+        <div style="color:#2d2d2d;font-size:14px;">Ronit Adiv, Clinical Psychologist</div>
+        <div style="margin-top:4px;">Managing Director, PractiSpace</div>
+        <div style="margin-top:8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <a href="mailto:ronit.adiv@practispace.co.nz">ronit.adiv@practispace.co.nz</a>
+          <span style="color:#c4bab1;">·</span>
+          <a href="https://www.practispace.co.nz">www.practispace.co.nz</a>
+        </div>
+        <div style="margin-top:10px;font-size:12px;font-style:italic;color:#9a938c;">PractiSpace learning unit — September 2026</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showAnnotations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Unit display&quot;},&quot;showRail&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Unit display&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showAnnotations: this.props.showAnnotations ?? true,
+      showRail: this.props.showRail ?? true
+    };
+  }
+}
+
+</script>
+</body>
+</html>
