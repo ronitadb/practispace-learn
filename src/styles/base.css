@@ -78,6 +78,28 @@ a:hover { color: #a50e26; }
   color: #9a938c;
 }
 
+/* A cross-reference to another unit, inside a unit's own prose.
+
+   The units use the accent red for emphasis as well as for links — ACC265,
+   PSY50 and the rest are coloured spans, not anchors — so red alone does not
+   tell a reader what is clickable. These get a quiet underline so they do.
+
+   A unit that is named but not yet written (Unit 3.1, Unit 3.2) is left as
+   plain italic with no link, which makes "published" and "still to come"
+   visibly different.
+
+   The class beats the `a { text-decoration: none }` in each unit's own
+   stylesheet on specificity, so load order does not matter. */
+a.ps-unitlink {
+  text-decoration: underline;
+  text-decoration-color: rgba(200, 16, 46, 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a.ps-unitlink:hover {
+  text-decoration-color: #C8102E;
+}
+
 /* Back to index, sitting just under the red top rule on every unit page. */
 .ps-topnav {
   max-width: 760px;
