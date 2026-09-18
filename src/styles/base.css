@@ -259,6 +259,24 @@ a.ps-unitcard:hover { border-color: #C8102E; color: inherit; }
 a.ps-unitcard:hover .ps-unitcard-title { color: #C8102E; }
 .ps-unitcard-sub { display: block; font-size: 13.5px; line-height: 1.6; color: #8a827a; margin-top: 8px; text-wrap: pretty; }
 
+/* A sub-unit (3.1, 4.1, 5.1 …). Indented from the left so it starts inside
+   its parent, but still ending on the same right edge, and set lower — so the
+   list shows at a glance which units hang off which. */
+.ps-unitcard.is-sub {
+  margin-left: 46px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  border-radius: 14px;
+}
+.ps-unitcard.is-sub .ps-unitcard-title { font-size: 17px; }
+.ps-unitcard.is-sub .ps-unitcard-sub { font-size: 13px; margin-top: 6px; }
+
+/* On a phone the column is narrow enough that a deep indent costs real
+   reading width, so it is reduced rather than dropped. */
+@media (max-width: 600px) {
+  .ps-unitcard.is-sub { margin-left: 20px; }
+}
+
 /* A unit outside the numbered sequence. The numeral column is kept so the
    titles stay aligned down the list — the missing number is signal enough,
    and a ragged left edge would read as a mistake rather than as meaning. */

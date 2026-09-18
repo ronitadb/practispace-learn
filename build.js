@@ -344,7 +344,10 @@ function buildIndex() {
   // A unit with no number stands outside the numbered sequence, so its card
   // drops the numeral column rather than leaving a gap where one would be.
   const card = (u) => {
-    const cls = u.number ? '' : ' is-unnumbered';
+    // A sub-unit (3.1, 4.2 …) is indented and set lower than its parent.
+    const isSub = !!u.number && u.number.includes('.');
+    const cls =
+      (u.number ? '' : ' is-unnumbered') + (isSub ? ' is-sub' : '');
     const num = u.number ? `<span class="ps-unitcard-num">${esc(u.number)}</span>` : '';
     const sub = u.file
       ? u.subtitle
