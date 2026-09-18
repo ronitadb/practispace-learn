@@ -68,7 +68,7 @@ and check the diff before committing.
    npm run cards && npm run build
    ```
 
-4. Commit and push. Cloudflare rebuilds and publishes automatically.
+4. Commit and push. GitHub Actions rebuilds and publishes automatically.
 
 That is the whole process. Navigation, the index page, the sitemap and
 previous/next all update themselves from `units.js`.
@@ -124,27 +124,37 @@ There are no dependencies to install.
 units.js              the unit list — the only file you normally edit
 build.js              assembles dist/
 tools/social-cards.js renders the WhatsApp/LinkedIn preview images
-src/units/            Claude Design source exports, untouched
-src/styles/base.css   design system + site additions
+src/units/            Claude Design exports, untouched
+src/styles/base.css   site-wide base + the site's own additions
 src/assets/           fonts, images
 dist/                 build output — not committed
 ```
+
+Each unit also gets its own stylesheet. The build lifts the CSS out of that
+unit's `<helmet>` and publishes it as `assets/styles/unit-<slug>.css`, loaded
+after `base.css`. Units do **not** share one stylesheet: Unit 02 defines
+`.f2` / `.fscroll` / `.frag` at 700px, Unit 03 defines `--bleed` / `.sec` /
+`.mblock` at 760px, and the two disagree about `.col`. Because this is
+automatic, a new export can introduce whatever CSS it likes and nothing is
+lost.
 
 The build strips the Claude Design runtime wrappers and keeps the authored
 markup exactly as it is, then wraps it in a proper HTML document with the
 title, description, canonical URL and social card tags, and adds the
 navigation. **The design is not modified.**
 
-### The one deliberate change to how a unit renders
+### Deliberate changes to how a unit renders
 
-`src/styles/base.css`, Part 4. The referral tables are authored as fixed
-five-column grids. Below about 640px that left roughly 35px of text per column,
-which clipped the column headings and made long words overlap the next column.
-The table now scrolls sideways inside its own card instead, keeping its
-authored shape — which also keeps it looking like the ACC form it is teaching
-people to read.
+Two rules in `base.css`, both phone-only, both leaving desktop untouched:
 
-Nothing in that rule applies above 640px, so the desktop design is untouched.
+- **Part 4** — wide fixed-column tables scroll sideways inside their own card
+  rather than clipping their headings. Dormant now that Unit 02's export
+  handles its own table with `.fscroll`, but kept for future units.
+- **Part 5** — the two-column term/definition tables ("What PSB pays for" in
+  Unit 01, "ACC language at a glance" in Unit 02) stack below 600px. Without
+  it the definition column gets about 95px, roughly twelve characters a line.
+  Scoped to the `minmax(170px,…)` signature, so the four comparison tables in
+  Unit 01 are untouched.
 
 ### Other things the build does
 
@@ -196,65 +206,39 @@ re-reads the sitemap by itself.
 
 ## Deploying
 
-The site is hosted on **Cloudflare Pages**. DNS for practispace.co.nz stays at
-Discount Domains; only one record is added there.
+Hosted on **GitHub Pages** from `github.com/ronitadb/practispace-learn`.
+Every push to `master` runs `.github/workflows/deploy.yml`, which builds and
+publishes. Nothing else to do.
 
-### First time
+The repository is public because GitHub Pages requires that on the free plan.
+Everything in it is published on the site anyway.
 
-1. Push this repository to GitHub.
+### DNS
 
-2. Cloudflare dashboard → **Workers & Pages** → **Create** → **Pages** →
-   **Connect to Git**, and select the repository.
-
-3. Build settings:
-
-   | Setting | Value |
-   | --- | --- |
-   | Framework preset | None |
-   | Build command | `npm run build` |
-   | Build output directory | `dist` |
-
-   Deploy. The site goes live at `something.pages.dev`.
-
-4. In the project → **Custom domains** → **Set up a domain** → enter
-   `learn.practispace.co.nz`. Cloudflare shows you the CNAME target.
-
-5. Add that one record at Discount Domains — see below.
-
-### The DNS record
-
-Add **one** record. Change nothing else.
+One record at Discount Domains, already in place:
 
 | Field | Value |
 | --- | --- |
 | Type | `CNAME` |
-| Host / Name | `learn` |
-| Points to / Value | `<your-project>.pages.dev` |
-| TTL | default (3600) |
+| Host | `learn` |
+| Points to | `ronitadb.github.io` |
+| TTL | 3600 |
 
-`<your-project>.pages.dev` is the exact target Cloudflare shows in step 4.
+**Leave every other record alone** — the `www` CNAME to `cdn.webflow.com`, the
+apex `A` record, and the Google Workspace `MX` records. Touching those takes
+down the main site or the email.
 
-Some registrars want the host as the full name — if Discount Domains rejects
-`learn`, use `learn.practispace.co.nz`.
+Discount Domains takes up to an hour to publish a zone change. A record that
+looks missing is usually just unpublished; check the zone export before
+assuming something is wrong.
 
-**Leave every existing record alone.** The Webflow records that must not
-change are the `A` records on the root/apex `@` and the `CNAME` on `www`.
-Touching those takes the main site down.
+HTTPS is issued automatically by GitHub and renews itself.
 
-DNS usually propagates in 15–60 minutes. Cloudflare issues the HTTPS
-certificate automatically once it sees the record.
-
-Check it with:
+### Checking it
 
 ```bash
 dig learn.practispace.co.nz CNAME +short
 ```
-
-### After that
-
-Every push to the default branch rebuilds and republishes. Nothing else to do.
-
----
 
 ## Notes
 
