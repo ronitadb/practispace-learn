@@ -2,15 +2,18 @@
    PractiSpace — Working with ACC learning units
    Shared stylesheet.
 
-   PART 1 is the design system exactly as authored in Claude Design, taken
-   from the most recent export. Do not edit it by hand — if the design changes
-   upstream, replace this block wholesale with the new export's <style> block.
+   PART 1 is the site-wide base: the handful of rules every page needs,
+   including the index, which is not a Claude Design export.
 
-   IMPORTANT: the build strips each unit's <helmet>, so any CSS a new export
-   introduces must be copied into Part 1 or it is silently lost. The 2026-09-17
-   Unit 02 export added the .col / .f2 / .fscroll / .frag rules below, which
-   17 elements in that unit depend on. Always diff a new export's <style>
-   block against this one before committing.
+   Each UNIT's own CSS is no longer here. The build lifts it straight out of
+   that unit's <helmet> and publishes it as assets/styles/unit-<slug>.css,
+   loaded after this file. That happens automatically, so a new export can
+   introduce whatever CSS it likes and nothing is lost.
+
+   This replaced a single shared block, which stopped working when Unit 03
+   arrived: Unit 02 defines .f2/.fscroll/.frag at 700px, Unit 03 defines
+   --bleed/.sec/.mblock/.recap at 760px, and the two disagree about .col.
+   They cannot share one stylesheet.
 
    PART 2 is self-hosted fonts (was a Google Fonts CDN link).
    PART 3 is site additions: inter-unit navigation and the index page.
@@ -30,17 +33,9 @@ a:hover { color: #a50e26; }
 @page { margin: 14mm; }
 @media print { #unit-rail { display: none !important; } }
 @media (max-width: 850px) { #unit-rail { display: none !important; } }
-@media (max-width: 700px) {
-  .col { padding-left: 18px !important; padding-right: 18px !important; }
-  .f2 { grid-template-columns: minmax(0,1fr) !important; }
-  .f2 > * + * { border-left: 0 !important; border-top: 1px solid #C0C0C0 !important; }
-  .fscroll { overflow-x: auto !important; -webkit-overflow-scrolling: touch; }
-  .fscroll > * { min-width: 560px; }
-}
 @media print {
   html, body { background: #fff !important; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .frag { break-inside: avoid; }
 }
 
 

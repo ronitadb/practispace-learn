@@ -79,6 +79,38 @@ function write(relPath, contents) {
    Tolerant of files that have already been stripped by hand.
    ------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------
+   Extract a unit's own CSS from its <helmet>.
+
+   Each unit carries its own stylesheet, and they are NOT interchangeable:
+   Unit 02 defines .f2/.fscroll/.frag at 700px, Unit 03 defines
+   --bleed/.sec/.mblock/.recap at 760px, and the two disagree about .col.
+   So every unit gets its own stylesheet rather than one shared base.
+
+   @font-face blocks are dropped: a bundled export inlines them pointing at
+   bundle-internal asset ids that do not exist once published. The site
+   self-hosts Tenor Sans from base.css instead.
+   ------------------------------------------------------------------------- */
+
+function extractUnitCss(raw, label) {
+  const helmet = raw.match(/<helmet>([\s\S]*?)<\/helmet>/i);
+  if (!helmet) return '';
+
+  let css = [...helmet[1].matchAll(/<style>([\s\S]*?)<\/style>/gi)]
+    .map((m) => m[1])
+    .join('\n');
+
+  // Drop @font-face rules, including any nested braces.
+  css = css.replace(/@font-face\s*\{[^}]*\}/gi, '');
+  // Tidy the comment left behind by a removed block.
+  css = css.replace(/\/\*\s*(cyrillic|latin(-ext)?)\s*\*\//gi, '');
+
+  if (/@font-face|url\(["']?[0-9a-f-]{36}/i.test(css)) {
+    throw new Error(`Bundle-internal font reference left in ${label}'s CSS`);
+  }
+  return css.replace(/\n{3,}/g, '\n\n').trim();
+}
+
 function extractBody(raw, label) {
   let html = raw;
 
@@ -155,7 +187,7 @@ function unitNav(prev, next) {
    The document shell
    ------------------------------------------------------------------------- */
 
-function shell({ title, description, canonical, bodyHtml, pageTitle, image }) {
+function shell({ title, description, canonical, bodyHtml, pageTitle, image, unitCssHref }) {
   const ogImage = `${site.origin}/assets/img/${image || 'social-card.png'}`;
   return `<!DOCTYPE html>
 <html lang="${site.lang}">
@@ -190,7 +222,9 @@ function shell({ title, description, canonical, bodyHtml, pageTitle, image }) {
 <meta name="twitter:image" content="${ogImage}">
 
 <link rel="preload" href="/assets/fonts/tenor-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles/base.css">
+<link rel="stylesheet" href="/assets/styles/base.css">${
+  unitCssHref ? `\n<link rel="stylesheet" href="${unitCssHref}">` : ''
+}
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -212,7 +246,21 @@ function buildUnit(unit, prev, next) {
     );
   }
 
-  let body = extractBody(fs.readFileSync(file, 'utf8'), unit.file);
+  const raw = fs.readFileSync(file, 'utf8');
+
+  // The unit's own CSS, published beside the page.
+  const unitCss = extractUnitCss(raw, unit.file);
+  let unitCssHref = null;
+  if (unitCss) {
+    unitCssHref = `/assets/styles/unit-${unit.slug}.css`;
+    write(
+      path.join('assets', 'styles', `unit-${unit.slug}.css`),
+      `/* ${unit.title} — authored in Claude Design, extracted from the\n` +
+        `   unit's <helmet> at build time. Do not edit by hand. */\n\n${unitCss}\n`
+    );
+  }
+
+  let body = extractBody(raw, unit.file);
 
   // Back-to-index link under the red top rule.
   if (!body.includes(TOP_RULE)) {
@@ -249,6 +297,7 @@ function buildUnit(unit, prev, next) {
       description: unit.description,
       canonical: `${site.origin}/${unit.slug}/`,
       image: `social-${unit.slug}.png`,
+      unitCssHref,
       bodyHtml: body,
     })
   );

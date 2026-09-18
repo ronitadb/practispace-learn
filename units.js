@@ -60,6 +60,17 @@ const units = [
       'Partner does.',
     file: '02-reading-an-acc-referral.html',
   },
+  {
+    number: '03',
+    slug: 'treatment-without-a-mental-injury-assessment',
+    title: 'Treatment Without a Mental Injury Assessment',
+    subtitle: 'Ana\u2019s journey, from referral to completion',
+    description:
+      'One PSB treatment claim end to end: PSY50 planning, the ACC266 plan, ' +
+      'PSY60 treatment blocks, the ACC267 progress report and the ACC268 ' +
+      'completion report.',
+    file: '03-treatment-without-a-mental-injury-assessment.html',
+  },
 ];
 
 /* Units that are written or in draft but not published yet.

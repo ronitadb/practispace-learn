@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="2ca55b90-f0c3-41d1-b3e4-99f85237f94d"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="omelette-owns-print" content="true">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* cyrillic */
+@font-face {
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("99baddce-6713-4065-bbad-94d345d0feb1") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("ae8e6a0c-ca70-4ba6-aa4f-7843ef5a563e") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Tenor Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("24efcbdd-f476-45aa-a9ef-522faf52e1a6") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; overflow-x: hidden; }
+  body { font-family: 'Tenor Sans', system-ui, sans-serif; color: #2d2d2d; background: #f5f2f0; -webkit-font-smoothing: antialiased; }
+  a { color: #C8102E; text-decoration: none; }
+  a:hover { color: #a50e26; }
+  @page { margin: 14mm; }
+  @media print { #unit-rail { display: none !important; } }
+  @media (max-width: 850px) { #unit-rail { display: none !important; } }
+  :root { --bleed: clamp(0px, calc((100vw - 784px) / 2), 72px); }
+  @media (max-width: 760px) {
+    :root { --bleed: 0px; }
+    .col { padding-left: 20px !important; padding-right: 20px !important; }
+    .sec { display: block !important; }
+    .mblock, .nblock { width: 100% !important; max-width: 100% !important; margin: 24px 0 26px !important; }
+    .recap { grid-template-columns: minmax(0,1fr) !important; }
+    .recap .rl { padding-bottom: 2px !important; }
+    .recap .rd { border-top: 0 !important; padding-top: 4px !important; }
+  }
+  @media print {
+    :root { --bleed: 0px; }
+    .sec { display: block !important; }
+    .mblock, .nblock { width: 100% !important; max-width: 100% !important; margin: 20px 0 22px !important; }
+    .mblock, .nblock, .note, .recap, .bar, .idea { break-inside: avoid; page-break-inside: avoid; }
+    html, body { background: #fff !important; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</helmet>
+
+
+
+<div style="background:#f5f2f0;min-height:100vh;">
+
+<div id="unit-rail" style="position:fixed;left:0;top:0;bottom:0;width:48px;background:#eae3dc;border-right:1px solid #ddd4cb;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:18px;overflow:hidden;padding:20px 0;z-index:5;">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+    <div style="font-size:15px;letter-spacing:0.02em;color:#C8102E;">03</div>
+    <div style="width:1px;height:26px;background:#C8102E;"></div>
+  </div>
+  <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:10px;letter-spacing:0.26em;text-transform:uppercase;color:#8a827a;white-space:nowrap;min-height:0;overflow:hidden;text-overflow:ellipsis;">Unit 03 · Treatment</div>
+  <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#b3aaa2;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;">PractiSpace</div>
+</div>
+
+  <div style="height:8px;background:#C8102E;"></div>
+
+  <div class="col" style="max-width:720px;margin:0 auto;padding:0 30px 80px;">
+
+    <div style="padding:38px 0 0;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;">
+      <div style="font-size:18px;letter-spacing:0.02em;color:#2d2d2d;">Practi<span style="color:#C8102E;">Space</span></div>
+      <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;">Working with ACC · Unit 03</div>
+    </div>
+
+    <div style="padding:30px 0 0;">
+      <h1 style="font-size:34px;line-height:1.15;letter-spacing:0.01em;font-weight:400;margin:0;max-width:560px;text-wrap:pretty;">Treatment Without a Mental Injury Assessment</h1>
+      <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#9a938c;margin:14px 0 0;">Ana’s journey, from referral to completion</div>
+      <div style="width:170px;height:2px;background:#C8102E;border-radius:2px;margin:20px 0 0;"></div>
+      <p style="font-size:15px;line-height:1.68;color:#57514b;margin:22px 0 0;text-wrap:pretty;">PSB funds six kinds of service, set out in Unit 1. This unit follows the one you will meet most often by far: psychological treatment for a client whose difficulties are getting in the way of recovering from an injury ACC has already accepted, where no mental injury assessment is involved.</p>
+      <p style="font-size:15px;line-height:1.68;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">What follows is Ana’s treatment from beginning to end: the email that arrives in your inbox, the first appointment, the plan, the work, the point where you and she decide whether to finish or ask for another block of hours, and the report that closes her file.</p>
+    </div>
+
+    <div class="sec" style="padding:52px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 224px;column-gap:38px;align-items:start;">
+      
+      <div style="grid-column:1;grid-row:1;align-self:center;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">The referral arrives</h2>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">An email from PractiSpace lands in your inbox. There’s an <span style="color:#C8102E;letter-spacing:0.04em;">ACC265</span> attached.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">You read it. Ana Whitfield, 63. She fell down the back steps at home four months ago and fractured her ankle. The fracture is healing as expected and she is out of the moon boot, but ACC’s summary notes that she has stopped leaving the house on her own, has become reliant on her daughter for shopping and errands, and described herself to her Recovery Partner as feeling like she has “aged ten years in three months.”</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">The referral is for psychological treatment. Four hours of <span style="color:#C8102E;letter-spacing:0.04em;">PSY50</span> have been authorised to begin with.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">You have space, this is work you know how to do, and you reply to say you can take her.</p>
+      </div>
+<div class="mblock" style="grid-column:2;grid-row:1;align-self:center;width:calc(224px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 26px 0;background:#efeae5;border-top:3px solid #C8102E;border-radius:3px 3px 14px 14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">Nothing starts without a referral</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Every client you see under PSB comes to you this way. ACC sends the referral to PractiSpace as the Supplier, and we allocate it to you.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">Before it reaches you, we’ve checked the referral and the Purchase Order, and confirmed the authorised services make sense for what’s being asked. All you need to tell us is whether you can take the client.</p>
+        <div class="bar" style="margin-top:26px;">
+          <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;">
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+          </div>
+          <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#C8102E;margin-top:10px;text-align:right;">Referral</div>
+        </div>
+      </div>
+
+          </div>
+
+    <div class="sec" style="padding:40px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 224px;column-gap:38px;align-items:start;">
+      
+      <div style="grid-column:1;grid-row:1;align-self:center;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">First contact</h2>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">You email Ana the same afternoon. You introduce yourself, explain that ACC has referred her for some psychological support alongside her recovery, and offer two appointment times the following week.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">She replies that evening and takes the later one.</p>
+      </div>
+<div class="mblock" style="grid-column:2;grid-row:1;align-self:center;width:calc(224px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 26px 0;background:#efeae5;border-top:3px solid #C8102E;border-radius:3px 3px 14px 14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">Getting in touch</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Contact your new client within three business days of the referral being allocated to you. This first contact is just to introduce yourself and either arrange the first appointment or let them know when you expect to be able to start.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">There’s a template you can use for that first email: <span style="color:#2d2d2d;">First contact email</span>. <span style="color:#a79e95;">[LINK to the template page]</span></p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">Two things to pass on to us if they come up: you can’t get hold of the client, or the client tells you they don’t want to go ahead. Let us know as early as you can.</p>
+      </div>
+
+          </div>
+
+    <div class="sec" style="padding:40px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 224px;column-gap:38px;align-items:start;">
+      
+      <div style="grid-column:1;grid-row:1;align-self:center;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Getting to know Ana</h2>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">She arrives early to the first session and apologises for it twice.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Over two meetings, the picture fills in. The fall itself — she was carrying a basket of washing and misjudged the bottom step in the dark. Six weeks on crutches. The moon boot after that. The physio appointments her daughter drove her to.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">And then the part that isn’t in the referral. That she hasn’t walked to the letterbox on her own since it happened. That the path from her back door to the gate is uneven, and she now looks at it the way you’d look at a cliff edge. That her daughter Kate does the supermarket run every Saturday and Ana has started writing the list the night before so it’s ready, which she is aware is a small humiliation. That she used to meet three friends for coffee on Thursday mornings and hasn’t been since the fall.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">She is not depressed in any clinical sense, and she is not avoidant of everything. She is frightened of falling again, and that fear has quietly rearranged her life.</p>
+      </div>
+<div class="mblock" style="grid-column:2;grid-row:1;align-self:center;width:calc(224px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 26px 0;background:#efeae5;border-top:3px solid #C8102E;border-radius:3px 3px 14px 14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">What this stage is</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">ACC calls it <span style="color:#2d2d2d;">Early Intervention &amp; Planning</span>, service code <span style="color:#C8102E;letter-spacing:0.04em;">PSY50</span>, and authorises up to four hours. The four hours cover the face to face sessions and the Action Plan you write at the end of them, and how you divide them is up to you.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">Planning is what these hours produce. It is not what they are spent on. They are spent getting to know the person well enough that the plan turns out to be theirs rather than yours.</p>
+        <div class="bar" style="margin-top:26px;">
+          <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;">
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+          </div>
+          <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#C8102E;margin-top:10px;text-align:right;">Referral · PSY50</div>
+        </div>
+      </div>
+
+          </div>
+
+    <div class="sec" style="padding:40px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 224px;column-gap:38px;align-items:start;">
+      
+      <div style="grid-column:1;grid-row:1;align-self:center;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Building the plan together</h2>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">By the second session you are not really deciding what to work on. Ana has been telling you since she sat down. What you do now is say it back to her and check you have it right.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">She wants to walk to the letterbox and back on her own. She wants to manage the path to the gate without her heart racing. She wants to do her own shopping again, or at least the Saturday run with Kate rather than instead of her. And she wants to go back to Thursday mornings.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">You explain how you’d work towards those things — building confidence gradually, starting with what feels manageable, and looking at the thoughts that arrive when she’s standing at the top of that path.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">She says that sounds more possible than she expected.</p>
+      </div>
+<div class="mblock" style="grid-column:2;grid-row:1;align-self:center;width:calc(224px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 26px 0;background:#efeae5;border-top:3px solid #C8102E;border-radius:3px 3px 14px 14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">The Action Plan</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">At the end of the planning stage you send ACC an <span style="color:#2d2d2d;">Action Plan</span>, on form <span style="color:#C8102E;letter-spacing:0.04em;">ACC266</span>.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">It’s the plan you and your client have built together, written so that ACC can follow it: what’s happened, what’s getting in the way of recovery, what you propose to work on, and what you reasonably expect treatment to achieve.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">ACC reviews it and approves the next allocation of hours on that basis. <span style="font-style:italic;">Unit 3.1, Writing the Action Plan</span> covers how to write one.</p>
+        <div class="bar" style="margin-top:26px;">
+          <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;">
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+          </div>
+          <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#C8102E;margin-top:10px;text-align:right;">… PSY50 · ACC266</div>
+        </div>
+      </div>
+
+          </div>
+
+    <div class="sec" style="padding:40px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 224px;column-gap:38px;align-items:start;">
+      
+      <div style="grid-column:1;grid-row:1;align-self:center;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Approval comes through</h2>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">A week and a half later you hear from PractiSpace. ACC has approved the Action Plan and authorised the next block of treatment hours.</p>
+      </div>
+<div class="mblock" style="grid-column:2;grid-row:1;align-self:center;width:calc(224px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 26px 0;background:#efeae5;border-top:3px solid #C8102E;border-radius:3px 3px 14px 14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">How approvals reach you</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">ACC sends approvals and Purchase Order amendments to PractiSpace as the Supplier. We update our system and let you know when the hours are in place.</p>
+      </div>
+
+          </div>
+
+    <div class="sec" style="padding:40px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 224px;column-gap:38px;align-items:start;">
+      
+      <div style="grid-column:1;grid-row:1;align-self:center;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">The work</h2>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">The early sessions go well.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Ana walks to the letterbox in week two and tells you about it with the pride of someone who has climbed a mountain. By week four she’s managing the footpath outside her house and has been as far as the corner dairy twice.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Then, in week five, she steps awkwardly off a wet kerb in town. She doesn’t fall. But she doesn’t leave the house on her own for the rest of that week, and arrives at her next session flat and apologetic.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Working through it, something becomes clearer to you than it was when you wrote the Action Plan.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Ana is frightened of falling. But underneath that, what she is really frightened of is what a second fall would mean — that Kate would have to do more, that the arrangement would become permanent, that this is the point where her life starts getting smaller and doesn’t stop. The wet kerb didn’t scare her because she nearly fell. It scared her because it looked like evidence.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">That changes what you’re working on. Not the goals, which are still right, but what sits behind them.</p>
+      </div>
+<div class="mblock" style="grid-column:2;grid-row:1;align-self:center;width:calc(224px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 26px 0;background:#efeae5;border-top:3px solid #C8102E;border-radius:3px 3px 14px 14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">What this stage is</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">ACC calls it <span style="color:#2d2d2d;">Psychological Sessions – no Mental Injury Cover</span>, service code <span style="color:#C8102E;letter-spacing:0.04em;">PSY60</span>, funded in blocks of up to ten hours.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">The Action Plan gives the treatment direction. It isn’t a script. As treatment develops your understanding may deepen, the formulation may shift, and some things will turn out to matter more than you expected. That’s ordinary clinical work, and it’s what the hours are for.</p>
+        <div class="bar" style="margin-top:26px;">
+          <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;">
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+          </div>
+          <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#C8102E;margin-top:10px;text-align:right;">… ACC266 · PSY60</div>
+        </div>
+      </div>
+
+          </div>
+
+    <div class="sec" style="padding:40px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 224px;column-gap:38px;align-items:start;">
+      
+      <div style="grid-column:1;grid-row:1;align-self:center;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Nearing the end of the block</h2>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">With two sessions of the block left, you take stock together.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Ana walks locally on her own most days. She has done two supermarket trips with Kate rather than instead of her. She is using what she’s learned and she can name it.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Some of what has shifted has come through ACT work alongside the graded exposure.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">But the path to the gate still defeats her on bad days, she avoids anywhere with uneven ground, and Thursday mornings still haven’t happened. She mentions them every few sessions and then changes the subject.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">So: is this finished, or isn’t it?</p>
+      </div>
+<div class="mblock" style="grid-column:2;grid-row:1;align-self:center;width:calc(224px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 26px 0;background:#efeae5;border-top:3px solid #C8102E;border-radius:3px 3px 14px 14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">This is a decision point</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">The end of a treatment block isn’t just the end of a Purchase Order. It’s a point to stop and look at what’s changed.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">There are two directions. Treatment continues, or treatment completes.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">The question that decides it isn’t <span style="font-style:italic;">could this client benefit from more therapy</span> — almost anyone could.</p>
+        <div style="margin-top:14px;display:flex;gap:14px;align-items:stretch;">
+          <div style="width:3px;flex:none;background:#C8102E;border-radius:2px;"></div>
+          <div style="font-size:17px;line-height:1.45;color:#2d2d2d;text-wrap:pretty;">What would additional hours actually achieve?</div>
+        </div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">If you can answer that clearly, there’s a case for continuing. If you can’t, that’s worth paying attention to.</p>
+        <div class="bar" style="margin-top:26px;">
+          <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;">
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+          </div>
+          <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#C8102E;margin-top:10px;text-align:right;">… PSY60 · Decision point</div>
+        </div>
+      </div>
+
+      <div class="mblock" style="grid-column:1/-1;grid-row:2;justify-self:center;width:min(100%,420px);margin:30px 0 4px;background:#efeae5;border-top:3px solid #C8102E;border-radius:3px 3px 14px 14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">A third possibility</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Sometimes what you’re seeing has stopped looking like a barrier to recovery and has started looking like a condition in its own right — something that would need treating even if the original injury were long behind them.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">That’s a different question, and more treatment hours may not be the answer to it. Talk to us. It may be a matter for assessment rather than another block.</p>
+      </div>
+    </div>
+
+    <div class="sec" style="padding:40px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 224px;column-gap:38px;align-items:start;">
+      
+      <div style="grid-column:1;grid-row:1;align-self:center;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Recommending more</h2>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">You have a clear answer, so you make the case.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">The first block established that Ana can do this — she has rebuilt independent walking on level ground and she is using the strategies. What it also established is that the fear isn’t really about falling, and the situations she still avoids are the ones that carry the most meaning for her. Another block would take the work onto uneven ground, onto the path to her gate, and towards Thursday mornings, which is the thing she keeps mentioning and keeps not doing.</p>
+      </div>
+<div class="mblock" style="grid-column:2;grid-row:1;align-self:center;width:calc(224px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 26px 0;background:#efeae5;border-top:3px solid #C8102E;border-radius:3px 3px 14px 14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">The Progress Report</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">This goes to ACC on form <span style="color:#C8102E;letter-spacing:0.04em;">ACC267</span>.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">The ACC267 has two jobs. It updates ACC on how treatment is going partway through an approved period. And when further treatment is indicated, it carries your recommendation — what the previous hours achieved, what you understand now, and what additional hours would allow you to achieve.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">Send it before the current hours run out. About two weeks ahead is usually right, so ACC has time to consider it and treatment doesn’t stop while you wait.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">You send it to ACC and copy us by email, and we pass a copy to the client’s GP. <span style="font-style:italic;">Unit 3.2, Reporting Back</span> covers how to write one.</p>
+        <div class="bar" style="margin-top:26px;">
+          <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;">
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+          </div>
+          <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#C8102E;margin-top:10px;text-align:right;">… Decision point · ACC267</div>
+        </div>
+      </div>
+
+          </div>
+
+    <div class="sec" style="padding:40px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 224px;column-gap:38px;align-items:start;">
+      
+      <div style="grid-column:1;grid-row:1;align-self:center;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">The second block</h2>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">A fortnight later PractiSpace lets you know the further hours have been approved. You carry on with Ana.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">The work is more specific this time.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">The path to the gate, in stages, with Ana deciding when to move to the next one. Uneven ground more generally. And a conversation, over several sessions, about Kate — about what Ana has been protecting her from, and whether Kate would see it the way Ana assumes.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Ana raises Thursday mornings herself in week five. She goes the following week. She reports back that two of them had assumed she’d stopped wanting to come.</p>
+      </div>
+<div class="mblock" style="grid-column:2;grid-row:1;align-self:center;width:calc(224px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 26px 0;background:#efeae5;border-top:3px solid #C8102E;border-radius:3px 3px 14px 14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">Another block, not just more sessions</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">When ACC approves further treatment it issues a new Purchase Order with another allocation of <span style="color:#C8102E;letter-spacing:0.04em;">PSY60</span> hours. It comes to PractiSpace, and we’ll tell you when it’s in place.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">A further block isn’t simply more of the same. It’s another defined period of treatment, with a reason for continuing and an expectation of what it will achieve — and it ends the way the first one did, at a decision point.</p>
+        <div class="bar" style="margin-top:26px;">
+          <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;">
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:repeating-linear-gradient(135deg,#C8102E 0 3px,#f2d7da 3px 5.5px);"></div>
+            <div style="height:3px;border-radius:2px;background:#e3dbd3;"></div>
+          </div>
+          <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#C8102E;margin-top:10px;text-align:right;">… ACC267 · ↻ PSY60 again</div>
+        </div>
+      </div>
+
+          </div>
+
+    <div class="sec" style="padding:40px 0 0;display:grid;grid-template-columns:minmax(0,1fr) 224px;column-gap:38px;align-items:start;">
+      
+      <div style="grid-column:1;grid-row:1;align-self:center;">
+        <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Finishing</h2>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">At the end of the second block, Ana is going out independently most days, walking the path to her gate without much thought, and back at Thursday coffee.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">She still doesn’t like wet kerbs and says she probably never will. She still occasionally asks Kate to come along on a bigger shop, but as company rather than as a lift.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">You both agree there isn’t much left that needs you.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Even so, you suggest spacing the last three sessions a fortnight apart rather than weekly. You talk it over and Ana agrees she would rather finish gradually: she has got used to coming, and a slower ending gives her time to settle into what comes after.</p>
+      </div>
+<div class="mblock" style="grid-column:2;grid-row:1;align-self:center;width:calc(224px + var(--bleed));margin:26px calc(-1 * var(--bleed)) 26px 0;background:#efeae5;border-top:3px solid #C8102E;border-radius:3px 3px 14px 14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">The Completion Report</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">This goes to ACC on form <span style="color:#C8102E;letter-spacing:0.04em;">ACC268</span>, within ten business days of the final session. You send it to ACC and copy us by email. We then send ACC a discharge letter closing the episode, and a copy of your report to the client’s GP.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">It tells ACC what the treatment achieved, what remains, and where things are being left. Completion doesn’t mean every difficulty is resolved — it means this episode of treatment has done what it needed to do. <span style="font-style:italic;">Unit 3.2, Reporting Back</span> covers how to write one.</p>
+        <div class="bar" style="margin-top:26px;">
+          <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;">
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+            <div style="height:3px;border-radius:2px;background:repeating-linear-gradient(135deg,#C8102E 0 3px,#f2d7da 3px 5.5px);"></div>
+            <div style="height:3px;border-radius:2px;background:#C8102E;"></div>
+          </div>
+          <div style="font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#C8102E;margin-top:10px;text-align:right;">… ↻ PSY60 again · ACC268</div>
+        </div>
+      </div>
+
+          </div>
+
+    <div class="note" style="margin-top:44px;background:#fff;border:1px solid #e2dad2;border-radius:16px;padding:28px 32px 30px;">
+      <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#8a827a;">When treatment doesn’t end this way</div>
+      <p style="font-size:14.5px;line-height:1.7;color:#3d3833;margin:14px 0 0;max-width:600px;text-wrap:pretty;">Sometimes a client disengages, attendance makes treatment unworkable, or progress stalls without a clear reason.</p>
+      <p style="font-size:14.5px;line-height:1.7;color:#3d3833;margin:10px 0 0;max-width:600px;text-wrap:pretty;">Those aren’t ordinary completions. Contact us before closing the service and we’ll manage the ACC side.</p>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;">Reference</div>
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:8px 0 0;">The journey at a glance</h2>
+
+      <div style="margin-top:20px;background:#fff;border:1px solid #ece6df;border-radius:16px;overflow:hidden;">
+        <div class="recap" style="display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,2fr);">
+          <div class="rl" style="padding:16px 22px;font-size:14px;line-height:1.5;color:#2d2d2d;">Referral</div>
+          <div class="rd" style="padding:16px 22px;font-size:13.5px;line-height:1.58;color:#57514b;text-wrap:pretty;">ACC265 arrives via PractiSpace. You accept, and contact the client within three business days.</div>
+
+          <div class="rl" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.5;color:#2d2d2d;">Early Intervention &amp; Planning</div>
+          <div class="rd" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:13.5px;line-height:1.58;color:#57514b;text-wrap:pretty;"><span style="color:#C8102E;letter-spacing:0.04em;">PSY50</span>, up to four hours. Getting to know the client and working out where treatment should go.</div>
+
+          <div class="rl" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.5;color:#2d2d2d;">Action Plan</div>
+          <div class="rd" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:13.5px;line-height:1.58;color:#57514b;text-wrap:pretty;"><span style="color:#C8102E;letter-spacing:0.04em;">ACC266</span>. The plan you built together, written for ACC. ACC approves the next allocation.</div>
+
+          <div class="rl" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.5;color:#2d2d2d;">Treatment</div>
+          <div class="rd" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:13.5px;line-height:1.58;color:#57514b;text-wrap:pretty;"><span style="color:#C8102E;letter-spacing:0.04em;">PSY60</span>, blocks of up to ten hours.</div>
+
+          <div class="rl" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.5;color:#2d2d2d;">Decision point</div>
+          <div class="rd" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:13.5px;line-height:1.58;color:#57514b;text-wrap:pretty;">Continue or complete. What would additional hours achieve?</div>
+
+          <div class="rl" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.5;color:#2d2d2d;">Progress Report</div>
+          <div class="rd" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:13.5px;line-height:1.58;color:#57514b;text-wrap:pretty;"><span style="color:#C8102E;letter-spacing:0.04em;">ACC267</span>. Updates ACC, and carries your recommendation if more hours are indicated. To ACC and the GP.</div>
+
+          <div class="rl" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.5;color:#2d2d2d;">Further treatment</div>
+          <div class="rd" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:13.5px;line-height:1.58;color:#57514b;text-wrap:pretty;">ACC issues a new Purchase Order with another <span style="color:#C8102E;letter-spacing:0.04em;">PSY60</span> block, and the cycle repeats.</div>
+
+          <div class="rl" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:14px;line-height:1.5;color:#2d2d2d;">Completion Report</div>
+          <div class="rd" style="padding:16px 22px;border-top:1px solid #f0ebe5;font-size:13.5px;line-height:1.58;color:#57514b;text-wrap:pretty;"><span style="color:#C8102E;letter-spacing:0.04em;">ACC268</span>, within ten business days of the last session. To ACC and the GP.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="idea" style="margin-top:56px;background:#eae3dc;border-radius:16px;padding:34px 36px 36px;display:flex;gap:22px;">
+      <div style="width:3px;flex:none;background:#C8102E;border-radius:2px;"></div>
+      <div>
+        <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#8a827a;">One idea to take with you</div>
+        <p style="font-size:16px;line-height:1.7;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">Ana’s journey had a shape imposed on it by ACC. There was a planning stage. Treatment came in defined blocks. Progress was reviewed. It eventually finished.</p>
+        <p style="font-size:16px;line-height:1.7;color:#2d2d2d;margin:12px 0 0;text-wrap:pretty;">None of that told you what to do in the room with her. It didn’t tell you to notice what the wet kerb meant, or to spend three sessions on her daughter, or when to stop pushing and let her decide the pace.</p>
+        <p style="font-size:22px;line-height:1.4;color:#2d2d2d;margin:22px 0 0;max-width:460px;text-wrap:pretty;">ACC provides the structure. You provide the therapy.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:44px;border-top:1px solid #e2dad2;padding-top:22px;display:flex;gap:26px;justify-content:space-between;flex-wrap:wrap;">
+      <p style="font-size:12px;line-height:1.65;color:#8a827a;margin:0;"><span style="color:#57514b;">PractiSpace</span></p>
+      <div style="font-size:12px;line-height:1.7;color:#8a827a;">
+        <div style="color:#57514b;">Ronit Adiv, Managing Director</div>
+        <div style="margin-top:6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <a href="mailto:ronit.adiv@practispace.co.nz">ronit.adiv@practispace.co.nz</a>
+          <span style="color:#c4bab1;">·</span>
+          <a href="https://www.practispace.co.nz">www.practispace.co.nz</a>
+        </div>
+        <div style="margin-top:6px;">PractiSpace learning unit — September 2026</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{}">
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+
+
+</body></html>

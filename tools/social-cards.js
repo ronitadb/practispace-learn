@@ -39,8 +39,12 @@ const esc = (s) =>
 
 function cardHtml({ eyebrow, title, subtitle, ghost, railLabel }) {
   const fontUrl = 'file://' + FONT;
-  // Long titles need to come down a little so the card never feels crowded.
-  const titleSize = title.length > 30 ? 66 : title.length > 22 ? 74 : 82;
+  // Long titles come down in size, and are given more of the card's width by
+  // pushing the ghost further out — otherwise a four-line title overflows the
+  // 630px card and pushes the rule and the URL off the bottom.
+  const len = title.length;
+  const titleSize = len > 40 ? 56 : len > 30 ? 66 : len > 22 ? 74 : 82;
+  const wrapRight = len > 40 ? 380 : 470;
   // The ghost is sized so a longer mark ("ACC") stays clear of the text block
   // instead of running underneath it the way a two-digit number can.
   const ghostSize = ghost.length >= 3 ? 250 : 440;
@@ -97,7 +101,7 @@ function cardHtml({ eyebrow, title, subtitle, ghost, railLabel }) {
 
   .wrap {
     position: relative; z-index: 2;
-    padding: 64px 470px 0 150px; height: 616px;
+    padding: 64px ${wrapRight}px 0 150px; height: 616px;
     display: flex; flex-direction: column;
   }
   .mark { font-size: 29px; letter-spacing: 0.02em; }
