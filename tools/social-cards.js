@@ -44,10 +44,11 @@ function cardHtml({ eyebrow, title, subtitle, ghost, railLabel }) {
   // 630px card and pushes the rule and the URL off the bottom.
   const len = title.length;
   const titleSize = len > 40 ? 56 : len > 30 ? 66 : len > 22 ? 74 : 82;
-  const wrapRight = len > 40 ? 380 : 470;
+  const wrapRight = (len > 40 ? 380 : 470);
   // The ghost is sized so a longer mark ("ACC") stays clear of the text block
   // instead of running underneath it the way a two-digit number can.
   const ghostSize = ghost.length >= 3 ? 250 : 440;
+  const hasGhost = ghost.length > 0;
   const ghostRight = ghost.length >= 3 ? -28 : -46;
   const echoRight = ghost.length >= 3 ? 38 : 62;
   return `<!DOCTYPE html>
@@ -101,7 +102,7 @@ function cardHtml({ eyebrow, title, subtitle, ghost, railLabel }) {
 
   .wrap {
     position: relative; z-index: 2;
-    padding: 64px ${wrapRight}px 0 150px; height: 616px;
+    padding: 64px ${hasGhost ? wrapRight : 150}px 0 150px; height: 616px;
     display: flex; flex-direction: column;
   }
   .mark { font-size: 29px; letter-spacing: 0.02em; }
@@ -131,13 +132,13 @@ function cardHtml({ eyebrow, title, subtitle, ghost, railLabel }) {
   <div class="bar"></div>
   <div class="rail">
     <div class="rail-top">
-      <div class="rail-num">${esc(ghost)}</div>
+      ${hasGhost ? `<div class="rail-num">${esc(ghost)}</div>` : ''}
       <div class="rail-tick"></div>
     </div>
     <div class="rail-label">${esc(railLabel)}</div>
   </div>
-  <div class="ghost-echo">${esc(ghost)}</div>
-  <div class="ghost">${esc(ghost)}</div>
+  ${hasGhost ? `<div class="ghost-echo">${esc(ghost)}</div>
+  <div class="ghost">${esc(ghost)}</div>` : ''}
   <div class="wrap">
     <div class="mark">Practi<span>Space</span></div>
     <div class="eyebrow">${esc(eyebrow)}</div>
@@ -193,13 +194,17 @@ function main() {
       ghost: 'ACC',
       railLabel: 'The series',
     },
+    // A unit with no number sits outside the sequence, so it gets no numeral
+    // and no rail number — which is what makes its card look different.
     ...units.map((u) => ({
       name: `social-${u.slug}.png`,
-      eyebrow: `Working with ACC · Unit ${u.number}`,
+      eyebrow: u.number
+        ? `Working with ACC · Unit ${u.number}`
+        : 'PractiSpace · Learning unit',
       title: u.title,
       subtitle: u.subtitle,
-      ghost: u.number,
-      railLabel: `Unit ${u.number}`,
+      ghost: u.number || '',
+      railLabel: u.number ? `Unit ${u.number}` : u.title,
     })),
   ];
 

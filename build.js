@@ -138,6 +138,26 @@ function extractBody(raw, label) {
   );
   html = html.replace(/<script\b[^>]*support\.js[\s\S]*?<\/script>/gi, '');
 
+  /* Claude Design conditionals.
+
+     Unit 03B wraps the rail in <sc-if value="{{ showRail }}">, backed by a
+     component prop that defaults to true. The site is static, so the default
+     is what publishes: unwrap the tag and keep its contents.
+
+     If a future unit ever uses <sc-if> for something that should default to
+     hidden, this would publish it anyway — hence the explicit check below,
+     which fails the build rather than guessing. */
+  const scIf = [...html.matchAll(/<sc-if\b([^>]*)>/gi)];
+  for (const m of scIf) {
+    if (!/hint-placeholder-val="\{\{\s*true\s*\}\}"/i.test(m[1])) {
+      throw new Error(
+        `${label}: <sc-if> without an explicit true default — check what it ` +
+          `should do before publishing.\n  ${m[0]}`
+      );
+    }
+  }
+  html = html.replace(/<\/?sc-if\b[^>]*>/gi, '');
+
   html = html.trim();
 
   if (!html) throw new Error(`No markup found in ${label}`);
@@ -316,9 +336,11 @@ function buildUnit(unit, prev, next) {
    ------------------------------------------------------------------------- */
 
 function buildIndex() {
+  // A unit with no number stands outside the numbered sequence, so its card
+  // drops the numeral column rather than leaving a gap where one would be.
   const card = (u) => `
-        <a class="ps-unitcard" href="/${u.slug}/">
-          <span class="ps-unitcard-num">${esc(u.number)}</span>
+        <a class="ps-unitcard${u.number ? '' : ' is-unnumbered'}" href="/${u.slug}/">
+          ${u.number ? `<span class="ps-unitcard-num">${esc(u.number)}</span>` : ''}
           <span>
             <span class="ps-unitcard-title">${esc(u.title)}</span>
             <span class="ps-unitcard-sub">${esc(u.subtitle)}</span>

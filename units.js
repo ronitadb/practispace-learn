@@ -84,6 +84,27 @@ const units = [
       'completion report.',
     file: '03-treatment-without-a-mental-injury-assessment.html',
   },
+
+  /* Not part of the numbered sequence.
+
+     This one stands outside the stages — it belongs to the clinical-work
+     series that has not been written yet, and will move there once that
+     series exists. Until then it sits at the end of the list.
+
+     `number` is deliberately absent. A unit without one gets no numeral on
+     its index card and no numeral on its social card, which is what marks it
+     as standing apart. Keep it LAST in this array: as Unit 3's sub-units and
+     Units 4 onwards are added above it, it stays at the bottom. */
+  {
+    slug: 'risk-assessment',
+    title: 'Risk Assessment',
+    subtitle: 'The risk assessment on the ACC266',
+    description:
+      'The risk field on the ACC266 Action Plan: what ACC is asking for, ' +
+      'screening and formulation, the language to use, and what to do when ' +
+      'the answer is yes.',
+    file: 'risk-assessment.html',
+  },
 ];
 
 /* Units that are written or in draft but not published yet.

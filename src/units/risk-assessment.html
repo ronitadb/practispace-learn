@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+  ============================================================================
+  THIS FILE HAS BEEN EDITED IN THE REPOSITORY SINCE THE CLAUDE DESIGN EXPORT.
+
+  Do NOT overwrite it with a fresh export from Claude Design — the export is
+  older than this file and the edits below would be lost.
+
+  Repo-side edits:
+    2026-09-18  Removed "3d" from the left rail. This unit is deliberately
+                unnumbered — it sits outside the stages and will move to the
+                clinical-work series later. The red tick below it is kept.
+    2026-09-18  Footer: "PractiSpace" -> "PractiSpace Limited", matching the
+                other units.
+
+  If you need to rework this unit's design in Claude Design, apply these
+  changes there first, then export and diff before committing.
+  See "Where the content lives" in the README.
+  ============================================================================
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="omelette-owns-print" content="true">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; overflow-x: hidden; }
+  body { font-family: 'Tenor Sans', system-ui, sans-serif; color: #2d2d2d; background: #f5f2f0; -webkit-font-smoothing: antialiased; }
+  a { color: #C8102E; text-decoration: none; }
+  a:hover { color: #a50e26; }
+  @page { margin: 12mm; }
+  :root { --bleed: clamp(0px, calc((100vw - 784px) / 2), 78px); }
+  @media (max-width: 850px) { #unit-rail { display: none !important; } }
+  @media (max-width: 760px) {
+    :root { --bleed: 0px; }
+    .col { padding-left: 20px !important; padding-right: 20px !important; }
+    .mblock { float: none !important; clear: both !important; width: 100% !important; max-width: 100% !important; margin: 24px 0 26px !important; }
+    .row2 { grid-template-columns: minmax(0,1fr) !important; }
+    .row2 > .c2 { border-left: 0 !important; border-top: 1px solid #e4ded7 !important; }
+    .vocab { grid-template-columns: minmax(0,1fr) !important; }
+    .vocab .vd { border-left: 0 !important; padding-top: 2px !important; }
+    .emerg { grid-template-columns: minmax(0,1fr) !important; }
+    .emerg .ed { border-left: 0 !important; padding-top: 4px !important; }
+    .argue { padding: 26px 22px 28px !important; }
+  }
+  @media print {
+    :root { --bleed: 0px; }
+    html, body { background: #fff !important; }
+    #unit-rail { display: none !important; }
+    .mblock { float: none !important; width: 100% !important; max-width: 100% !important; margin: 18px 0 20px !important; }
+    .mblock, .frag, .idea, .note, .argue, .vocabbox, .emergbox { break-inside: avoid; page-break-inside: avoid; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail" data-bg-color="#f5f2f0">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#f5f2f0"></rect>
+    <rect x="360" y="230" width="220" height="14" rx="7" fill="#C8102E"></rect>
+    <text x="356" y="430" font-family="Georgia, serif" font-size="130" fill="#2d2d2d">3d</text>
+    <rect x="360" y="500" width="480" height="10" rx="5" fill="#ddd4cb"></rect>
+    <rect x="360" y="540" width="320" height="10" rx="5" fill="#ddd4cb"></rect>
+  </svg>
+</template>
+
+<div style="background:#f5f2f0;min-height:100vh;">
+
+<sc-if value="{{ showRail }}" hint-placeholder-val="{{ true }}">
+<div id="unit-rail" style="position:fixed;left:0;top:0;bottom:0;width:48px;background:#eae3dc;border-right:1px solid #ddd4cb;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:18px;overflow:hidden;padding:20px 0;z-index:5;">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+    <div style="width:1px;height:26px;background:#C8102E;"></div>
+  </div>
+  <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-size:10px;letter-spacing:0.26em;text-transform:uppercase;color:#8a827a;white-space:nowrap;min-height:0;overflow:hidden;text-overflow:ellipsis;">Risk Assessment</div>
+  <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#b3aaa2;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;">PractiSpace</div>
+</div>
+</sc-if>
+
+  <div style="height:8px;background:#C8102E;"></div>
+
+  <div class="col" style="max-width:720px;margin:0 auto;padding:0 30px 80px;">
+
+    <div style="padding:38px 0 0;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;">
+      <div style="font-size:18px;letter-spacing:0.02em;color:#2d2d2d;">Practi<span style="color:#C8102E;">Space</span></div>
+      <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#9a938c;">Working with ACC · Risk Assessment</div>
+    </div>
+
+    <div style="padding:30px 0 0;">
+      <h1 style="font-size:34px;line-height:1.15;letter-spacing:0.01em;font-weight:400;margin:0;max-width:520px;text-wrap:pretty;">Risk Assessment</h1>
+      <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#9a938c;margin:14px 0 0;">The risk assessment on the ACC266</div>
+      <div style="width:170px;height:2px;background:#C8102E;border-radius:2px;margin:20px 0 0;"></div>
+      <p style="font-size:15.5px;line-height:1.72;color:#57514b;margin:22px 0 0;text-wrap:pretty;">On the Action Plan you are asked one question about risk.</p>
+
+      <div class="frag" style="margin-top:20px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div class="row2" style="display:grid;grid-template-columns:minmax(0,1fr) 140px;border-bottom:1px solid #e4ded7;">
+          <div style="padding:9px 14px;font-size:12px;line-height:1.55;color:#7a736c;">d. Are there any risks identified?</div>
+          <div class="c2" style="padding:9px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;gap:14px;">
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Yes</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>No</span>
+          </div>
+        </div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">If yes, describe the risks, any duty of care actions taken, and how the risk will be managed.</div>
+        <div style="min-height:52px;"></div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.72;color:#2d2d2d;margin:18px 0 0;text-wrap:pretty;">This unit covers what ACC is asking for in that field, how to approach it at the planning stage, and what to do when the answer is yes.</p>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">What is being asked for</h2>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">Start with what the question is mainly about. The field is worded broadly, and other risks belong in it, but the frequent one is <span style="color:#C8102E;">risk of suicide or self-harm</span>.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">A risk assessment has parts, and it helps to name them. Two of them are things you do. The third is the one people expect of you and nobody can actually deliver.</p>
+
+      <div style="margin-top:26px;display:flex;flex-direction:column;gap:22px;">
+        <div>
+          <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">Screening</div>
+          <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:8px 0 0;text-wrap:pretty;">Asking every client the same questions, whether or not anything in the referral suggests you need to. It is a first pass, not a conclusion: its job is to make sure nothing is missed by default, and to tell you whether a fuller assessment is needed. A screen that comes back clear is a finding in itself, and it is what you are reporting when you tick no.</p>
+        </div>
+        <div>
+          <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">Formulation</div>
+          <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:8px 0 0;text-wrap:pretty;">What you do when the screen brings something back. It is an account of who is at risk of what, under what circumstances, and which factors raise or lower that risk for this particular person — what makes a bad evening more dangerous, and what protects against it. This is the part ACC is relying on you for, because it is the part that tells a reader what to watch and what to do.</p>
+        </div>
+        <div>
+          <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">Prediction</div>
+          <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:8px 0 0;text-wrap:pretty;">Saying what will happen. This is the one everybody wants, and it is the one nobody can do.</p>
+        </div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#2d2d2d;margin:22px 0 0;text-wrap:pretty;">What ACC is asking for is the first two. What you write in that field is what you asked, what you found, and what you are doing about it — not a forecast.</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:38px 0 0;">From a screen to a fuller assessment</h3>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Everyone gets screened. Information about risk to self sometimes arrives directly and clearly. More often it comes as an aside on the way to something else, as an answer that doesn’t quite answer the question, or through what the client doesn’t say.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#C8102E;font-size:16.5px;letter-spacing:0.01em;">What the client says.</span> Any current thoughts of being better off dead, of not wanting to wake up, or of ending things — whether or not there is a plan or intent attached. Hopelessness about the future, which carries more weight than low mood alone.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#C8102E;font-size:16.5px;letter-spacing:0.01em;">What is in the history.</span> A previous suicide attempt is the single strongest indicator there is, and it stays relevant years later. Also previous mental health treatment, and self-harm at any point.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#C8102E;font-size:16.5px;letter-spacing:0.01em;">What is in the referral or the notes.</span> Severe depression, a psychiatric history, current psychiatric medication, an ACC file that mentions any of the above. Read these before the first session rather than after it.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#C8102E;font-size:16.5px;letter-spacing:0.01em;">What the injury has cost them.</span> Loss of work, particularly work that was an identity; loss of independence; loss of a relationship or a role in the family. Chronic pain and disrupted sleep. These are the risk factors this contract’s clients carry, and they are easy to hear as sad rather than as risk.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#C8102E;font-size:16.5px;letter-spacing:0.01em;">What is stacking up alongside it.</span> Increasing alcohol or medication use, isolation, and living alone with little contact.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#C8102E;font-size:16.5px;letter-spacing:0.01em;">What you notice.</span> Flatness, dismissiveness about the future, a shrug where you expected an answer. Something that doesn’t match the words.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#2d2d2d;margin:16px 0 0;text-wrap:pretty;">When one of these is present, you should keep asking for the others.</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:38px 0 0;">Putting words to what you find</h3>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">These terms will help you put what you found into words ACC will understand.</p>
+
+      <div class="vocabbox" style="margin-top:18px;background:#fff;border:1px solid #e2dad2;border-radius:16px;overflow:hidden;">
+        <div class="vocab" style="display:grid;grid-template-columns:minmax(150px,200px) minmax(0,1fr);padding:16px 22px;">
+          <div style="font-size:14.5px;line-height:1.5;color:#2d2d2d;">Passive ideation</div>
+          <div class="vd" style="font-size:14px;line-height:1.65;color:#57514b;padding-left:18px;text-wrap:pretty;">Thoughts of being better off dead, of not wanting to wake up, of wishing it would all stop. No thought of acting.</div>
+        </div>
+        <div class="vocab" style="display:grid;grid-template-columns:minmax(150px,200px) minmax(0,1fr);padding:16px 22px;border-top:1px solid #f0ebe5;">
+          <div style="font-size:14.5px;line-height:1.5;color:#2d2d2d;">Active ideation</div>
+          <div class="vd" style="font-size:14px;line-height:1.65;color:#57514b;padding-left:18px;text-wrap:pretty;">Thoughts of ending their own life, whether fleeting or persistent, whether or not they are wanted.</div>
+        </div>
+        <div class="vocab" style="display:grid;grid-template-columns:minmax(150px,200px) minmax(0,1fr);padding:16px 22px;border-top:1px solid #f0ebe5;">
+          <div style="font-size:14.5px;line-height:1.5;color:#2d2d2d;">Plan</div>
+          <div class="vd" style="font-size:14px;line-height:1.65;color:#57514b;padding-left:18px;text-wrap:pretty;">The person has thought about how, when or where.</div>
+        </div>
+        <div class="vocab" style="display:grid;grid-template-columns:minmax(150px,200px) minmax(0,1fr);padding:16px 22px;border-top:1px solid #f0ebe5;">
+          <div style="font-size:14.5px;line-height:1.5;color:#2d2d2d;">Intent</div>
+          <div class="vd" style="font-size:14px;line-height:1.65;color:#57514b;padding-left:18px;text-wrap:pretty;">The person has some degree of intention to act, as distinct from having thought about it.</div>
+        </div>
+        <div class="vocab" style="display:grid;grid-template-columns:minmax(150px,200px) minmax(0,1fr);padding:16px 22px;border-top:1px solid #f0ebe5;">
+          <div style="font-size:14.5px;line-height:1.5;color:#2d2d2d;">Preparatory acts</div>
+          <div class="vd" style="font-size:14px;line-height:1.65;color:#57514b;padding-left:18px;text-wrap:pretty;">Steps already taken: putting affairs in order, saying goodbyes, obtaining or checking access to means.</div>
+        </div>
+        <div class="vocab" style="display:grid;grid-template-columns:minmax(150px,200px) minmax(0,1fr);padding:16px 22px;border-top:1px solid #f0ebe5;">
+          <div style="font-size:14.5px;line-height:1.5;color:#2d2d2d;">History</div>
+          <div class="vd" style="font-size:14px;line-height:1.65;color:#57514b;padding-left:18px;text-wrap:pretty;">A previous attempt, or previous self-harm, at any point in their life.</div>
+        </div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:20px 0 0;text-wrap:pretty;">These do not run in a neat line from mild to severe. A person with passive ideation and a recent loss, drinking heavily and living alone, may be in more danger than someone with a vague plan and a great deal to live for. What matters is the combination, which is what your formulation is for.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">What they do give you is precision. “Some suicidal thoughts” could mean almost anything. “Passive ideation, no plan, no intent, no history of attempts” tells the next reader what you found.</p>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">When it is required</h2>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">Always, on every Action Plan — and you will have further opportunities to come back to it. Treatment gives you weeks with this person, and the reports that follow ask again: the Progress Report asks what is affecting progress now, and the Completion Report asks what might get in the way after the end of treatment. Risks that were there at the start can settle, and new ones can appear. You report what has changed as you go rather than holding it to the end.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">And separately from any form: if there is an imminent threat to the safety of your client or to you, that is dealt with now, not in a report. What that looks like in practice is at the end of this unit.</p>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Other types of risk you might encounter</h2>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">Your clients come to you through a physical injury. Here are some potential risks you may encounter.</p>
+<div style="margin-top:24px;display:flex;flex-direction:column;gap:20px;">
+        <div style="padding-top:18px;border-top:1px solid #e2dad2;">
+          <div style="font-size:17px;line-height:1.35;color:#C8102E;letter-spacing:0.01em;text-wrap:pretty;">Suicidal thoughts in the context of loss</div>
+          <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:8px 0 0;text-wrap:pretty;">Some of your clients will experience loss following their injury. It can be that their work, independence or sense of themselves has gone, and they might not be able to see it coming back.</p>
+        </div>
+        <div style="padding-top:18px;border-top:1px solid #e2dad2;">
+          <div style="font-size:17px;line-height:1.35;color:#C8102E;letter-spacing:0.01em;text-wrap:pretty;">Falls and deconditioning</div>
+          <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:8px 0 0;text-wrap:pretty;">A physical risk that your treatment plan directly affects, because exposure work means asking someone to do the thing they are avoiding.</p>
+        </div>
+        <div style="padding-top:18px;border-top:1px solid #e2dad2;">
+          <div style="font-size:17px;line-height:1.35;color:#C8102E;letter-spacing:0.01em;text-wrap:pretty;">Alcohol and medication</div>
+          <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:8px 0 0;text-wrap:pretty;">Pain, poor sleep and time at home make a combination worth asking about plainly. Under these circumstances people may become at risk of turning to harmful ways for relief.</p>
+        </div>
+        <div style="padding-top:18px;border-top:1px solid #e2dad2;">
+          <div style="font-size:17px;line-height:1.35;color:#C8102E;letter-spacing:0.01em;text-wrap:pretty;">Driving</div>
+          <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:8px 0 0;text-wrap:pretty;">Worth a question when anxiety, medication or concentration are in the picture and the person is still driving.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="argue" style="margin-top:56px;background:#eae3dc;border-radius:16px;padding:38px 40px 40px;">
+      <h2 style="font-size:26px;line-height:1.3;font-weight:400;letter-spacing:0.01em;margin:0;max-width:520px;text-wrap:pretty;">The problem with asking at the beginning of the therapy</h2>
+      <p style="font-size:16.5px;line-height:1.72;color:#2d2d2d;margin:20px 0 0;max-width:560px;text-wrap:pretty;">Most of what you will know about someone’s risk comes from what they choose to tell you. What they choose to tell you depends on whether they trust you. Trust takes time.</p>
+      <p style="font-size:16.5px;line-height:1.72;color:#2d2d2d;margin:14px 0 0;max-width:560px;text-wrap:pretty;">ACC asks for the assessment at the planning stage. So the risk assessment you are doing here is not the one you would do with a client you know for a year. It is closer to what happens in an emergency department: direct questions to someone who doesn’t know you yet, answered as honestly as a stranger can manage, plus whatever is on file and whatever you can see in front of you.</p>
+
+      <div style="margin-top:34px;padding-top:30px;border-top:1px solid #d9d0c7;display:flex;flex-direction:column;gap:26px;">
+        <div style="display:flex;gap:18px;align-items:flex-start;">
+          <div style="font-size:15px;color:#C8102E;letter-spacing:0.04em;flex:none;padding-top:3px;">01</div>
+          <div>
+            <div style="font-size:17.5px;line-height:1.45;color:#2d2d2d;text-wrap:pretty;">Say what your assessment rests on.</div>
+            <p style="font-size:15.5px;line-height:1.72;color:#3d3833;margin:8px 0 0;max-width:520px;text-wrap:pretty;">“No risks to self or others identified on direct questioning across two sessions” says what you did and the real limitations of the assessment.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:18px;align-items:flex-start;">
+          <div style="font-size:15px;color:#C8102E;letter-spacing:0.04em;flex:none;padding-top:3px;">02</div>
+          <div>
+            <div style="font-size:17.5px;line-height:1.45;color:#2d2d2d;text-wrap:pretty;">Treat it as a first pass, with a review built in.</div>
+            <p style="font-size:15.5px;line-height:1.72;color:#3d3833;margin:8px 0 0;max-width:520px;text-wrap:pretty;">The Action Plan is not the last time you will address risks. The Progress Report and the Completion Report are additional opportunities to report on any developments around the risks.</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:18px;align-items:flex-start;">
+          <div style="font-size:15px;color:#C8102E;letter-spacing:0.04em;flex:none;padding-top:3px;">03</div>
+          <div>
+            <div style="font-size:17.5px;line-height:1.45;color:#2d2d2d;text-wrap:pretty;">Lean on additional sources of information.</div>
+            <p style="font-size:15.5px;line-height:1.72;color:#3d3833;margin:8px 0 0;max-width:520px;text-wrap:pretty;">When rapport is thin, the other sources matter more than they will later. The referral and the clinical summary. What the GP has recorded, if you have it. What the client says about who is around them and how things are at home. What you can see: how they present, what they avoid saying, what changed between the first session and the second.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:46px 0 0;">
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:0;">The risk conversation and the relationship</h3>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">It is easy to experience these questions as an obstacle to building rapport — something administrative you have to get through before the real work starts.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">They aren’t. Asked well, they do the opposite. A person who has been managing something frightening on their own, and who watches you ask about it directly and not flinch, has just learned something useful about what this room is for.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">The planning sessions are where the relationship starts. The risk conversation is part of how it starts, not an interruption to it.</p>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">The client’s part in it</h2>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">A risk assessment is something you do with your client, not to them. Three things follow.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#C8102E;font-size:16.5px;letter-spacing:0.01em;">Say what you are doing before you do it.</span> A sentence is enough: that you ask everyone about this, that it is part of understanding how the injury has affected them, and that it is not because of anything they have said. Clients who are told why a question is coming answer it more openly than clients who are ambushed by it.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#C8102E;font-size:16.5px;letter-spacing:0.01em;">Ask directly.</span> Indirect questions get indirect answers, and the worry that asking about suicide plants the idea is not supported by the evidence. Asking plainly, and being able to sit with the answer, is the thing that helps.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#C8102E;font-size:16.5px;letter-spacing:0.01em;">Be clear about where it goes.</span> Your client knows the report goes to ACC — you confirm that on the declaration. If something they tell you is going to appear in the Action Plan, they should hear that from you at the time, not discover it later. And they should know the limits: what you would do if you were worried about their immediate safety, and who you would contact.</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:34px 0 0;">If there is something to plan for</h3>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">When risk is present, what ACC wants to see is that there is a plan and that it is real.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">What a usable plan contains, in plain terms: what tends to lead up to the difficult periods, what the person can do first, who they can contact, what to do when that isn’t enough, and what has been done about access to anything that would make an impulsive act easy.</p>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Tools</h2>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">There is room here for how you work. Every psychologist has their own questions, the ones they ask comfortably and naturally, and those are usually the ones that work best.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Some of us arrive at them through what the person in front of us is describing, following the symptoms into the territory. Others prefer to say plainly that there are a few questions they ask everyone about risk to themselves, and then ask them. Neither is more correct than the other.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">If you already use a brief symptom measure, it may carry an item about thoughts of being better off dead. Treat a positive response there as the start of a conversation rather than as the finding.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">Where there is something to plan for, a written safety plan is worth doing properly rather than from memory.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">For Māori clients in particular, a holistic frame — te taha hinengaro alongside tinana, whānau and wairua — often gets at what is actually happening better than a symptom checklist does.</p>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">Writing the field</h2>
+
+      <div class="mblock" style="float:right;clear:right;width:calc(268px + var(--bleed));margin:22px calc(-1 * var(--bleed)) 22px 40px;background:#efeae5;border-radius:14px;padding:21px 24px 22px;">
+        <div style="font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#C8102E;">When it is more than that</div>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Active suicidal ideation is a different matter, and it is worth being clear about the limits of this service. A <span style="color:#C8102E;letter-spacing:0.04em;">PSY60</span> block exists to treat psychological difficulty that is getting in the way of recovering from an injury. Someone who is acutely at risk needs more than that, and sooner than an Action Plan can deliver it.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">If that is what you are seeing, contact us before you write the plan. We will raise it with the Recovery Partner, and the conversation is not only about risk management — it is about whether this referral, as it stands, is the right service for this person right now.</p>
+        <p style="font-size:13.5px;line-height:1.62;color:#3d3833;margin:10px 0 0;text-wrap:pretty;">Alongside that, the clinical route is the usual one: the GP, and the crisis team where it can’t wait.</p>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">The form asks for three things when the answer is yes: the risks, the duty of care actions taken, and how the risk will be managed.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#2d2d2d;">“Duty of care actions taken”</span> is the form’s phrase. It means what you did, not what you concluded — actions, in the past tense.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">At the Action Plan stage, for most clients, that is a short list: you asked, you discussed it with the client, you agreed what would happen if things got worse, and you told the RP and us.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;">ACC’s published materials for this contract do not set out a risk protocol. What the contract does require is that ACC is told immediately where there is an imminent threat to the safety of a client or a provider, and that is handled through us.</p>
+      <div style="clear:both;"></div>
+    </div>
+
+    <div style="padding:46px 0 0;clear:both;">
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:0;">Ana — where the answer is no</h3>
+
+      <div class="frag" style="margin-top:16px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div class="row2" style="display:grid;grid-template-columns:minmax(0,1fr) 140px;border-bottom:1px solid #e4ded7;">
+          <div style="padding:9px 14px;font-size:12px;line-height:1.55;color:#7a736c;">d. Are there any risks identified?</div>
+          <div class="c2" style="padding:9px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;gap:14px;">
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>Yes</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#111;"><span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>No</span>
+          </div>
+        </div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">If yes, describe the risks, any duty of care actions taken, and how the risk will be managed.</div>
+        <div style="padding:11px 14px;font-size:14px;line-height:1.7;color:#111;text-wrap:pretty;">No risks to self or others identified on direct questioning across two sessions. Some falls risk associated with reduced activity and deconditioning, which is being managed by her physiotherapist and is a consideration in pacing exposure work.</div>
+      </div>
+
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:18px 0 0;text-wrap:pretty;">A low-risk case, and the answer is still specific. It says what was asked and what was found, and it names the one real risk that the treatment plan itself has to work around.</p>
+
+      <h3 style="font-size:15px;line-height:1.4;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:#9a938c;margin:38px 0 0;">Paul — where the answer is yes</h3>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:12px 0 0;text-wrap:pretty;">Paul is 48. He fell off a roof eighteen months ago and his back has not recovered enough for him to return to the work he has done since he was seventeen. In the second planning session he says he is not sleeping, that he feels useless around the house, and that he has been wondering what the point of it all is. He has no plan and says he would not act because of his kids. He is drinking most evenings.</p>
+
+      <div class="frag" style="margin-top:20px;border:1px solid #cfc8c0;background:#fff;border-radius:2px;overflow:hidden;">
+        <div class="row2" style="display:grid;grid-template-columns:minmax(0,1fr) 140px;border-bottom:1px solid #e4ded7;">
+          <div style="padding:9px 14px;font-size:12px;line-height:1.55;color:#7a736c;">d. Are there any risks identified?</div>
+          <div class="c2" style="padding:9px 14px;border-left:1px solid #e4ded7;display:flex;align-items:center;gap:14px;">
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#111;"><span style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;flex:none;border:1.5px solid #C8102E;color:#C8102E;font-size:10px;line-height:1;">✕</span>Yes</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a736c;"><span style="display:inline-block;width:13px;height:13px;flex:none;border:1px solid #a8a09a;"></span>No</span>
+          </div>
+        </div>
+        <div style="padding:9px 14px;border-bottom:1px solid #e4ded7;font-size:12px;line-height:1.55;color:#7a736c;text-wrap:pretty;">If yes, describe the risks, any duty of care actions taken, and how the risk will be managed.</div>
+        <div style="padding:11px 14px;font-size:14px;line-height:1.75;color:#111;text-wrap:pretty;">Passive suicidal ideation, reported on direct questioning in the second session, in the context of loss of occupational role and identity following injury. No plan, no intent, no history of attempts. Protective factors include his children and a stable relationship. Alcohol use has increased since the injury and is likely to lower his threshold on difficult evenings. Duty of care actions taken: safety plan developed with Paul and a copy given to him; his agreement to inform his GP obtained and GP contacted; access to means discussed and addressed with Paul and his partner; supplier notified. Management: ideation to be reviewed at every session, alcohol use to be addressed as part of treatment, and the safety plan reviewed and updated at the mid-point of the block. GP to be contacted again if ideation shifts from passive to active.</div>
+      </div>
+    </div>
+
+    <div class="emergbox" style="margin-top:56px;background:#2d2d2d;border-radius:16px;padding:34px 36px 36px;">
+      <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#f0cdd3;">When something needs to happen now</div>
+      <p style="font-size:17px;line-height:1.6;color:#f7f4f1;margin:14px 0 0;max-width:540px;text-wrap:pretty;">If you are worried about someone’s immediate safety, that is not a reporting question.</p>
+
+      <div style="margin-top:26px;display:flex;flex-direction:column;gap:0;">
+        <div class="emerg" style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);padding:16px 0;border-top:1px solid #494644;align-items:baseline;">
+          <div style="font-size:26px;line-height:1.1;color:#fff;letter-spacing:0.02em;">111</div>
+          <div class="ed" style="font-size:14.5px;line-height:1.6;color:#d5cfc9;padding-left:18px;text-wrap:pretty;">Immediate danger to life.</div>
+        </div>
+        <div class="emerg" style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);padding:16px 0;border-top:1px solid #494644;align-items:baseline;">
+          <div style="font-size:19px;line-height:1.25;color:#fff;">Crisis team</div>
+          <div class="ed" style="font-size:14.5px;line-height:1.6;color:#d5cfc9;padding-left:18px;text-wrap:pretty;">Urgent mental health support — your local Crisis Assessment and Treatment Team. Hours vary by region, so it is worth knowing your local number before you need it.</div>
+        </div>
+        <div class="emerg" style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);padding:16px 0;border-top:1px solid #494644;align-items:baseline;">
+          <div style="font-size:26px;line-height:1.1;color:#fff;letter-spacing:0.02em;">1737</div>
+          <div class="ed" style="font-size:14.5px;line-height:1.6;color:#d5cfc9;padding-left:18px;text-wrap:pretty;">The client needs someone to talk to. Free call or text, any time.</div>
+        </div>
+        <div class="emerg" style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);padding:16px 0;border-top:1px solid #494644;align-items:baseline;">
+          <div style="font-size:19px;line-height:1.25;color:#fff;">The GP</div>
+          <div class="ed" style="font-size:14.5px;line-height:1.6;color:#d5cfc9;padding-left:18px;text-wrap:pretty;">Often knows this person far better than you do, and can act on the physical side.</div>
+        </div>
+        <div class="emerg" style="display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);padding:16px 0;border-top:1px solid #494644;align-items:baseline;">
+          <div style="font-size:19px;line-height:1.25;color:#fff;">The RP and us</div>
+          <div class="ed" style="font-size:14.5px;line-height:1.6;color:#d5cfc9;padding-left:18px;text-wrap:pretty;">Contact the RP immediately and tell PractiSpace as soon as you reasonably can.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:52px 0 0;">
+      <h2 style="font-size:23px;line-height:1.25;font-weight:400;letter-spacing:0.01em;margin:0;">When you are not sure</h2>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:16px 0 0;text-wrap:pretty;">This is the ordinary state of affairs rather than a failure, and there are three places to take it.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#C8102E;font-size:16.5px;letter-spacing:0.01em;">Your supervisor.</span> The obvious place, and the one people skip, because raising it can feel like admitting you should already know. An uncertain risk picture is exactly what supervision is for.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#C8102E;font-size:16.5px;letter-spacing:0.01em;">Us.</span> Tell us early. We would far rather hear about an uncertainty while it is still one than read about it in a Completion Report. Some of what you are weighing up is our side of the work anyway — whether the referral still fits, and whether the Recovery Partner needs to know.</p>
+      <p style="font-size:15.5px;line-height:1.75;color:#3d3833;margin:14px 0 0;text-wrap:pretty;"><span style="color:#C8102E;font-size:16.5px;letter-spacing:0.01em;">PractiSpace Providers Group.</span> You are not the first person in this network to sit with this question, and the group is a good place to think out loud about how others have handled something similar.</p>
+    </div>
+
+    <div class="idea" style="margin-top:56px;background:#eae3dc;border-radius:16px;padding:34px 36px 36px;display:flex;gap:22px;">
+      <div style="width:3px;flex:none;background:#C8102E;border-radius:2px;"></div>
+      <div>
+        <div style="font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#8a827a;">One idea to take with you</div>
+        <p style="font-size:16px;line-height:1.7;color:#2d2d2d;margin:14px 0 0;text-wrap:pretty;">The risk field on the ACC266 is asking whether you looked, what you found when you looked, and what you did about it.</p>
+        <p style="font-size:20px;line-height:1.5;color:#2d2d2d;margin:20px 0 0;max-width:520px;text-wrap:pretty;">As psychologists, we know that inviting someone to hand over part of what they are carrying can be the moment a relationship starts. A risk assessment, asked well, is a hand held out.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:44px;border-top:1px solid #e2dad2;padding-top:22px;">
+      <div style="font-size:13px;line-height:1.75;color:#8a827a;">
+        <div style="color:#2d2d2d;font-size:14px;">Ronit Adiv, Clinical Psychologist</div>
+        <div style="margin-top:4px;">Managing Director, PractiSpace Limited</div>
+        <div style="margin-top:8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+          <a href="mailto:ronit.adiv@practispace.co.nz">ronit.adiv@practispace.co.nz</a>
+          <span style="color:#c4bab1;">·</span>
+          <a href="https://www.practispace.co.nz">www.practispace.co.nz</a>
+        </div>
+        <div style="margin-top:10px;font-size:12px;font-style:italic;color:#9a938c;">PractiSpace learning unit — September 2026</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showRail&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Unit display&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showRail: this.props.showRail ?? true };
+  }
+}
+
+</script>
+</body>
+</html>
