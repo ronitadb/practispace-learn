@@ -138,14 +138,14 @@ const units = [
     title: 'Treatment After Cover',
   },
   {
+    /* One unit, not two: ACC asks for both in a single field on the ACC266
+       ("Request for Active Liaison and/or Whānau Support") and again on
+       the ACC267/268. Same request, same hours, same justification — a
+       reader meets them together on the form. */
     number: '05',
-    slug: 'active-liaison',
-    title: 'Active Liaison',
-  },
-  {
-    number: '5.1',
-    slug: 'whanau-support',
-    title: 'Whānau Support',
+    slug: 'active-liaison-and-whanau-support',
+    title: 'Active Liaison and Whānau Support',
+    subtitle: 'The extra supports you can request, and how to ask for them',
   },
   {
     // Fixed — see the note above.
