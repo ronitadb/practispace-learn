@@ -241,7 +241,8 @@ a.ps-unitnav-link:hover .ps-unitnav-label { color: #C8102E; }
 
 .ps-unitlist { margin: 44px 0 0; display: grid; gap: 14px; }
 
-a.ps-unitcard {
+/* The layout applies to every card; only a published one is an <a>. */
+.ps-unitcard {
   display: grid;
   grid-template-columns: 58px minmax(0, 1fr);
   gap: 4px;
@@ -261,14 +262,29 @@ a.ps-unitcard:hover .ps-unitcard-title { color: #C8102E; }
 /* A unit outside the numbered sequence. The numeral column is kept so the
    titles stay aligned down the list — the missing number is signal enough,
    and a ragged left edge would read as a mistake rather than as meaning. */
-a.ps-unitcard.is-unnumbered > :first-child { grid-column: 2; }
+.ps-unitcard.is-unnumbered > :first-child { grid-column: 2; }
 
-/* A unit that is written but not yet published. */
-.ps-unitcard.is-upcoming { background: transparent; border-style: dashed; border-color: #ddd4cb; cursor: default; }
+/* A unit that is planned but has no page yet. Quieter than a published one:
+   no white card, a dashed edge, and muted type — so the series reads as a
+   whole while what you can actually open still stands out. */
+.ps-unitcard.is-upcoming {
+  background: transparent;
+  border-style: dashed;
+  border-color: #ddd4cb;
+  cursor: default;
+}
 .ps-unitcard.is-upcoming:hover { border-color: #ddd4cb; }
 .ps-unitcard.is-upcoming .ps-unitcard-num,
-.ps-unitcard.is-upcoming .ps-unitcard-title { color: #b3aaa2; }
+.ps-unitcard.is-upcoming .ps-unitcard-title,
 .ps-unitcard.is-upcoming .ps-unitcard-sub { color: #b3aaa2; }
+
+.ps-unitcard-sub.is-soon {
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #b3aaa2;
+  margin-top: 9px;
+}
 
 .ps-index-footer {
   margin-top: 44px;

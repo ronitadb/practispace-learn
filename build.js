@@ -22,7 +22,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const { site, units, upcoming } = require('./units');
+const { site, units } = require('./units');
+
+// Only entries with a file become pages; the rest are "coming soon".
+const published = units.filter((u) => u.file);
 
 const ROOT = __dirname;
 const SRC = path.join(ROOT, 'src');
@@ -338,23 +341,31 @@ function buildUnit(unit, prev, next) {
 function buildIndex() {
   // A unit with no number stands outside the numbered sequence, so its card
   // drops the numeral column rather than leaving a gap where one would be.
-  const card = (u) => `
-        <a class="ps-unitcard${u.number ? '' : ' is-unnumbered'}" href="/${u.slug}/">
-          ${u.number ? `<span class="ps-unitcard-num">${esc(u.number)}</span>` : ''}
+  // A unit with no number stands outside the numbered sequence, so its card
+  // drops the numeral column rather than leaving a gap where one would be.
+  const card = (u) => {
+    const cls = u.number ? '' : ' is-unnumbered';
+    const num = u.number ? `<span class="ps-unitcard-num">${esc(u.number)}</span>` : '';
+    const sub = u.file
+      ? u.subtitle
+        ? `<span class="ps-unitcard-sub">${esc(u.subtitle)}</span>`
+        : ''
+      : `<span class="ps-unitcard-sub is-soon">Coming soon</span>`;
+    const inner = `${num}
           <span>
             <span class="ps-unitcard-title">${esc(u.title)}</span>
-            <span class="ps-unitcard-sub">${esc(u.subtitle)}</span>
-          </span>
-        </a>`;
-
-  const upcomingCard = (u) => `
-        <div class="ps-unitcard is-upcoming">
-          <span class="ps-unitcard-num">${esc(u.number)}</span>
-          <span>
-            <span class="ps-unitcard-title">${esc(u.title)}</span>
-            <span class="ps-unitcard-sub">In preparation</span>
-          </span>
+            ${sub}
+          </span>`;
+    return u.file
+      ? `
+        <a class="ps-unitcard${cls}" href="/${u.slug}/">
+          ${inner}
+        </a>`
+      : `
+        <div class="ps-unitcard is-upcoming${cls}">
+          ${inner}
         </div>`;
+  };
 
   const body = `
 <div style="background:#f5f2f0;min-height:100vh;">
@@ -375,12 +386,8 @@ function buildIndex() {
     <p class="ps-index-intro">Read them in order the first time. After that they stand alone, and you can come back to whichever one you need.</p>
 
     <div class="ps-unitlist">
-${units.map(card).join('\n')}${
-    upcoming.length ? '\n' + upcoming.map(upcomingCard).join('\n') : ''
-  }
+${units.map(card).join('\n')}
     </div>
-
-    <p class="ps-index-intro">Further units in this series are in preparation.</p>
 
     <div class="ps-index-footer">
       <p><span class="ps-strong">PractiSpace Limited</span> &#8212; a contracted supplier to ACC under the Psychological Services (PSB) contract. We manage referrals, purchase orders and ACC correspondence so that providers can concentrate on clinical work.</p>
@@ -487,20 +494,26 @@ function main() {
   copyDir(path.join(SRC, 'assets'), path.join(DIST, 'assets'));
   copyDir(path.join(SRC, 'styles'), path.join(DIST, 'assets', 'styles'));
 
-  const urls = units.map((u, i) =>
-    buildUnit(u, units[i - 1] || null, units[i + 1] || null)
+  // Previous/next skip units that have no page yet.
+  const urls = published.map((u, i) =>
+    buildUnit(u, published[i - 1] || null, published[i + 1] || null)
   );
 
   buildIndex();
   buildSeoFiles(urls);
 
-  console.log(`\n  Built ${units.length} unit${units.length === 1 ? '' : 's'} into dist/\n`);
+  const soon = units.length - published.length;
+  console.log(
+    `\n  Built ${published.length} of ${units.length} units into dist/` +
+      (soon ? `  (${soon} listed as coming soon)` : '') +
+      `\n`
+  );
   console.log('    /');
   for (const u of urls) console.log(`    ${u}`);
 
   // Units edited here since their Claude Design export. Re-exporting one of
   // these over the top would lose those edits — see the README.
-  const edited = units.filter((u) =>
+  const edited = published.filter((u) =>
     fs
       .readFileSync(path.join(SRC, 'units', u.file), 'utf8')
       .includes('THIS FILE HAS BEEN EDITED IN THE REPOSITORY')
@@ -511,9 +524,6 @@ function main() {
         `  with a fresh export without reconciling first:`
     );
     for (const u of edited) console.log(`    ${u.file}`);
-  }
-  if (upcoming.length) {
-    console.log(`\n  Listed as upcoming (no page built): ${upcoming.length}`);
   }
   console.log('');
 }

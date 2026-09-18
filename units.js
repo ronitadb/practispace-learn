@@ -3,18 +3,20 @@
 
    THIS IS THE ONLY FILE YOU NEED TO EDIT TO ADD A UNIT.
 
-   To add a unit:
-     1. Export it from Claude Design and save the *source* file (the one with
-        the <x-dc> wrapper) into  src/units/
-     2. Add an entry to `units` below, in the order it should be read.
-     3. Run:  npm run build
-     4. Deploy.
+   One array, in reading order. An entry WITH a `file` is built as a page.
+   An entry WITHOUT one appears on the index as "Coming soon" and no page is
+   built — so the whole series is visible from the start, and a unit goes
+   live simply by gaining a `file`.
 
-   Order in this array is the order of the series. Because URLs come from the
-   `slug` and never from the number, you can insert a unit anywhere in the list
-   without breaking a link anyone has already saved or shared.
+   To publish one that is currently coming soon:
+     1. Save the Claude Design *source* export (the .dc.html one, with the
+        <x-dc> wrapper) into  src/units/
+     2. Add `file:` and a `description:` to its entry below.
+     3. Run:  npm run cards && npm run build
+     4. Commit and push.
 
-   `number` is only what gets printed — it is not used for ordering or URLs.
+   Because URLs come from the `slug` and never from the number or the
+   position, re-ordering or renumbering never breaks a saved link.
    ========================================================================== */
 
 const site = {
@@ -50,6 +52,19 @@ const site = {
   googleSiteVerification: '',
 };
 
+/* --------------------------------------------------------------------------
+   Two numbers are fixed by content that is already published, so they cannot
+   be changed here alone:
+
+     06  Working with Recovery Partners — Unit 02's own text names it
+                                          "Unit 6, Working with Recovery
+                                          Partners".
+     07  Non-Attendance (DNA)           — "07" is baked into that unit's rail
+                                          and eyebrow in Claude Design.
+
+   Everything else was numbered around those two.
+   -------------------------------------------------------------------------- */
+
 const units = [
   {
     number: '01',
@@ -77,19 +92,18 @@ const units = [
     number: '03',
     slug: 'treatment-without-a-mental-injury-assessment',
     title: 'Treatment Without a Mental Injury Assessment',
-    subtitle: 'Ana\u2019s journey, from referral to completion',
+    subtitle: 'Ana’s journey, from referral to completion',
     description:
       'One PSB treatment claim end to end: PSY50 planning, the ACC266 plan, ' +
       'PSY60 treatment blocks, the ACC267 progress report and the ACC268 ' +
       'completion report.',
     file: '03-treatment-without-a-mental-injury-assessment.html',
   },
-
   {
     number: '3.1',
     slug: 'writing-the-action-plan',
     title: 'Writing the Action Plan',
-    subtitle: 'Ana\u2019s ACC266, field by field',
+    subtitle: 'Ana’s ACC266, field by field',
     description:
       'How to write the ACC266 Action Plan, field by field: the treatment ' +
       'goals, the risk field, the hours you are asking for, and what ACC ' +
@@ -100,13 +114,48 @@ const units = [
     number: '3.2',
     slug: 'progress-and-completion-reports',
     title: 'Progress Report & Completion Report',
-    subtitle: 'Ana\u2019s ACC267 and ACC268, field by field',
+    subtitle: 'Ana’s ACC267 and ACC268, field by field',
     description:
       'The ACC267 and ACC268 walked together: the fields they share, where ' +
       'the two forms diverge, and what ACC is looking for in each.',
     file: '3-2-progress-and-completion-reports.html',
   },
+
   {
+    number: '04',
+    slug: 'the-assessment-pathway',
+    title: 'The Assessment Pathway',
+    subtitle: 'Mereana, with Tomás and David',
+  },
+  {
+    number: '4.1',
+    slug: 'the-acc4247',
+    title: 'The ACC4247',
+  },
+  {
+    number: '4.2',
+    slug: 'treatment-after-cover',
+    title: 'Treatment After Cover',
+  },
+  {
+    number: '05',
+    slug: 'active-liaison',
+    title: 'Active Liaison',
+  },
+  {
+    number: '5.1',
+    slug: 'whanau-support',
+    title: 'Whānau Support',
+  },
+  {
+    // Fixed — see the note above.
+    number: '06',
+    slug: 'working-with-recovery-partners',
+    title: 'Working with Recovery Partners',
+    subtitle: 'Understanding your ACC contact and when to involve them',
+  },
+  {
+    // Fixed — see the note above.
     number: '07',
     slug: 'non-attendance-dna',
     title: 'Non-Attendance (DNA)',
@@ -117,6 +166,11 @@ const units = [
       'PractiSpace, and how the PSYDNA is arranged.',
     file: '07-non-attendance-dna.html',
   },
+  {
+    number: '08',
+    slug: 'treatment-review',
+    title: 'Treatment Review',
+  },
 
   /* Not part of the numbered sequence.
 
@@ -125,9 +179,8 @@ const units = [
      series exists. Until then it sits at the end of the list.
 
      `number` is deliberately absent. A unit without one gets no numeral on
-     its index card and no numeral on its social card, which is what marks it
-     as standing apart. Keep it LAST in this array: as Unit 3's sub-units and
-     Units 4 onwards are added above it, it stays at the bottom. */
+     its index card and none on its social card, which is what marks it as
+     standing apart. Keep it LAST in this array. */
   {
     slug: 'risk-assessment',
     title: 'Risk Assessment',
@@ -140,16 +193,4 @@ const units = [
   },
 ];
 
-/* Units that are written or in draft but not published yet.
-
-   These appear on the index page greyed out, so readers can see the series
-   continues, and no page is built for them. When one is ready, move it up into
-   `units` above and give it a `file`.
-
-   Leave the array empty to show nothing. Example entry:
-
-     { number: '03', title: 'Writing the Action Plan' },
-*/
-const upcoming = [];
-
-module.exports = { site, units, upcoming };
+module.exports = { site, units };
