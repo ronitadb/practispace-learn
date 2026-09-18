@@ -85,6 +85,18 @@ const units = [
     file: '03-treatment-without-a-mental-injury-assessment.html',
   },
 
+  {
+    number: '07',
+    slug: 'non-attendance-dna',
+    title: 'Non-Attendance (DNA)',
+    subtitle: 'How to handle a no-show',
+    description:
+      'Claiming the ACC non-attendance fee when a client does not attend: ' +
+      'when it can be claimed, appointment reminders, what to send ' +
+      'PractiSpace, and how the PSYDNA is arranged.',
+    file: '07-non-attendance-dna.html',
+  },
+
   /* Not part of the numbered sequence.
 
      This one stands outside the stages — it belongs to the clinical-work

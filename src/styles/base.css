@@ -100,6 +100,37 @@ a.ps-unitlink:hover {
   text-decoration-color: #C8102E;
 }
 
+/* Copy-to-clipboard button (Unit 07's reminder template).
+
+   The export carried its hover state in a style-hover attribute, which only
+   the Claude Design runtime understands. Reproduced here as a real rule, with
+   the same values. */
+button.ps-copybtn:hover {
+  background: #C8102E !important;
+  color: #fff !important;
+  border-color: #C8102E !important;
+}
+
+/* The PSYDNA process flow in Unit 07: five cards separated by arrows, in a
+   flex row with no wrap. Below about 760px each card is squeezed to roughly
+   40px and its text spills out of it. Stacked vertically the sequence still
+   reads in order, and the arrows are turned to point down.
+
+   The export has no class here, so .ps-flow is added to that one row in the
+   unit's source — recorded in its notice. */
+@media (max-width: 760px) {
+  .ps-flow { flex-direction: column; }
+  .ps-flow > :nth-child(even) {
+    width: auto !important;
+    height: 26px;
+    font-size: 0 !important;
+  }
+  .ps-flow > :nth-child(even)::after {
+    content: "\2193";
+    font-size: 15px;
+  }
+}
+
 /* Back to index, sitting just under the red top rule on every unit page. */
 .ps-topnav {
   max-width: 760px;

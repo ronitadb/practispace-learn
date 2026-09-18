@@ -385,7 +385,8 @@ ${units.map(card).join('\n')}${
     <div class="ps-index-footer">
       <p><span class="ps-strong">PractiSpace Limited</span> &#8212; a contracted supplier to ACC under the Psychological Services (PSB) contract. We manage referrals, purchase orders and ACC correspondence so that providers can concentrate on clinical work.</p>
       <div>
-        <div class="ps-strong">Ronit Adiv, Managing Director</div>
+        <div class="ps-strong">Ronit Adiv, Clinical Psychologist</div>
+        <div class="ps-strong">Managing Director, PractiSpace Limited</div>
         <div style="margin-top:6px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
           <a href="${site.contactUrl}">Get in touch</a>
           <span style="color:#c4bab1;">&#183;</span>
