@@ -195,7 +195,13 @@ function shell({ title, description, canonical, bodyHtml, pageTitle, image, unit
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>${esc(title)}</title>
+${
+  site.googleSiteVerification
+    ? `<meta name="google-site-verification" content="${esc(
+        site.googleSiteVerification
+      )}">\n`
+    : ''
+}<title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${canonical}">
 

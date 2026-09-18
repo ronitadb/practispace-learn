@@ -156,6 +156,44 @@ Nothing in that rule applies above 640px, so the desktop design is untouched.
 
 ---
 
+## Google Search Console
+
+The site is built to be indexed: every page has a title, a description, a
+canonical URL, and `sitemap.xml` lists them all. Search Console is not required
+for Google to find the site, but it makes indexing faster and shows what people
+searched for to reach it.
+
+**First check whether it is already covered.** practispace.co.nz is verified
+with Google (there is a `google-site-verification` TXT record on the apex). If
+that was set up as a **Domain property**, every subdomain is included and
+learn.practispace.co.nz is already verified — nothing to do but submit the
+sitemap.
+
+If not, add it as a new property:
+
+1. search.google.com/search-console -> **Add property** -> **URL prefix**
+2. Enter `https://learn.practispace.co.nz`
+3. Choose the **HTML tag** method. Google shows something like
+   `<meta name="google-site-verification" content="AbC123..." />`
+4. Put the `content` value into `googleSiteVerification` in `units.js`,
+   then `npm run build`, commit and push
+5. Once the deploy finishes, press **Verify**
+
+Use the HTML tag method rather than the DNS one: DNS changes at Discount
+Domains take about an hour to publish, the tag is live as soon as the deploy
+finishes.
+
+**Leave the token in place.** Google re-checks it, and removing it unverifies
+the property.
+
+### Submitting the sitemap
+
+Once verified: **Sitemaps** in the left menu, enter `sitemap.xml`, Submit.
+Do it again after adding a unit only if you want to hurry it along — Google
+re-reads the sitemap by itself.
+
+---
+
 ## Deploying
 
 The site is hosted on **Cloudflare Pages**. DNS for practispace.co.nz stays at

@@ -35,6 +35,19 @@ const site = {
 
   locale: 'en_NZ',
   lang: 'en-NZ',
+
+  // Google Search Console ownership verification.
+  //
+  // Only needed if the subdomain is NOT already covered by a Domain property
+  // for practispace.co.nz — a Domain property includes every subdomain, so
+  // check there first.
+  //
+  // Otherwise: Search Console -> Add property -> URL prefix ->
+  // https://learn.practispace.co.nz -> "HTML tag". Google shows a tag like
+  //   <meta name="google-site-verification" content="AbC123..." />
+  // Paste ONLY the content value here, rebuild, deploy, then press Verify.
+  // It must stay in place afterwards or Google will unverify the property.
+  googleSiteVerification: '',
 };
 
 const units = [
